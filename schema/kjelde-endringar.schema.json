@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fagkart/kjelde-endringar",
+  "title": "endringar.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["endringar"],
+  "properties": {
+    "endringar": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["versjon", "dato", "samandrag"],
+        "properties": {
+          "versjon": {"type": "string", "minLength": 1},
+          "dato": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+          "samandrag": {"type": "string", "minLength": 1},
+          "etter_innspel": {"type": "integer", "minimum": 0}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+klynge: beskrivande
+namn: Beskrivande statistikk
+nodar:
+  - id: snitt
+    type: omgrep
+    namn: Gjennomsnitt
+    km: [km01]
+    kjerneelement: [utforsking]
+    verbnivaa: forklare
+    tekst_laerar: "Summen av observasjonane delt på talet på observasjonar."
+    tekst_elev: "Snittet er summen delt på kor mange tal det er."
+    doeme: "Snittet av 2, 4 og 9 er 5."
+    misoppfatning: "Snittet er alltid det midtarste talet."
+    byggjer_paa: [tal]
+    forvekslast_med: [median]
+    pos: {x: 100, y: 200}
+  - id: median
+    type: omgrep
+    namn: Median
+    km: [km01]
+    verbnivaa: forklare
+    tekst_laerar: "Den midtarste observasjonen i ei sortert rekkje."
+    tekst_elev: "Medianen er talet i midten når du set tala i rekkjefølgje."
+    doeme: "Medianen av 2, 4 og 9 er 4."
+    misoppfatning: "Medianen treng ikkje sortering."
+    byggjer_paa: [tal]
+    forvekslast_med: [snitt]
+  - id: varians
+    type: omgrep
+    namn: Varians
+    km: [km01, km02]
+    kjerneelement: [modellering]
+    verbnivaa: vurdere
+    tekst_laerar: "Gjennomsnittleg kvadrert avvik frå snittet."
+    tekst_elev: "Varians seier kor mykje tala sprer seg."
+    doeme: "Same snitt, ulik spreiing."
+    misoppfatning: "Stor varians betyr stort snitt."
+    byggjer_paa: [snitt, brok]
+  - id: rekn-snitt
+    type: prosedyre
+    namn: Rekne ut snittet
+    km: [km01]
+    verbnivaa: bruke
+    tekst_laerar: "Sum alle verdiane og del på talet på verdiar."
+    tekst_elev: "Legg saman tala og del på kor mange dei er."
+    doeme: "(2 + 4 + 9) / 3 = 5"
+    misoppfatning: "Ein delar på summen."
+    brukar: [snitt]
+    utgaatt: false

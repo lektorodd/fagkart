@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fagkart/kjelde-meta",
+  "title": "meta.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["laereplan", "namn", "versjon", "kjerneelement", "kompetansemaal"],
+  "$defs": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"}
+  },
+  "properties": {
+    "laereplan": {"type": "string", "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$"},
+    "namn": {"type": "string", "minLength": 1},
+    "versjon": {"type": "string", "minLength": 1},
+    "kjelde": {"type": ["string", "null"]},
+    "forkunnskapsfag": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "kjerneelement": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "namn"],
+        "properties": {
+          "id": {"$ref": "#/$defs/slug"},
+          "namn": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "kompetansemaal": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "tekst", "klynge"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^km[0-9]{2}$"},
+          "tekst": {"type": "string", "minLength": 1},
+          "verb": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "klynge": {"$ref": "#/$defs/slug"},
+          "udir_kode": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

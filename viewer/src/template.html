@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="nn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>__TITLE__</title>
+<link rel="icon" href="data:,">
+<style>
+/*__FONTS__*/
+/*__KATEXCSS__*/
+/*__CSS__*/
+</style>
+</head>
+<body>
+<div id="app" data-more="closed" data-panel="closed">
+  <div id="oppdatering" class="oppdatering" role="status" hidden></div>
+  <header class="top">
+    <div class="brand">
+      <h1 id="title"></h1>
+      <span class="meta mono" id="meta"></span>
+    </div>
+    <div class="seg tabs" id="levelBtns" role="group" aria-label="Zoomnivå">
+      <button type="button" data-level="tema" aria-pressed="true">Tema</button>
+      <button type="button" data-level="kart" aria-pressed="false">Kart</button>
+      <button type="button" data-level="detalj" aria-pressed="false">Detalj</button>
+    </div>
+    <div class="search">
+      <input id="q" type="search" placeholder="Søk i omgrep og metodar" autocomplete="off" aria-label="Søk i omgrep og metodar" aria-controls="results" aria-expanded="false">
+      <ul class="results" id="results" role="listbox" hidden></ul>
+    </div>
+    <div class="seg mode" id="modeSeg" role="radiogroup" aria-label="Visning for lærar eller elev">
+      <button type="button" role="radio" data-mode="laerar" aria-checked="true">Lærar</button>
+      <button type="button" role="radio" data-mode="elev" aria-checked="false">Elev</button>
+    </div>
+    <button class="btn evbtn" id="evBtn" type="button" aria-pressed="false" hidden title="Marker kva du kan. Kartet blir strek, og fargane er dine.">Kva kan eg?</button>
+    <button class="btn" id="moreBtn" type="button" aria-expanded="false" aria-controls="side" aria-haspopup="true">Fleire val<span class="dot-on" id="moreDot" hidden aria-label="Det er gjort val"></span></button>
+
+    <!-- Everything else lives here, closed at the start: a drop-down on a wide screen, a sheet from the bottom on a narrow one.
+         The id is "side" from the time it was a side panel; the controls of the layers (toolbar) are added at the end. -->
+    <aside class="more" id="side" aria-label="Fleire val">
+      <div class="morehead"><strong>Fleire val</strong><button class="btn close" id="moreClose" type="button" aria-label="Lukk">Lukk</button></div>
+      <p class="note moreversjon" id="moreVersjon"></p>
+      <!-- In the student view the sections of the student layers are moved above this one, and it is closed (arrangeSide in app.js) -->
+      <details class="sec" id="visningSec" open>
+        <summary>Visning <span class="state" id="stView"></span></summary>
+        <div class="body">
+          <div>
+            <span class="lbl" id="fagLbl">Forkunnskap frå</span>
+            <div class="seg" role="radiogroup" aria-labelledby="fagLbl" id="fagSeg"></div>
+            <p class="note" id="fagNote" hidden></p>
+          </div>
+          <div>
+            <span class="lbl" id="tekstLbl">Tekststorleik</span>
+            <div class="seg" role="radiogroup" aria-labelledby="tekstLbl" id="tekstSeg"></div>
+          </div>
+          <label class="switch" id="swFkRow" title="Av: forkunnskapen blir skjult, og kartet blir tettare."><input type="checkbox" id="swFk" checked><span class="tr"></span><span>Vis forkunnskapar</span></label>
+          <label class="switch" title="Alle omgrep, metodar og piler er med same kor langt ut du zoomar. Av: zoomen avgjer kor mykje som blir vist."><input type="checkbox" id="swAlt"><span class="tr"></span><span>Vis alle omgrep og metodar</span></label>
+          <label class="switch" id="swImplRow" title="«Byggjer på»-piler som alt følgjer av ei lengre kjede. Skjult som standard."><input type="checkbox" id="swImpl"><span class="tr"></span><span>Vis implisitte piler</span></label>
+          <label class="switch" id="swKoplRow" title="Brukar, døme på, representerast som og forvekslast med. Står alltid i kortet."><input type="checkbox" id="swKopl"><span class="tr"></span><span>Vis andre koplingar</span></label>
+        </div>
+      </details>
+
+      <details class="sec">
+        <summary>Filter <span class="state" id="stFilter"></span></summary>
+        <div class="body">
+          <div><span class="lbl">Tema</span><div class="chips" id="chKlynge"></div></div>
+          <div><span class="lbl">Type</span><div class="chips" id="chType"></div></div>
+          <div><span class="lbl">Kjerneelement</span><div class="chips" id="chKjerne"></div></div>
+          <div><button class="btn" id="clearFilters" hidden>Nullstill filter</button></div>
+        </div>
+      </details>
+
+      <details class="sec">
+        <summary>Kompetansemål <span class="state" id="stKm"></span></summary>
+        <div class="body"><ul class="kmlist" id="kmList"></ul></div>
+      </details>
+
+      <details class="sec">
+        <summary>Alle omgrep og metodar <span class="state" id="stAll"></span></summary>
+        <div class="body">
+          <input id="allQ" class="listq" type="search" placeholder="Filtrer lista" autocomplete="off" aria-label="Filtrer lista over omgrep og metodar">
+          <ul class="alllist" id="allList"></ul>
+        </div>
+      </details>
+
+      <div class="morefoot"><button class="btn" id="printBtn" type="button">Skriv ut plakat</button></div>
+    </aside>
+  </header>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <main class="stage" id="stage">
+    <!-- The tema view: shown while one tema is open. The way back to all the temaa, the name of the tema, what is in it and its competence goals. -->
+    <nav class="temabar" id="temaBar" aria-label="Temavising" hidden>
+      <button class="btn back" id="temaBack" type="button">‹ Alle tema</button>
+      <span class="temaname" id="temaName" aria-current="page"></span>
+      <span class="temacount" id="temaCount"></span>
+      <span class="temagoals" id="temaGoals"></span>
+    </nav>
+    <div id="cy" role="application" aria-label="Fagkart"></div>
+    <!-- HTML that follows the nodes of the map (ctx.stageLayer, hook viewport): the notes of the layer kommentarar. Beside #cy, not inside it:
+         Cytoscape takes every touch on its own element, so a button inside it would never get a tap. The core keeps it over #cy. -->
+    <div class="stagelayer" id="stageLayer"></div>
+    <!-- "Kva kan eg?" is on and nothing is marked yet: what to do (the layer eigenvurdering shows and hides it) -->
+    <div class="evhint" id="evHint" role="status" hidden>Trykk på eit omgrep eller ein metode og vel kor godt du kan det.</div>
+    <div class="focuschip" id="focusChip" hidden><span id="focusChipText"></span><button type="button" id="focusChipClear" aria-label="Fjern markeringa">Fjern</button></div>
+    <button class="helpbtn" id="helpBtn" type="button" aria-expanded="false" aria-controls="helpBox" aria-label="Teiknforklaring" title="Teiknforklaring">?</button>
+    <div class="helpbox" id="helpBox" role="dialog" aria-label="Teiknforklaring" hidden>
+      <p class="hint" id="hint"></p>
+      <div class="legend" id="legend"></div>
+      <button class="btn" id="tourBtn" type="button" hidden>Vis gjennomgangen</button>
+      <p class="note" id="helpVersjon"></p>
+      <div class="nytt" id="nytt" hidden></div>
+      <p class="note">Pila går frå det du må kunne til det som byggjer på det. Kartet går frå venstre mot høgre: det du må kunne først, ligg lengst til venstre.</p>
+    </div>
+    <div class="zoom">
+      <button class="btn" id="zOut" aria-label="Zoom ut">−</button>
+      <button class="btn" id="zIn" aria-label="Zoom inn">+</button>
+    </div>
+  </main>
+
+  <section class="panel" id="panel" aria-live="polite" aria-label="Detaljar"></section>
+</div>
+
+<!-- Only shown when printing: the map at the Kart level as an image that fits an A3 sheet -->
+<div id="poster" hidden>
+  <header><h1 id="posterTitle"></h1><p id="posterNote"></p></header>
+  <img id="posterImg" alt="Fagkartet, Kart-nivå">
+</div>
+
+<script type="application/json" id="fagkart-data">__DATA__</script>
+<script type="application/json" id="fagkart-layout">__LAYOUT__</script>
+<script type="application/json" id="fagkart-endringar">__ENDRINGAR__</script>
+<script>/*__LIB__*/</script>
+<script>/*__MODULES__*/</script>
+<script>
+/*__APP__*/
+</script>
+<script>/*__LAG__*/</script>
+<script>/*__GJENNOMGANG__*/</script>
+<script>/*__OPPDATERING__*/</script>
+</body>
+</html>

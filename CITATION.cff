@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Om du brukar fagkartet i undervising eller skriv om det, siter det slik."
+title: "Fagkart: Matematikk S2"
+type: dataset
+version: "2026.3"
+date-released: 2026-10-29
+authors:
+  - family-names: Ottestad
+    given-names: "Torodd F."
+license: CC-BY-4.0
+repository-code: "https://github.com/lektorodd/fagkart"
+url: "https://fagkart.lektorodd.no/"
+abstract: "Interaktivt fagkart over læreplanen i matematikk S2: kompetansemål, omgrep, metodar og forkunnskapar, og korleis dei heng saman."
+keywords:
+  - fagkart
+  - læreplan
+  - matematikk
+  - concept map

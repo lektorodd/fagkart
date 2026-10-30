@@ -1,0 +1,398 @@
+klynge: inferens
+namn: Normalfordeling og hypotesetesting
+nodar:
+
+  # --- km10: normalfordeling og sentralgrensesetninga ---
+
+  - id: normalfordeling
+    type: omgrep
+    nivaa: 1
+    namn: "Normalfordeling"
+    km: [km10]
+    kjerneelement: [abstraksjon, modellering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Normalfordelinga $N(\mu; \sigma)$ er ein kontinuerleg sannsynsmodell med klokkeforma, symmetrisk
+      tettleiksfunksjon. Forventningsverdien $\mu$ avgjer plasseringa og standardavviket $\sigma$ avgjer
+      breidda. Sannsynet for eit intervall er arealet under kurva, og heile arealet er 1.
+      Modellen passar for storleikar som er summen av mange små, tilfeldige bidrag, som
+      kroppshøgd og målefeil. Skrivemåten $N(\mu; \sigma)$ brukar standardavviket $\sigma$, ikkje variansen.
+      68–95–99,7-regelen er ein rask rettesnor: om lag $68\,\%$ av verdiane ligg innanfor
+      $\mu \pm \sigma$, $95\,\%$ innanfor $\mu \pm 2\sigma$ og $99{,}7\,\%$ innanfor $\mu \pm 3\sigma$
+      (meir nøyaktig $0{,}683$; $0{,}954$ og $0{,}997$, og $95\,\%$ svarer til $\pm 1{,}96\sigma$).
+      Regelen er typisk i del 1 av eksamen, og NDLA S1 har den same tommelfingerregelen som
+      «om lag 2/3 innanfor eitt standardavvik».
+      Eleven møter normalfordelinga som ei kontinuerleg fordeling; i S1 har ho berre arbeidd
+      med diskrete fordelingar.
+    tekst_elev: >-
+      Normalfordelinga er den klokkeforma kurva for mange målingar. Midten er $\mu$, breidda er
+      $\sigma$, og sannsynet for eit intervall er arealet. 68–95–99,7-regelen: $68\,\%$ ligg innanfor
+      $\mu \pm \sigma$, $95\,\%$ innanfor $\mu \pm 2\sigma$ og $99{,}7\,\%$ innanfor $\mu \pm 3\sigma$.
+    doeme: >-
+      Høgda til 18 år gamle gutar kan modellerast som $N(180; 7)$. Då er sannsynet for å vere
+      høgare enn $190$ cm om lag 7,7 %. Etter 68–95–99,7-regelen ligg om lag $68\,\%$ mellom
+      $173$ og $187$ cm ($\mu \pm \sigma$), om lag $95\,\%$ mellom $166$ og $194$ cm ($\mu \pm 2\sigma$) og
+      nesten alle ($99{,}7\,\%$) mellom $159$ og $201$ cm ($\mu \pm 3\sigma$).
+    misoppfatning: >-
+      At høgda på kurva er sannsynet for ein verdi. Sannsynet er arealet, og for ein einskild
+      verdi er det null.
+    byggjer_paa: [kontinuerleg-fordeling, forventningsverdi, standardavvik]
+    doeme_paa: [kontinuerleg-fordeling]
+
+  - id: standardisering
+    type: prosedyre
+    nivaa: 2
+    namn: 'Standardisering ($z$-verdi)'
+    km: [km10]
+    kjerneelement: [abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Standardiseringa $z = \frac{x - \mu}{\sigma}$ seier kor mange standardavvik $x$ ligg frå forventningsverdien.
+      Ho gjer ein normalfordelt $X$ om til $Z \sim N(0; 1)$, slik at ein kan bruke éin felles tabell
+      eller eitt felles verktøy, og samanlikne verdiar frå fordelingar med ulik $\mu$ og $\sigma$. Grunngivinga av
+      at $Z$ har $E(Z) = 0$ og $\text{SD}(Z) = 1$ er ein del av noden, og er grunnen til at han
+      byggjer på reknereglane for $E$ og $\text{Var}$: dei gir resultatet med $a = \frac{1}{\sigma}$ og
+      $b = -\frac{\mu}{\sigma}$. Sjølve utrekninga av $z$ krev ikkje reknereglane.
+    tekst_elev: >-
+      $z$-verdien seier kor mange standardavvik ein verdi ligg over ($+$) eller under ($-$)
+      gjennomsnittet. Reknar du om til $z$, kan du samanlikne ulike målingar rettferdig.
+    doeme: >-
+      Matte: 68 poeng, gjennomsnitt 60, standardavvik 8, så $z = 1{,}0$. Norsk: 72 poeng,
+      gjennomsnitt 66, standardavvik 12, så $z = 0{,}5$. Resultatet i matte er relativt betre.
+    misoppfatning: >-
+      At $z$ er eit sannsyn eller ein prosent. $z = 1{,}5$ betyr $1{,}5$ standardavvik over
+      gjennomsnittet, ikkje 1,5 %.
+    byggjer_paa: [normalfordeling, reknereglar-forventning-varians]
+
+  - id: normal-berekning
+    type: prosedyre
+    nivaa: 2
+    namn: "Rekne sannsyn i normalfordelinga"
+    km: [km10]
+    kjerneelement: [modellering, utforsking]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Sannsyn som $P(X < a)$, $P(X > a)$ og $P(a < X < b)$ blir rekna ut som areal, digitalt (`Normal` i
+      GeoGebra, `NORM.FORDELING` i rekneark) eller ved å standardisere og bruke tabell over
+      $P(Z \le z)$. Sidan $P(X = a) = 0$, spelar det inga rolle om grensa er med eller ikkje. Verktøy
+      og tabell gir som regel arealet til venstre, så $P(X > a) = 1 - P(X \le a)$. Omvendt kan ein
+      finne grensa som gir eit gitt sannsyn. Ei skisse av kurva med skravert areal hindrar
+      mange feil.
+    tekst_elev: >-
+      Teikn kurva og skraver området du vil ha. Bruk GeoGebra eller rekneark, eller gjer om til
+      $z$ og les i tabellen. Tabellen gir som regel arealet til venstre.
+    doeme: >-
+      Fyllvekt $N(500; 4)$ gram. $P(X < 494)$: $z = \frac{494 - 500}{4} = -1{,}5$, og arealet til venstre er
+      $0{,}067$. Altså veg om lag 6,7 % av pakkane under $494$ g.
+    misoppfatning: >-
+      At tabellverdien alltid er det du skal ha. Skal du finne $P(X > a)$, må du ta 1 minus
+      tabellverdien.
+    byggjer_paa: [normalfordeling, standardisering, kontinuerleg-fordeling]
+
+  - id: normaltilnaerming
+    type: prosedyre
+    nivaa: 2
+    namn: "Normaltilnærming til binomisk fordeling"
+    km: [km10]
+    kjerneelement: [modellering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Når $n$ er stor og $p$ ikkje er nær 0 eller 1 (tommelfingerregel: $np(1 - p) \ge 10$; NDLA S2 brukar $np > 10$ og $n(1 - p) > 10$, og
+      begge er berre tommelfingerreglar), kan
+      $X \sim \text{Bin}(n; p)$ tilnærmast med $N\left(np; \sqrt{np(1 - p)}\right)$. Dette er eit spesialtilfelle av
+      sentralgrensesetninga, fordi $X$ er ein sum av $n$ uavhengige $0/1$-variablar. Binomiske sannsyn
+      kan òg reknast eksakt digitalt, så tilnærminga er viktigast som modell og som bru til
+      hypotesetest og til utval. Kontinuitetskorreksjon ($\pm 0{,}5$; i nokre lærebøker: «halvkorreksjon») gir betre svar for moderat $n$, men
+      er ikkje nemnd i kompetansemålet.
+    tekst_elev: >-
+      Er det mange forsøk, kan du bruke normalfordelinga i staden for den binomiske. Ta $\mu = np$ og
+      $\sigma = \sqrt{np(1 - p)}$. Sjekk først at tilnærminga er god nok.
+    doeme: >-
+      Ein mynt blir kasta 100 gonger: $X \sim \text{Bin}(100; 0{,}5)$ gir $\mu = 50$ og $\sigma = 5$. $P(X \ge 60) \approx P(Z \ge 2) \approx 0{,}023$, mot eksakt $0{,}028$ med verktøy.
+    misoppfatning: >-
+      Å setje $\sigma = np(1 - p)$ i staden for $\sqrt{np(1 - p)}$, altså å bruke variansen som
+      standardavvik.
+    byggjer_paa: [binomisk-fordeling, binomisk-forventning-varians, normal-berekning, standardisering]
+    doeme_paa: [sentralgrensesetninga]
+
+  - id: gjennomsnitt-utval
+    type: omgrep
+    nivaa: 1
+    namn: "Fordelinga til gjennomsnittet av eit utval"
+    km: [km10]
+    kjerneelement: [abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Trekkjer ein mange tilfeldige utval av storleik $n$ frå ein populasjon med forventing $\mu$ og
+      standardavvik $\sigma$, varierer utvalsgjennomsnittet $\bar{X}$ frå utval til utval. Fordelinga til $\bar{X}$ har
+      $E(\bar{X}) = \mu$ og $\text{SD}(\bar{X}) = \frac{\sigma}{\sqrt{n}}$. Dette følgjer av reknereglane for uavhengige variablar: summen
+      har varians $n\sigma^2$, og delt på $n$ blir variansen $\frac{\sigma^2}{n}$. Fordelinga til $\bar{X}$ er ikkje det same som
+      fordelinga til enkeltmålingane i eitt utval. Standardavvik i eit datasett er
+      sannsynlegvis nytt i S2 (ikkje i S1), og utvalsfordelinga er nytt og må bli forklart med simulering.
+    tekst_elev: >-
+      Tenk at du tok mange utval og rekna gjennomsnittet i kvart. Desse gjennomsnitta varierer
+      òg, men mykje mindre enn enkeltmålingane. Standardavviket til gjennomsnittet er $\frac{\sigma}{\sqrt{n}}$.
+    doeme: >-
+      Fyllvekt $N(500; 4)$, $n = 25$: $\bar{X}$ har standardavvik $\frac{4}{\sqrt{25}} = 0{,}8$ g. Ei einskild pakke under
+      $498{,}4$ g har sannsyn om lag 34 %, men eit utvalsgjennomsnitt under $498{,}4$ g berre 2,3 %.
+    misoppfatning: >-
+      At standardavviket til gjennomsnittet er $\frac{\sigma}{n}$, eller at utvalsfordelinga er fordelinga av data
+      i eitt utval. Ho er fordelinga av utvalsgjennomsnitt frå mange moglege utval.
+    byggjer_paa: [reknereglar-forventning-varians, standardavvik, gjennomsnitt-standardavvik-data]
+    forvekslast_med: [standardavvik]
+
+  - id: sentralgrensesetninga
+    type: omgrep
+    nivaa: 1
+    namn: "Sentralgrensesetninga"
+    km: [km10]
+    kjerneelement: [abstraksjon, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Sentralgrensesetninga seier at for stor nok $n$ er summen $S = X_1 + \dots + X_n$ av uavhengige,
+      like fordelte variablar om lag normalfordelt med $E(S) = n \cdot E(X)$ og
+      $\text{SD}(S) = \sqrt{n} \cdot \text{SD}(X)$, uansett forma på fordelinga til $X$ (med endeleg
+      varians). Slik står setninga på formelarket i nokre lærebøker. Gjennomsnittsforma følgjer ved å dele på $n$:
+      $\bar{X} = \frac{S}{n}$ er om lag normalfordelt med forventing $\mu = E(X)$ og standardavvik
+      $\frac{\sigma}{\sqrt{n}}$, der $\sigma = \text{SD}(X)$. Skeive fordelingar treng større $n$ enn
+      symmetriske; $n \ge 30$ er ein vanleg tommelfingerregel. Setninga seier noko om summar og
+      gjennomsnitt, ikkje om dei enkelte observasjonane. At fordelinga er normal er det nye;
+      forventing og standardavvik følgjer alt av reknereglane.
+    tekst_elev: >-
+      Legg du saman mange nok uavhengige målingar, blir summen om lag normalfordelt, sjølv om dei
+      enkelte målingane ikkje er det. Summen har $E(S) = n \cdot E(X)$ og $\text{SD}(S) = \sqrt{n} \cdot \text{SD}(X)$. Del på $n$, så får du gjennomsnittet.
+    doeme: >-
+      Vekta til 50 passasjerar ($\mu = 80$ kg, $\sigma = 15$ kg) er summen $S$ med $E(S) = 50 \cdot 80 = 4000$ kg og
+      $\text{SD}(S) = \sqrt{50} \cdot 15 \approx 106$ kg, så $S$ er om lag $N(4000; 106)$ og
+      $P(S > 4200) \approx 0{,}030$. Delt på $50$ er gjennomsnittsvekta $\bar{X}$ om lag $N(80; 2{,}1)$, fordi
+      $\frac{15}{\sqrt{50}} \approx 2{,}1$. Same samanheng for høgreskeive data: reisetid til skulen med
+      $\mu = 25$ min og $\sigma = 15$ min gir for $n = 50$ eit gjennomsnitt som er om lag $N(25; 2{,}1)$.
+    misoppfatning: >-
+      At sentralgrensesetninga seier at data blir normalfordelte når utvalet veks. Det er
+      summen og gjennomsnittet som blir normalfordelt, ikkje dei enkelte verdiane.
+    byggjer_paa: [gjennomsnitt-utval, normalfordeling]
+
+  - id: argumentere-sgs
+    type: forklaring
+    nivaa: 2
+    namn: "Argumentere for sentralgrensesetninga"
+    km: [km10]
+    kjerneelement: [resonnering, utforsking]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Kompetansemålet krev at eleven kan argumentere for setninga, ikkje at ho kan bevisast
+      formelt. Eit godt argument har tre delar: 1) Reknereglane gir $E(\bar{X}) = \mu$ og $\text{SD}(\bar{X}) = \frac{\sigma}{\sqrt{n}}$
+      eksakt, så spreiinga minkar med $\sqrt{n}$. 2) Simulering: trekk mange utval frå ein skeiv
+      populasjon, teikn histogram av utvalsgjennomsnitta for aukande $n$, og sjå at forma nærmar seg
+      klokkeforma. 3) Binomisk fordeling er ein sum av $n$ $0/1$-variablar, og søylediagrammet for
+      $\text{Bin}(n; p)$ får klokkeforma når $n$ veks. Ei simulering viser eit tilfelle og er ikkje bevis
+      for alle fordelingar.
+    tekst_elev: >-
+      Argumenter med tre ting: reknereglane for sum, ei simulering som viser at histogrammet av
+      gjennomsnitt blir klokkeforma, og at ei binomisk fordeling er ein sum. Sei òg at ei
+      simulering ikkje er bevis.
+    doeme: >-
+      Éin terning har $\sigma \approx 1{,}71$ og ei flat fordeling. Gjennomsnittet av 30 terningar har
+      $\frac{\sigma}{\sqrt{30}} \approx 0{,}31$, så om lag 95 % av gjennomsnitta ligg innanfor $3{,}5 \pm 0{,}61$, og histogrammet
+      av mange slike gjennomsnitt har klokkeforma.
+    misoppfatning: >-
+      At ei simulering som ser normal ut, er eit bevis for setninga. Ho er ei grunngiving i
+      eitt tilfelle, og setninga gjeld for alle fordelingar med endeleg varians.
+    byggjer_paa: [sentralgrensesetninga, reknereglar-forventning-varians, simulere-fordeling, gjennomsnitt-utval]
+
+  # --- km11: hypotesetesting ---
+
+  - id: hypotesar
+    type: omgrep
+    nivaa: 1
+    namn: "Nullhypotese og alternativ hypotese"
+    km: [km11]
+    kjerneelement: [resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Nullhypotesen $H_0$ er ein påstand om ein parameter i populasjonen, normalt «ingen endring»
+      eller «ingen forskjell», og har form som likskap, t.d. $\mu = 500$ eller $p = 0{,}5$. Den alternative
+      hypotesen $H_1$ er det vi vil finne støtte for, og er einsidig ($\mu < 500$, $\mu > 500$) eller tosidig
+      ($\mu \neq 500$). Hypotesane gjeld populasjonen, ikkje utvalet, og blir formulerte før vi ser
+      dataa.
+    tekst_elev: >-
+      $H_0$ er utgangspunktet, til dømes «ingenting har endra seg». $H_1$ er det du mistenkjer. Du
+      skriv dei ned før du ser på resultatet, og dei handlar om populasjonen.
+    doeme: >-
+      Produsenten seier at pakkane veg $500$ g. Ein forbrukarorganisasjon mistenkjer at dei veg
+      mindre: $H_0\colon \mu = 500$ og $H_1\colon \mu < 500$. Ein elev påstår at ein mynt gir kron oftare enn
+      kvar andre gong: $H_0\colon p = 0{,}5$ og $H_1\colon p > 0{,}5$.
+    misoppfatning: >-
+      At $H_0$ er det vi ønskjer å vise. Testen er bygd for å finne belegg mot $H_0$.
+    byggjer_paa: [stokastisk-variabel]
+
+  - id: signifikansnivaa
+    type: omgrep
+    nivaa: 2
+    namn: "Signifikansnivå"
+    km: [km11]
+    kjerneelement: [resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Signifikansnivået $\alpha$ er sannsynet vi på førehand godtek for å forkaste $H_0$ når $H_0$ er sann
+      (type I-feil; i nokre lærebøker: «forkastningsfeil»). Vanlege val er 5 % og 1 %. Det blir fastsett før testen. Lågare $\alpha$ gir mindre
+      risiko for falsk alarm, men større risiko for å gå glipp av ein verkeleg effekt. NDLA S2
+      nemner ikkje type I-feil, men omgrepet ligg innanfor km11.
+    tekst_elev: >-
+      $\alpha$ er grensa du set på førehand for kor liten p-verdien må vere før du forkastar $H_0$. Vanleg
+      val er 5 %. Det er ikkje det same som p-verdien.
+    doeme: >-
+      Gjer du 20 uavhengige testar med $\alpha = 5\,\%$ der $H_0$ er sann, ventar du $20 \cdot 0{,}05 = 1$ falsk
+      alarm. Sannsynet for minst éin er $1 - 0{,}95^{20} \approx 0{,}64$.
+    misoppfatning: >-
+      At $\alpha$ og p-verdi er det same talet. $\alpha$ blir valt før dataa, p-verdien blir rekna ut frå
+      dataa.
+    byggjer_paa: [hypotesar]
+    forvekslast_med: [p-verdi]
+
+  - id: p-verdi
+    type: omgrep
+    nivaa: 1
+    namn: "P-verdi"
+    km: [km11]
+    kjerneelement: [abstraksjon, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      P-verdien er sannsynet for å få eit resultat minst like ekstremt som det vi observerte, gitt
+      at $H_0$ er sann. Ein liten p-verdi tyder på at dataa er vanskelege å forklare med tilfeldig
+      variasjon åleine. Han er eit sannsyn om dataa, ikkje om hypotesen. Ved ein einsidig test
+      er p-verdien arealet i éin hale; ved ein tosidig test er han arealet i begge halar, og då er han dobbelt så
+      stor når fordelinga er symmetrisk. Valet av einsidig eller tosidig skal gjerast før ein ser dataa. NDLA S2 viser berre einsidig
+      test, men tosidig test ligg innanfor km11.
+    tekst_elev: >-
+      P-verdien svarer på: om $H_0$ er sann, kor sannsynleg er det å få eit resultat så uvanleg som
+      mitt, eller verre? Liten p-verdi gir grunn til å tvile på $H_0$.
+    doeme: >-
+      Fyllvekt, $n = 40$, $\bar{x} = 498{,}6$, $s = 3{,}8$, $H_0\colon \mu = 500$. $\text{SD}(\bar{X}) \approx \frac{3{,}8}{\sqrt{40}} \approx 0{,}60$, $z = \frac{498{,}6 - 500}{0{,}60} \approx -2{,}33$, og p-verdien (einsidig) er om lag $0{,}010$. Tosidig blir han $0{,}020$.
+    misoppfatning: >-
+      At p-verdien er sannsynet for at $H_0$ er sann. Han er sannsynet for dataa gitt $H_0$, ikkje for
+      $H_0$ gitt dataa.
+    byggjer_paa: [hypotesar, gjennomsnitt-utval, normal-berekning, binomisk-fordeling]
+
+  - id: binomisk-test
+    type: prosedyre
+    nivaa: 1
+    namn: "Hypotesetest med binomisk fordeling"
+    km: [km11]
+    kjerneelement: [utforsking, resonnering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Testen gjeld ein andel p. Under $H_0\colon p = p_0$ er talet på suksessar $X \sim \text{Bin}(n; p_0)$, og p-verdien
+      er eksakt, rekna direkte frå fordelinga, utan tilnærming. Ved $H_1\colon p > p_0$ er p-verdien
+      $P(X \ge k) = 1 - P(X \le k - 1)$, der $k$ er observert tal. Ved $H_1\colon p < p_0$ er han $P(X \le k)$.
+      Verktøy er til dømes `BINOM.FORDELING` i rekneark eller `Binomisk` i GeoGebra. Stegvis:
+      formuler $H_0$ og $H_1$, vel $\alpha$, finn p-verdien, samanlikn med $\alpha$ og konkluder i kontekst. S2 har ingen
+      eigen $\hat{p}$-test: andelar blir testa eksakt binomisk, eller for stor $n$ med $X \approx N\left(np_0; \sqrt{np_0(1 - p_0)}\right)$
+      (sjå normaltilnærminga). Eksakt metode er å føretrekkje når verktøyet gir han.
+    tekst_elev: >-
+      Skriv $H_0$ og $H_1$, vel $\alpha$. Rekn ut sannsynet for like mange suksessar eller fleire (eller færre)
+      i $\text{Bin}(n; p_0)$. Det er p-verdien. Er han mindre enn $\alpha$, forkastar du $H_0$.
+    doeme: >-
+      Ein elev skal smake på to brusar og seie kva som er kva. Han har rett 12 av 16 gonger.
+      $H_0\colon p = 0{,}5$, $H_1\colon p > 0{,}5$, $\alpha = 0{,}05$. $P(X \ge 12) = 1 - P(X \le 11) \approx 0{,}038 < 0{,}05$, så $H_0$ blir
+      forkasta. Ved 11 rette er p-verdien $0{,}105$ og $H_0$ blir ikkje forkasta.
+    misoppfatning: >-
+      Å bruke $P(X = 12)$ i staden for $P(X \ge 12)$. Sannsynet for «minst så ekstremt» tel alle utfall
+      like ekstreme eller meir ekstreme.
+    byggjer_paa: [hypotesar, p-verdi, signifikansnivaa, binomisk-fordeling]
+
+  - id: normal-test
+    type: prosedyre
+    nivaa: 1
+    namn: "Hypotesetest med normalfordeling"
+    km: [km11]
+    kjerneelement: [utforsking, resonnering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Test av eit gjennomsnitt: under $H_0\colon \mu = \mu_0$ er $\bar{X}$ om lag $N\left(\mu_0; \frac{\sigma}{\sqrt{n}}\right)$ etter sentralgrensesetninga.
+      Teststorleiken er $z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}}$, og p-verdien er arealet i ein eller begge halar.
+      Når $\sigma$ ikkje er kjend, brukar ein $s$ frå utvalet i staden for $\sigma$ ved stort $n$ (om lag $n \ge 30$).
+      I reelle datasett finn ein $\bar{x}$ og $s$ digitalt frå rådata (`GJENNOMSNITT` og `STDAV.S` i rekneark,
+      eller statistikkfunksjonane i GeoGebra) og sjekkar at utvalet er tilfeldig og representativt.
+      Stegvis: formuler $H_0$ og $H_1$, vel $\alpha$, sjekk føresetnader (tilfeldig utval, stort nok $n$),
+      rekn ut $z$, finn p-verdi, konkluder i kontekst. Eleven må dele på $\frac{\sigma}{\sqrt{n}}$, ikkje på $\sigma$.
+    tekst_elev: >-
+      Skriv $H_0$ og $H_1$, vel $\alpha$. Rekn ut $z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}}$, finn p-verdien i normalfordelinga og
+      samanlikn med $\alpha$. Finn $\bar{x}$ og $s$ med rekneark. Er $\sigma$ ukjend og $n$ stor, set du inn $s$ i
+      staden for $\sigma$. Avslutt med ei setning om saka.
+    doeme: >-
+      Ein produsent seier at batteriet varer 10 timar. Ei prøve på 36 batteri gir $\bar{x} = 9{,}4$ timar og
+      $s = 1{,}8$. $H_0\colon \mu = 10$, $H_1\colon \mu < 10$, $\alpha = 0{,}05$. $\text{SD}(\bar{X}) = \frac{1{,}8}{\sqrt{36}} = 0{,}3$ og $z = \frac{9{,}4 - 10}{0{,}3} = -2{,}0$,
+      så $p \approx 0{,}023 < 0{,}05$ og $H_0$ blir forkasta. Tosidig test gir $p \approx 0{,}046$.
+    misoppfatning: >-
+      Å rekne $z = \frac{\bar{x} - \mu_0}{s}$, altså dele på standardavviket til dataa i staden for på $\frac{\sigma}{\sqrt{n}}$.
+    byggjer_paa: [p-verdi, signifikansnivaa, gjennomsnitt-utval, sentralgrensesetninga, standardisering]
+
+  - id: forkastingsomraade
+    type: prosedyre
+    nivaa: 2
+    namn: "Forkastingsområde"
+    km: [km11]
+    kjerneelement: [resonnering, utforsking]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Forkastingsområdet er dei observasjonane som får oss til å forkaste $H_0$ ved gitt $\alpha$, og det kan
+      fastsetjast før ein har sett dataa. For $X \sim \text{Bin}(n; p_0)$ og $H_1\colon p > p_0$ er det den minste $k$ med
+      $P(X \ge k) \le \alpha$, og $H_0$ blir forkasta når $X \ge k$. Metoden gir same konklusjon som p-verdimetoden:
+      $p \le \alpha$ nøyaktig når observasjonen ligg i forkastingsområdet. Fordi fordelinga er diskret, er det
+      faktiske sannsynet for type I-feil $P(X \ge k)$ og ofte merkbart under $\alpha$. For gjennomsnitt med
+      normalfordeling og $\alpha = 5\,\%$ forkastar ein $z \le -1{,}645$ ved $H_1\colon \mu < \mu_0$, og $|z| \ge 1{,}96$ ved tosidig test.
+      Tosidig test deler $\alpha$ likt mellom halane. NDLA S2 har ikkje forkastingsområde, men
+      metoden ligg innanfor km11 og er vanleg i lærebøker.
+    tekst_elev: >-
+      Finn på førehand kva resultat som er så uvanlege at du vil forkaste $H_0$. Det er forkastingsområdet.
+      Ligg resultatet ditt der, forkastar du $H_0$, og det gir same svar som p-verdien.
+    doeme: >-
+      Ein prøve har 20 spørsmål med fire svaralternativ, og $H_0\colon p = 0{,}25$ (gjetting) mot $H_1\colon p > 0{,}25$,
+      $\alpha = 0{,}05$. Med $X \sim \text{Bin}(20; 0{,}25)$ er $P(X \ge 8) \approx 0{,}102$ og $P(X \ge 9) \approx 0{,}041$. Forkastingsområdet er
+      $X \ge 9$, og det faktiske sannsynet for type I-feil er om lag 4,1 %. Ti rette svar ligg i
+      området, så $H_0$ blir forkasta; åtte rette gjer det ikkje.
+    misoppfatning: >-
+      Å setje grensa ein for lågt, her forkaste frå $X \ge 8$ fordi 8 er «nesten» 9. Sidan $P(X \ge 8) \approx 0{,}102$
+      er over $0{,}05$, er grensa 9.
+    byggjer_paa: [signifikansnivaa, binomisk-fordeling]
+
+  - id: tolke-test
+    type: forklaring
+    nivaa: 1
+    namn: "Tolke resultatet av ein hypotesetest"
+    km: [km11]
+    kjerneelement: [resonnering, modellering]
+    verbnivaa: vurdere
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Er $p \le \alpha$, forkastar vi $H_0$ og seier at resultatet er statistisk signifikant. Er $p > \alpha$,
+      forkastar vi ikkje $H_0$: dataa gir ikkje nok belegg mot henne, men det viser ikkje at ho er
+      sann. Statistisk signifikans er ikkje det same som praktisk viktig, og med stort $n$ blir òg
+      små skilnader signifikante. Konklusjonen gjeld berre dersom utvalet er representativt, og
+      ein test av observasjonsdata viser ikkje årsak. Eleven skal skrive konklusjonen i
+      språket til situasjonen.
+    tekst_elev: >-
+      Liten p-verdi: dataa er vanskelege å forklare med tilfeldigheit. Stor p-verdi: du har ikkje
+      nok belegg, men $H_0$ er ikkje bevist. Spør òg om skilnaden er stor nok til å bry seg om.
+    doeme: >-
+      Ein mynt gir 5100 kron på 10 000 kast. $H_0\colon p = 0{,}5$, $H_1\colon p > 0{,}5$. $\text{SD} = \sqrt{10\,000 \cdot 0{,}5 \cdot 0{,}5} = 50$
+      og $z = \frac{5100 - 5000}{50} = 2$, så einsidig $p \approx 0{,}023 < 0{,}05$ (tosidig test: $p \approx 0{,}046$). Resultatet
+      er signifikant, men 51 % mot 50 % er ein skilnad ingen vil merke i praksis.
+    misoppfatning: >-
+      At når $H_0$ ikkje blir forkasta, er $H_0$ bevist. Det betyr berre at dataa ikkje viser noko
+      avvik.
+    byggjer_paa: [p-verdi, signifikansnivaa, binomisk-test, normal-test, normaltilnaerming]

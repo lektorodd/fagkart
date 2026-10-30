@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fagkart/fagkart",
+  "title": "Bygd fagkart (dist/<KODE>.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "laereplan",
+    "namn",
+    "versjon",
+    "kjerneelement",
+    "nodar",
+    "kantar"
+  ],
+  "$defs": {
+    "nodeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "nodeIds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/nodeId"
+      }
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    }
+  },
+  "properties": {
+    "format": {
+      "const": "fagkart/1"
+    },
+    "kode": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$"
+    },
+    "laereplan": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$"
+    },
+    "namn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "versjon": {
+      "type": "string",
+      "minLength": 1
+    },
+    "forkunnskapsfag": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "kjerneelement": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "namn"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/slug"
+          },
+          "namn": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "nodar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "namn",
+          "klynge"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/nodeId"
+          },
+          "type": {
+            "enum": [
+              "kompetansemaal",
+              "omgrep",
+              "prosedyre",
+              "forklaring",
+              "representasjon"
+            ]
+          },
+          "namn": {
+            "type": "string",
+            "minLength": 1
+          },
+          "klynge": {
+            "$ref": "#/$defs/slug"
+          },
+          "tekst": {
+            "type": "string"
+          },
+          "verb": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "udir_kode": {
+            "type": "string"
+          },
+          "km": {
+            "$ref": "#/$defs/nodeIds"
+          },
+          "kjerneelement": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/slug"
+            }
+          },
+          "verbnivaa": {
+            "enum": [
+              "kjenne_til",
+              "bruke",
+              "forklare",
+              "vurdere"
+            ]
+          },
+          "tekst_laerar": {
+            "type": "string"
+          },
+          "tekst_elev": {
+            "type": "string"
+          },
+          "doeme": {
+            "type": "string"
+          },
+          "misoppfatning": {
+            "type": "string"
+          },
+          "berre_laerar": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "forkunnskap": {
+            "type": "object",
+            "additionalProperties": {
+              "enum": [
+                "ja",
+                "delvis",
+                "nei"
+              ]
+            }
+          },
+          "pos": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y"
+            ],
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              }
+            }
+          },
+          "utgaatt": {
+            "type": "boolean"
+          },
+          "sist_sett": {
+            "type": "string"
+          },
+          "forkjennskap": {
+            "type": "object",
+            "additionalProperties": {
+              "enum": [
+                "ja",
+                "delvis",
+                "nei"
+              ]
+            }
+          },
+          "nivaa": {
+            "enum": [
+              1,
+              2
+            ]
+          }
+        }
+      }
+    },
+    "kantar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fra",
+          "til",
+          "type"
+        ],
+        "properties": {
+          "fra": {
+            "$ref": "#/$defs/nodeId"
+          },
+          "til": {
+            "$ref": "#/$defs/nodeId"
+          },
+          "type": {
+            "enum": [
+              "byggjer_paa",
+              "brukar",
+              "doeme_paa",
+              "forvekslast_med",
+              "representerast_som",
+              "dekkjer"
+            ]
+          },
+          "implisitt": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "klyngjer": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "namn"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "namn": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "loeyper": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "namn",
+          "nodar"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/slug"
+          },
+          "namn": {
+            "type": "string",
+            "minLength": 1
+          },
+          "skildring": {
+            "type": "string"
+          },
+          "maalgruppe": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "nodar": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/$defs/nodeId"
+            }
+          }
+        }
+      }
+    },
+    "oversiktskantar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fra",
+          "til",
+          "type"
+        ],
+        "properties": {
+          "fra": {
+            "type": "string"
+          },
+          "til": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "byggjer_paa",
+              "forvekslast_med"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

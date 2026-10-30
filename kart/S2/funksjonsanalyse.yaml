@@ -1,0 +1,187 @@
+klynge: funksjonsanalyse
+namn: Funksjonsanalyse
+nodar:
+
+  # --- km05: derivasjonsreglar, krumming og drøfting ---
+
+  - id: produkt-kvotient-kjerneregel
+    type: prosedyre
+    nivaa: 1
+    namn: "Produkt-, kvotient- og kjerneregel"
+    km: [km05]
+    kjerneelement: [abstraksjon, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Alle tre reglane er S1-stoff (NDLA S1 har dei med bevis og døme) og blir repeterte i S2.
+      Nytt i S2 er flyt i samansette uttrykk, og at reglane blir lesne baklengs i integrasjon
+      (variabelskifte og delvis integrasjon). Produktregelen: $(u \cdot v)' = u' \cdot v + u \cdot v'$. Kvotientregelen:
+      $\left(\dfrac{u}{v}\right)' = \dfrac{u' \cdot v - u \cdot v'}{v^2}$. Kjerneregelen: $(f(g(x)))' = f'(g(x)) \cdot g'(x)$, der ein
+      deriverer «ytre funksjon med indre uforandra» og gonger med den deriverte av den
+      indre. Eleven må først sjå kva slags uttrykk det er (produkt, brøk eller
+      funksjon av ein funksjon) og velje regel. Mange uttrykk kan gongast ut først, så
+      produktregelen er ikkje alltid nødvendig. Alt kan kontrollerast med `Derivert` i GeoGebra.
+    tekst_elev: >-
+      Produkt: den deriverte av første faktor gonger andre, pluss første faktor gonger
+      den deriverte av andre. Brøk: $\dfrac{\text{teljar}' \cdot \text{nemnar} - \text{teljar} \cdot \text{nemnar}'}{\text{nemnar}^2}$. Funksjon i funksjon: deriver
+      ytre, og gonge med den deriverte av det som står inni.
+    doeme: >-
+      $(x^2 + 1)(3x - 2)$ gir $2x(3x - 2) + (x^2 + 1) \cdot 3 = 9x^2 - 4x + 3$. Brøken $\dfrac{x}{x^2 + 1}$ gir
+      $\dfrac{(x^2 + 1) - x \cdot 2x}{(x^2 + 1)^2} = \dfrac{1 - x^2}{(x^2 + 1)^2}$. Og $(2x + 1)^5$ gir
+      $5(2x + 1)^4 \cdot 2 = 10(2x + 1)^4$.
+    misoppfatning: >-
+      At $(u \cdot v)' = u' \cdot v'$. For $u = x^2$ og $v = x^3$ er $u \cdot v = x^5$ med den deriverte $5x^4$, medan
+      $u' \cdot v' = 2x \cdot 3x^2 = 6x^3$. Tilsvarande for brøk: $(u/v)'$ er ikkje $u'/v'$. Og i kjerneregelen
+      blir den deriverte av den indre funksjonen ofte gløymd.
+    byggjer_paa: [derivasjon-s1, algebraiske-broekuttrykk]
+
+  - id: derivere-eksp-ln
+    type: prosedyre
+    nivaa: 1
+    namn: "Derivere eksponential- og logaritmefunksjonar"
+    km: [km05]
+    kjerneelement: [abstraksjon, modellering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Grunnreglane er $(e^x)' = e^x$ og $(\ln x)' = \frac{1}{x}$. Saman med kjerneregelen gir dei
+      $(e^{kx})' = k \cdot e^{kx}$, $(e^{g(x)})' = g'(x) \cdot e^{g(x)}$ og $(\ln g(x))' = \dfrac{g'(x)}{g(x)}$.
+      For andre grunntal gjeld $(b^x)' = b^x \cdot \ln b$, fordi $b^x = e^{x \cdot \ln b}$. For modellen
+      $a \cdot b^t$ med $e$-forma $a \cdot e^{kt}$ og $k = \ln b$ gir dette $(a \cdot b^t)' = k \cdot a \cdot b^t$. Poenget for
+      modellering er at ein eksponentiell funksjon har vekstfart proporsjonal med verdien.
+      Eleven treng ikkje bevis for grunnreglane, men må sjå at $e$ er det talet der $(e^x)' = e^x$.
+      Alle grunnreglane er frå S1 (NDLA S1 utleier $(e^x)'$, $(\ln x)'$ og $(a^x)'$ med
+      kjerneregelen), så dette er repetisjon. Nytt i S2 er bruken i modellar, der
+      $f'(t) = k \cdot f(t)$, og i integrasjon. Sjekk med klassa om dei kjenner $e$ og $\ln$, sjå talet-e-ln.
+      Potens- og logaritmereglane trengst for å forenkle svara.
+    tekst_elev: >-
+      $(e^x)' = e^x$ og $(\ln x)' = \frac{1}{x}$. Står det noko anna enn $x$ i eksponenten, brukar du
+      kjerneregelen: $(e^{kx})' = k \cdot e^{kx}$. For ln av eit uttrykk deler du den deriverte av
+      uttrykket på uttrykket.
+    doeme: >-
+      $f(x) = 3e^{0{,}5x}$ gir $f'(x) = 1{,}5e^{0{,}5x}$. $g(x) = \ln(x^2 + 1)$ gir $g'(x) = \dfrac{2x}{x^2 + 1}$.
+      $h(x) = x \cdot e^{-x}$ gir $h'(x) = e^{-x} - x \cdot e^{-x} = (1 - x)e^{-x}$. Og $(2^x)' = 2^x \cdot \ln 2 \approx 0{,}693 \cdot 2^x$.
+    misoppfatning: >-
+      Å bruke potensregelen på eksponentialfunksjonen, så $(e^x)' = x \cdot e^{x-1}$. I $e^x$ er $x$
+      eksponenten, ikkje grunntalet. Eller å gløyme faktoren $k$: $(e^{2x})'$ er $2e^{2x}$, ikkje $e^{2x}$.
+    byggjer_paa: [produkt-kvotient-kjerneregel, talet-e-ln, eksponentialfunksjon, potensar-logaritmar]
+
+  - id: andrederivert
+    type: omgrep
+    nivaa: 1
+    namn: "Den andrederiverte"
+    km: [km05]
+    kjerneelement: [abstraksjon, representasjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Den andrederiverte $f''(x) = (f'(x))'$ er den deriverte av den deriverte. Medan $f'$
+      er vekstfarten til $f$, er $f''$ vekstfarten til $f'$: kor fort sjølve vekstfarten
+      endrar seg. Er $f''(x) > 0$, veks $f'$, og er $f''(x) < 0$, minkar $f'$. Dette seier
+      ingenting om $f$ veks eller minkar: ein funksjon kan minke ($f' < 0$) og samtidig
+      minke saktare og saktare ($f'' > 0$). Km05 krev at eleven kan bruke $f''$ til å tolke
+      funksjonen, og ikkje berre rekne han ut. Utrekninga er kjend frå S1; det nye i S2 er tolkinga. Rekninga er berre å derivere to
+      gonger, så regelsettet frå produkt-kvotient-kjerneregel gjeld.
+    tekst_elev: >-
+      $f''$ er den deriverte av $f'$. Han fortel om vekstfarten sjølv aukar eller minkar.
+      Positiv $f''$ betyr at $f'$ veks. Det tyder ikkje at $f$ veks.
+    doeme: >-
+      $f(x) = x^3 - 6x^2 + 9x + 1$ gir $f'(x) = 3x^2 - 12x + 9$ og $f''(x) = 6x - 12$. Då er
+      $f''(3) = 6 > 0$, så $f'$ veks ved $x = 3$. Og $f''(0) = -12 < 0$, så $f'$ minkar ved $x = 0$.
+    misoppfatning: >-
+      At $f'' > 0$ betyr at $f$ veks. For $f(x) = (x - 2)^2$ er $f''(x) = 2 > 0$ overalt, men
+      ved $x = 1$ er $f'(1) = -2 < 0$, så $f$ minkar der. Det er $f'$ som veks.
+    byggjer_paa: [derivasjon-s1]
+
+  - id: krumming-vendepunkt
+    type: omgrep
+    nivaa: 1
+    namn: "Krumming og vendepunkt"
+    km: [km05]
+    kjerneelement: [abstraksjon, representasjon, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Der $f''(x) > 0$ krummar grafen oppover (konveks): tangentstigninga aukar. Der
+      $f''(x) < 0$ krummar han nedover (konkav). Eit vendepunkt er eit punkt der krumminga
+      skiftar, altså der $f''$ skiftar forteikn. Då må $f''(x) = 0$, men det er ikkje nok:
+      forteiknet til $f''$ må faktisk skifte. Ein avgjer det med forteiknslinje for $f''$,
+      slik ein elles gjer for $f'$. Vendepunktet er også toppunktet eller botnpunktet til $f'$,
+      så vekstfarten er størst eller minst der. Dette heng saman med
+      eit ekstremalpunkt til $f$, men er noko anna. Krumming og vendepunkt er kjende frå S1
+      (NDLA S1 har dobbeltderiverttesten); det nye i S2 er tolkinga i modellar (km05).
+    tekst_elev: >-
+      Er $f''$ positiv, krummar grafen oppover. Er $f''$ negativ, krummar han nedover. Eit
+      vendepunkt er der grafen skiftar krumming. Då er $f'' = 0$ og skiftar forteikn.
+    doeme: >-
+      $f(x) = x^3 - 6x^2 + 9x + 1$ har $f''(x) = 6x - 12$. For $x < 2$ er $f'' < 0$, for $x > 2$ er
+      $f'' > 0$. Vendepunktet er $(2, 3)$, fordi $f(2) = 8 - 24 + 18 + 1 = 3$. Der er $f'(2) = -3$,
+      lågast av alle verdiane til $f'$.
+    misoppfatning: >-
+      At $f''(x) = 0$ alltid gir eit vendepunkt. For $f(x) = x^4$ er $f''(0) = 0$, men $f''(x) = 12x^2$ er
+      $\ge 0$ på begge sider, så krumminga skiftar ikkje. Og at vendepunktet er eit toppunkt:
+      det er $f'$ som har ekstremalpunkt der, ikkje $f$.
+    byggjer_paa: [andrederivert, funksjonsdroefting-s1]
+
+  - id: drofte-funksjon
+    type: prosedyre
+    nivaa: 2
+    namn: "Drøfte ein funksjon med derivasjon og integrasjon"
+    km: [km05]
+    kjerneelement: [utforsking, representasjon, resonnering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: delvis, 1T-S1: delvis}
+    tekst_laerar: >-
+      Ei fullstendig drøfting følgjer ein fast prosedyre: (1) definisjonsmengd og
+      eventuelle randverdiar (grenseverdi når $x$ går mot endepunkt eller uendeleg), (2) nullpunkt,
+      (3) $f'$ med forteiknslinje, som gir veksing, minking og ekstremalpunkt, (4) $f''$ med
+      forteiknslinje, som gir krumming og vendepunkt, (5) funksjonsverdiar i ekstremal-
+      og vendepunkt og i endepunkt, (6) integral der arealet eller den samla
+      endringa er relevant. Eleven må sjekke endepunkta når definisjonsmengda er avgrensa.
+      Skisse av grafen samlar resultata. Drøfting med $f'$ og $f''$ er kjend frå S1; nytt i
+      S2 er integralet, rasjonale funksjonar og grenseverdiar, og at drøftinga blir tolka i
+      ein modell. Digitale verktøy kontrollerer, men gjer ikkje drøftinga.
+    tekst_elev: >-
+      Gå systematisk gjennom: definisjonsmengd, nullpunkt, $f'$ (veks/minkar, topp/botn),
+      $f''$ (krumming, vendepunkt), endepunkt og eventuelt integral. Teikn grafen til slutt
+      som ein kontroll på at alt stemmer.
+    doeme: >-
+      $f(x) = x^3 - 6x^2 + 9x + 1$ på $[0, 5]$. $f'(x) = 3(x - 1)(x - 3)$: toppunkt $(1, 5)$,
+      botnpunkt $(3, 1)$. $f''(x) = 6x - 12$: vendepunkt $(2, 3)$. Endepunkta: $f(0) = 1$ og
+      $f(5) = 21$, så største verdi er $21$ i endepunktet. Arealet under grafen er
+      $\int_0^5 f(x)\,dx = 23{,}75$, sidan $f > 0$.
+    misoppfatning: >-
+      At toppunktet $(1, 5)$ er funksjonen sin største verdi. På $[0, 5]$ er $f(5) = 21$ større,
+      fordi det største ligg i endepunktet. Og å la $f'(x) = 0$ vere nok utan å sjekke
+      forteikn.
+    byggjer_paa: [funksjonsdroefting-s1, krumming-vendepunkt, derivere-eksp-ln, rasjonale-funksjonar, grenseverdi, bestemt-integral]
+
+  - id: tolke-funksjon
+    type: forklaring
+    nivaa: 2
+    namn: "Tolke funksjonsanalysen i ein samanheng"
+    km: [km05]
+    kjerneelement: [modellering, resonnering]
+    verbnivaa: vurdere
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Km05 krev tolking, ikkje berre utrekning. For ein modell $f(t)$ tyder $f'$ vekstfart
+      per eining, $f''$ endring i vekstfarten, vendepunktet tidspunktet med størst eller
+      minst vekstfart, og $\int_a^b f'(t)\,dt$ samla endring. Svaret må ha eining, seie noko om
+      gyldig område og gjerne vurdere om modellen er rimeleg utanfor området. Eleven
+      skal skilje «veks stadig saktare» ($f' > 0$, $f'' < 0$) frå «minkar» ($f' < 0$). Lat
+      elevane skrive eit svar i heile setningar, ikkje berre ein $x$-verdi.
+    tekst_elev: >-
+      Svar med eining og i ord. $f'$ er kor fort noko endrar seg, $f''$ kor fort farten
+      endrar seg, og integralet av $f'$ er kor mykje det har endra seg til saman. Vurder
+      om modellen gir meining utanfor området.
+    doeme: >-
+      Samla tal på besøkande $B(t) = -t^3 + 12t^2$ etter $t$ timar, $0 \le t \le 8$. $B'(t) = -3t^2 + 24t$
+      og $B''(t) = 24 - 6t$. Vendepunktet er $t = 4$: tilstrøyminga er størst, $B'(4) = 48$
+      besøkande per time. Ved $t = 8$ er $B' = 0$, og $\int_0^8 B'(t)\,dt = B(8) - B(0) = 256$
+      besøkande til saman.
+    misoppfatning: >-
+      At vendepunktet betyr at veksten stoppar. Ved $t = 4$ er veksten størst: $B'(4) = 48$.
+      Ei positiv, men minkande vekstfart ($B' > 0$, $B'' < 0$) betyr at $B$ veks stadig saktare,
+      ikkje at $B$ minkar.
+    byggjer_paa: [drofte-funksjon, integral-akkumulert-endring]

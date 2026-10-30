@@ -1,0 +1,27 @@
+Innhaldet i dette repoet er lisensiert under Creative Commons Namngjeving 4.0
+Internasjonal (CC BY 4.0).
+
+Full lisenstekst: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Kort sagt: du kan kopiere, dele og tilpasse innhaldet, òg til kommersielt bruk,
+så sant du
+
+  - oppgir kjelde (namn, lenkje til lisensen og lenkje til kartet),
+  - seier frå om du har gjort endringar.
+
+Framlegg til kjeldeoppgiving:
+  Ottestad, T. F. (2026). Fagkart: Matematikk S2. https://fagkart.lektorodd.no/s2/
+  (CC BY 4.0). Sjå CITATION.cff for versjon og dato.
+
+Kva lisensen gjeld
+  - kart/        kartet: nodar, tekstar, kantar, løyper og endringslogg.
+  - dist/*.json  det bygde kartet (data).
+
+Kva lisensen ikkje gjeld
+  - kjelder/     Teksten i denne mappa er henta frå Utdanningsdirektoratet
+                 (https://www.udir.no/lk20/). Kompetansemåla i kart/*/meta.yaml er ordrette sitat frå
+                 same kjelde.
+                 Læreplanane er fastsette som forskrift og er ikkje verna av
+                 opphavsrett (åndsverklova § 14).
+  - Koden (scripts/, viewer/, tests/) er under MIT-lisensen, sjå LICENSE.
+    Sida dist/S2.html har både kode (MIT) og kartdata (CC BY 4.0) i same fil.

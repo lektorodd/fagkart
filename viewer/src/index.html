@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="nn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fagkart</title>
+<meta name="description" content="Interaktive fagkart over læreplanar: kompetansemål, omgrep, metodar og forkunnskapar, og korleis dei heng saman.">
+<link rel="icon" href="data:,">
+<style>
+/*__FONTS__*/
+:root {
+  --lo-cream:#F6F1E6; --lo-surface:#FCFAF4; --lo-subtle:#EFE9DC;
+  --lo-border:#E8E1D2; --lo-border-strong:#D8D2C4;
+  --lo-ink:#1F2933; --lo-ink-strong:#15202B; --lo-muted:#5B6573;
+  --lo-blue:#2B6CB0; --lo-on-accent:#FFFFFF; --lo-mint:#98D3B4;
+  --lo-link:var(--lo-blue); --lo-grid:rgba(31,41,51,.045);
+  --font-display:'Space Grotesk','Source Sans 3',sans-serif;
+  --font-sans:'Source Sans 3',system-ui,-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root {
+  color-scheme: dark;
+  --lo-cream:#15202B; --lo-surface:#1C2A38; --lo-subtle:#243341;
+  --lo-border:#2E3E4D; --lo-border-strong:#3C4E5F;
+  --lo-ink:#F7F5EF; --lo-ink-strong:#FFFFFF; --lo-muted:#A9B4C0;
+  --lo-blue:#6BA6E0; --lo-on-accent:#15202B;
+  --lo-link:var(--lo-mint); --lo-grid:rgba(255,255,255,.035); } }
+* { box-sizing: border-box; }
+html { font-size: 112.5%; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background-color: var(--lo-cream); color: var(--lo-ink); font: 1rem/1.6 var(--font-sans);
+  background-image: linear-gradient(var(--lo-grid) 1px, transparent 1px), linear-gradient(90deg, var(--lo-grid) 1px, transparent 1px);
+  background-size: 34px 34px; background-attachment: fixed; }
+::selection { background: var(--lo-mint); color: #15202B; }
+main { max-width: 62rem; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--lo-ink-strong); line-height: 1.08; text-wrap: balance; margin: 0; }
+h1 { font-size: 2.6rem; letter-spacing: -.03em; margin-bottom: 1rem; }
+h2 { font-size: 1.9rem; letter-spacing: -.02em; margin-bottom: 1rem; }
+h3 { font-size: 1.4rem; letter-spacing: -.02em; }
+h1 .mark { background: linear-gradient(100deg, rgba(152,211,180,0) 1%, #9FD8BD 5%, #86C9A6 95%, rgba(152,211,180,0) 99%); color: #15202B; padding: 0 .28em; margin-left: -.28em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+p { margin: 0 0 1rem; max-width: 66ch; }
+a { color: var(--lo-link); font-weight: 600; text-underline-offset: .15em; }
+:focus-visible { outline: 2px solid var(--lo-blue); outline-offset: 3px; }
+@media (prefers-color-scheme: dark) { :focus-visible { outline-color: var(--lo-mint); } }
+section { margin-top: 3rem; }
+.muted { color: var(--lo-muted); }
+.mono { font-family: var(--font-mono); font-size: .8rem; font-variant-numeric: tabular-nums; }
+
+.hero { display: grid; gap: 1.6rem; align-items: center; }
+.hero .lead { font-size: 1.2rem; color: var(--lo-ink); }
+.hero figure { margin: 0; background: var(--lo-surface); border: 1px solid var(--lo-border); border-radius: 6px; box-shadow: 0 1px 3px rgba(2,6,23,.05); overflow: hidden; }
+.hero img { display: block; width: 100%; height: auto; }
+@media (min-width: 52rem) { .hero.med-bilete { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 2.4rem; } }
+
+ul.kart { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+ul.kart > li { background: var(--lo-surface); border: 1px solid var(--lo-border); border-radius: 5px; box-shadow: 0 1px 3px rgba(2,6,23,.05); padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .35rem; }
+.knappar { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .7rem; }
+.btn { display: inline-block; font: 600 1rem/1.2 var(--font-sans); text-decoration: none; padding: .7rem 1.5rem; border-radius: 4px; border: 1px solid var(--lo-border-strong); background: transparent; color: var(--lo-ink); transition: transform .1s; }
+.btn:active { transform: scale(.98); }
+.btn.primar { background: var(--lo-blue); border-color: var(--lo-blue); color: var(--lo-on-accent); }
+.btn:hover { border-color: var(--lo-blue); }
+.forklaring { font-size: .9rem; color: var(--lo-muted); margin-top: .9rem; }
+
+ul.kjem { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+ul.kjem li { border: 1px dashed var(--lo-border-strong); background: var(--lo-surface); border-radius: 5px; padding: .5rem 1rem; font-family: var(--font-display); font-weight: 600; }
+
+ul.lenkjer { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .5rem; }
+.sitat { margin: 0 0 1rem; max-width: 66ch; background: var(--lo-surface); border: 1px solid var(--lo-border); border-left: 3px solid var(--lo-mint); border-radius: 5px; padding: .8rem 1rem;
+  font-family: var(--font-mono); font-size: .85rem; line-height: 1.55; overflow-wrap: anywhere; user-select: all; }
+.sitat p { margin: 0 0 .5rem; max-width: none; }
+.sitat p:last-child { margin: 0; }
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--lo-border-strong); font-size: .9rem; color: var(--lo-muted); }
+footer p { margin: 0; }
+@media print { body { background: #fff; color: #000; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="hero__BILETEKLASSE__">
+    <div>
+      <h1><span class="mark">Fagkart</span></h1>
+      <p class="lead">Eit fagkart viser korleis kompetansemål, omgrep, metodar og forkunnskapar i ein læreplan heng saman. Elevar ser kva dei kan og kva som er neste steg, og lærarar kan planleggje med kartet.</p>
+      <p class="muted">Kartet verkar på mobil, og utan nett etter at du har opna det ein gong.</p>
+    </div>
+__BILETE__
+  </div>
+
+  <section aria-labelledby="kart-tittel">
+    <h2 id="kart-tittel">Kart</h2>
+    <ul class="kart">
+__KART__
+    </ul>
+    <p class="forklaring">Lærarvising har forklaringar til læraren og lèt deg markere årsplan og eksamen. Elevvising har «Kva kan eg?» og «Neste steg». Det ein elev markerer blir i nettlesaren hennar eller hans, og blir ikkje send nokon stad.</p>
+  </section>
+
+  <section aria-labelledby="kjem-tittel">
+    <h2 id="kjem-tittel">Kjem</h2>
+    <ul class="kjem">
+      <li>Statistikk</li>
+      <li>Matematikk for økonomi</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="ope-tittel">
+    <h2 id="ope-tittel">Ope for alle</h2>
+    <p>Karta og koden ligg ope. Du kan lese, bruke og lage eit eige kart for ein annan læreplan. Karta er utkast laga med KI-hjelp og kan ha faglege feil. Fann du ein, er det fint om du seier frå.</p>
+    <ul class="lenkjer">
+      <li><a href="https://github.com/lektorodd/fagkart">Fagkart på GitHub</a></li>
+__BLOGG__
+      <li><a href="https://github.com/lektorodd/fagkart/issues">Meld frå om feil og forslag</a></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="sitering-tittel">
+    <h2 id="sitering-tittel">Gjenbruk og sitering</h2>
+    <p>Innhaldet i karta har lisensen <a href="https://creativecommons.org/licenses/by/4.0/deed.no">CC BY 4.0</a>, og koden har lisensen <a href="https://github.com/lektorodd/fagkart/blob/HEAD/LICENSE">MIT</a>. Du kan bruke og endre begge, også i undervisning, så sant du oppgir kjelde. Læreplanteksten kjem frå Utdanningsdirektoratet og har sine eigne vilkår.</p>
+    <p>Slik kan du sitere eit kart:</p>
+    <div class="sitat">
+__SITERING__
+    </div>
+    <p class="muted">Meir står i <a href="https://github.com/lektorodd/fagkart#gjenbruk-og-sitering">README-fila</a> på GitHub.</p>
+  </section>
+
+  <footer>
+    <p>Laga av Torodd Ottestad, <a href="https://lektorodd.no/">lektorodd.no</a>. Ingen elevdata blir samla inn.</p>
+  </footer>
+</main>
+<script>
+// Offline after the first visit (the same service worker as the maps use); silent when it cannot be registered
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) navigator.serviceWorker.register('./sw.js').catch(function () {});
+</script>
+</body>
+</html>

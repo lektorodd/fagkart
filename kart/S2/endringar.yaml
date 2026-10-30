@@ -1,0 +1,13 @@
+# Versjonslogg, nyaste først. Øvste versjon skal vere lik versjon i meta.yaml (lint sjekkar det).
+endringar:
+  - versjon: "2026.3"
+    dato: 2026-10-29
+    samandrag: >-
+      Fagstoffet er uendra. Nytt i visinga: «Kva er nytt» i hjelpeboksen
+      og markeringslaget for lærarar (årsplan og eksamen).
+  - versjon: "2026.2"
+    dato: 2026-10-29
+    samandrag: Forkunnskapen er delt i vegane 1P → S1 og 1T → S1, og kartet er sjekka mot NDLA og ei lærebok. Nye mønster, mellom anna Eulers metode og val av modell.
+  - versjon: "2026.1"
+    dato: 2026-10-18
+    samandrag: Første versjon av kartet.

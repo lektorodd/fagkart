@@ -1,0 +1,24 @@
+{
+  "format": "fagkart-overlegg/1",
+  "kart": "DEMO-01",
+  "kartversjon": "0.1",
+  "namn": "Årsplan DEMO-01",
+  "type": "dekning",
+  "oppdatert": "2026-10-29T10:00:00+01:00",
+  "skala": ["planlagt", "undervist", "vurdert"],
+  "skala_namn": {
+    "planlagt": "Planlagt",
+    "undervist": "Undervist",
+    "vurdert": "Vurdert"
+  },
+  "merke": {
+    "DEMO-01/avvik": "vurdert",
+    "DEMO-01/spreiing": "undervist",
+    "DEMO-01/varians": "planlagt"
+  },
+  "notat": [],
+  "omraade": [
+    {"namn": "Periode 1", "nodar": ["DEMO-01/avvik", "DEMO-01/spreiing"]},
+    {"namn": "Periode 2", "nodar": ["DEMO-01/varians"]}
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "format": "fagkart-overlegg/1",
+  "kart": "DEMO-01",
+  "kartversjon": "0.1",
+  "namn": "Eksamen DEMO-01, konstrukt",
+  "type": "dekning",
+  "oppdatert": "2026-10-29T10:00:00+01:00",
+  "skala": ["del1", "del2", "ikkje-eigna", "uavklart"],
+  "skala_namn": {
+    "del1": "Del 1 (utan hjelpemiddel)",
+    "del2": "Del 2",
+    "ikkje-eigna": "Ikkje eigna",
+    "uavklart": "Uavklart"
+  },
+  "merke": {
+    "DEMO-01/avvik": "del1",
+    "DEMO-01/rekne-sd": "del2"
+  },
+  "notat": [
+    {"node": "DEMO-01/rekne-sd", "tekst": "Demo: eit notat frå møtet."}
+  ],
+  "omraade": [
+    {"namn": "Sett A, hausten 2027", "nodar": ["DEMO-01/avvik", "DEMO-01/rekne-sd"]}
+  ]
+}

@@ -1,0 +1,481 @@
+# Forkunnskapar for S2. Verdiane gjeld det eleven har møtt før S2 (S1 og grunnskulen).
+# Kontrollert mot kjelder/S1.md, kjelder/1T.md og kjelder/10trinn.md.
+klynge: forkunnskap
+namn: Forkunnskapar
+nodar:
+
+  - id: derivasjon-s1
+    type: omgrep
+    nivaa: 1
+    namn: "Den deriverte og derivasjonsreglar for polynom"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1 (1T-elevar òg i 1T)
+    tekst_laerar: >-
+      Den deriverte $f'(x)$ er grenseverdien til differensekvotienten og gir stigningstalet
+      til tangenten. Polynomreglane $(x^n)' = n \cdot x^{n-1}$, $(k \cdot f)' = k \cdot f'$ og
+      sumregelen kan alle. NDLA S1 har òg produkt-, brøk- og kjerneregelen og $(e^x)'$ og
+      $(\ln x)'$, så mange har sett dei, men læreplanen i S1 namngir dei ikkje. Sjekk med
+      klassa. 1T-elevar har møtt den deriverte og polynomreglane alt i 1T, så dei har sett det
+      to gonger.
+    tekst_elev: >-
+      Du kan derivere polynom: $x^2$ blir $2x$, $5x^3$ blir $15x^2$, og ein konstant blir $0$.
+      Den deriverte seier kor bratt grafen er i eit punkt.
+    doeme: >-
+      $f(x) = 2x^3 - 5x^2 + 4x$ gir $f'(x) = 6x^2 - 10x + 4$, og $f'(2) = 24 - 20 + 4 = 8$.
+    misoppfatning: >-
+      At $5x^2$ har den deriverte $10x^2$ (eksponenten blir då ikkje redusert), eller at
+      $f'(a)$ er funksjonsverdien i staden for stigningstalet til tangenten.
+    byggjer_paa: [vekstfart, grenseverdi]
+
+  - id: vekstfart
+    type: omgrep
+    nivaa: 2
+    namn: "Gjennomsnittleg og momentan vekstfart"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1 (1T-elevar òg i 1T)
+    tekst_laerar: >-
+      Gjennomsnittleg vekstfart er $\Delta y/\Delta x$ mellom to punkt, altså stigningstalet til
+      sekanten. Momentan vekstfart er grensa når $\Delta x$ går mot $0$, altså stigningstalet
+      til tangenten. I S2 blir ein samla endring tolka som vekstfart gonger tid, og
+      motsett.
+    tekst_elev: >-
+      Gjennomsnittleg vekstfart er endring i $y$ delt på endring i $x$ mellom to
+      punkt. Momentan vekstfart er kor fort noko veks akkurat no.
+    doeme: >-
+      $f(x) = x^2$ frå $x = 1$ til $x = 4$: $(16 - 1)/3 = 5$ i gjennomsnittleg vekstfart. I
+      $x = 2$ er den momentane vekstfarten $4$.
+    misoppfatning: >-
+      Å dele endringa i $x$ på endringa i $y$ i staden for omvendt, eller å gløyme
+      eininga: vekstfart er «kroner per år», ikkje «kroner».
+
+  - id: grenseverdi
+    type: omgrep
+    nivaa: 1
+    namn: "Grenseverdi"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      Grenseverdien $\lim_{x \to a} f(x)$ er den verdien $f(x)$ kjem vilkårleg
+      nær. Elevane har strategiar som faktorisering og tabellutforsking. S2 treng
+      òg tankegangen frå S1 for at ein verdi går mot null når $n$ veks over alle
+      grenser ($k^n \to 0$ for $|k| < 1$). Kontroller at elevane har sett grenser mot
+      uendeleg, ikkje berre mot eit tal.
+    tekst_elev: >-
+      Grenseverdien er det talet funksjonen kjem nærare og nærare. Til dømes går
+      $1/n$ mot $0$ når $n$ blir stor.
+    doeme: >-
+      $\lim_{x \to 2} \dfrac{x^2 - 4}{x - 2}$ kan skrivast $\dfrac{(x - 2)(x + 2)}{x - 2} = x + 2$, så
+      grensa er $4$.
+    misoppfatning: >-
+      At grenseverdien i eit punkt alltid er lik funksjonsverdien. Funksjonen
+      treng ikkje ha noka verdi i punktet.
+
+  - id: kontinuitet
+    type: omgrep
+    nivaa: 2
+    namn: "Kontinuitet"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      $f$ er kontinuerleg i $a$ når $\lim_{x \to a} f(x) = f(a)$. Grafen kan då teiknast
+      utan å løfte blyanten. Kontinuerlege funksjonar på eit lukka intervall kan
+      integrerast, og det er det integralomgrepet i S2 tek for gitt.
+    tekst_elev: >-
+      Ein funksjon er kontinuerleg om grafen heng saman utan sprang. Då kan du
+      teikne han utan å løfte blyanten.
+    doeme: >-
+      $f(x) = x + 1$ for $x < 2$ og $f(x) = 5$ for $x \ge 2$: frå venstre går $f$ mot $3$, men
+      $f(2) = 5$, så $f$ er diskontinuerleg i $x = 2$.
+    misoppfatning: >-
+      At ein funksjon er kontinuerleg berre fordi han har ein verdi i punktet.
+      Grensa må vere lik verdien.
+    byggjer_paa: [grenseverdi]
+
+  - id: funksjonsdroefting-s1
+    type: prosedyre
+    nivaa: 1
+    namn: "Forteiknslinje, ekstremalpunkt og optimering"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1 (1T-elevar òg i 1T, berre polynom)
+    tekst_laerar: >-
+      Eleven finn nullpunkt til $f'$, teiknar forteiknslinje for $f'$ og les av veksande og
+      minkande område og toppunkt og botnpunkt. Dette blir brukt til optimering i praktiske
+      problem. 1T-elevar har drøfta polynomfunksjonar slik alt i 1T. NDLA S1 har òg
+      andrederivert, krumming og vendepunkt, så det kan vere repetisjon i S2.
+    tekst_elev: >-
+      Set $f'(x) = 0$, teikn forteiknslinje og sjå kvar grafen skiftar frå å auke til
+      å minke eller omvendt. Det gir topp- og botnpunkt.
+    doeme: >-
+      $f(x) = x^3 - 3x$ gir $f'(x) = 3x^2 - 3 = 0$ for $x = \pm 1$. Toppunkt $(-1, 2)$ og
+      botnpunkt $(1, -2)$.
+    misoppfatning: >-
+      At $f'(x) = 0$ alltid gir eit topp- eller botnpunkt. For $f(x) = x^3$ er $f'(0) = 0$,
+      men grafen held fram å stige.
+    byggjer_paa: [derivasjon-s1]
+
+  - id: potensar-logaritmar
+    type: prosedyre
+    nivaa: 1
+    namn: "Potens- og logaritmereglar"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      Reglane $a^m \cdot a^n = a^{m+n}$, $(a^m)^n = a^{mn}$, $a^0 = 1$ og $a^{-n} = 1/a^n$, og for logaritmar
+      $\lg(ab) = \lg a + \lg b$ og $\lg(a^x) = x \cdot \lg a$. Grunnlaget for å handtere $k^n$ i
+      geometriske rekkjer og eksponentiell vekst.
+    tekst_elev: >-
+      Du kan potensreglane ($2^5 \cdot 2^3 = 2^8$) og logaritmereglane, til dømes
+      $\lg(a^x) = x \cdot \lg a$.
+    doeme: >-
+      $2^5 \cdot 2^3 = 2^8 = 256$, og $\lg 1000 = 3$ fordi $10^3 = 1000$.
+    misoppfatning: >-
+      At $(a + b)^n = a^n + b^n$, eller at $\lg(a + b) = \lg a + \lg b$.
+
+  - id: eksponentiallikning
+    type: prosedyre
+    nivaa: 2
+    namn: "Eksponential- og logaritmelikningar"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      Løyse likningar av typen $a \cdot b^x = c$ ved å ta logaritmen på begge sider, og
+      løyse logaritmelikningar. Digitalt med CAS i tillegg. Nyttig når ein skal
+      finne kor mange ledd eller år som trengst.
+    tekst_elev: >-
+      Står det ukjende i eksponenten, tek du logaritmen på begge sider og flyttar
+      eksponenten ned.
+    doeme: >-
+      $1{,}04^n = 2$ gir $n = \dfrac{\lg 2}{\lg 1{,}04} \approx 17{,}7$. Pengane dobblar seg på om lag 18 år
+      med 4 % rente.
+    misoppfatning: >-
+      Å dele på grunntalet i staden for å ta logaritmen, til dømes at
+      $1{,}04^n = 2$ gir $n = 2/1{,}04$.
+    byggjer_paa: [potensar-logaritmar]
+
+  - id: eksponentialfunksjon
+    type: omgrep
+    nivaa: 2
+    namn: "Eksponentialfunksjon"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: 1P/1T og S1
+    tekst_laerar: >-
+      $f(x) = a \cdot b^x$ der $a$ er startverdien og $b$ er vekstfaktoren. Vekst for $b > 1$ og
+      minking for $0 < b < 1$. Funksjonen har konstant prosentvis endring. Same
+      funksjon kan skrivast $a \cdot e^{kx}$ med $k = \ln b$, sjå talet-e-ln.
+    tekst_elev: >-
+      I $f(x) = a \cdot b^x$ er $a$ startverdien og $b$ kor mykje du ganger med for kvart steg.
+      Same prosent endring kvar gong.
+    doeme: >-
+      $5000 \cdot 1{,}03^x$: startverdi $5000$ og 3 % vekst per år. Etter 10 år er verdien
+      $5000 \cdot 1{,}03^{10} \approx 6720$.
+    misoppfatning: >-
+      At eksponentiell vekst er like stor auke kvart steg. Det er lik prosentvis
+      auke, så auken i tal blir større og større.
+    byggjer_paa: [potensar-logaritmar, prosent-vekstfaktor]
+
+  - id: regresjon
+    type: prosedyre
+    nivaa: 2
+    namn: "Regresjon og modellar av reelle datasett"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: 1P/1T (lineær) og S1 (polynom)
+    tekst_laerar: >-
+      Eleven legg data inn digitalt, finn ein modell med regresjon og vurderer kor godt
+      modellen passar. Lineær regresjon og potensmodellar er frå 1P eller 1T, polynomregresjon
+      frå S1. Eksponentiell regresjon står ikkje i NDLA før S2, og S2 byggjer vidare med
+      logistisk regresjon. Modellar gjeld innanfor dataområdet, og ekstrapolasjon må
+      grunngivast.
+    tekst_elev: >-
+      Du legg data inn i GeoGebra eller rekneark, let programmet finne ein modell, og
+      vurderer om modellen passar til datapunkta.
+    doeme: >-
+      Data $100, 110, 121, 133$ for $x = 0, 1, 2, 3$ passar godt til $100 \cdot 1{,}1^x$, altså
+      ein vekst på om lag 10 % per steg.
+    misoppfatning: >-
+      At ein modell som passar godt til dataa, kan brukast langt utanfor
+      dataområdet.
+
+  - id: kombinatorikk
+    type: prosedyre
+    nivaa: 2
+    namn: "Kombinatorikk: ordna og uordna utval"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      Teljing av ordna utval (rekkjefølgja tel) og uordna utval (rekkjefølgja tel
+      ikkje), med binomialkoeffisienten $C(n, k) = \dfrac{n!}{k! \cdot (n - k)!}$. Grunnlaget
+      for binomisk og hypergeometrisk fordeling.
+    tekst_elev: >-
+      Spør først: spelar rekkjefølgja rolle? Ja gir ordna utval, nei gir uordna utval
+      med binomialkoeffisient.
+    doeme: >-
+      Velje 3 av 10 elevar til eit utval: $C(10, 3) = 120$. Velje leiar, nestleiar og
+      kasserar: $10 \cdot 9 \cdot 8 = 720$.
+    misoppfatning: >-
+      Å bruke formelen for ordna utval når rekkjefølgja ikkje spelar rolle, og få $720$
+      i staden for $120$.
+
+  - id: stokastisk-variabel
+    type: omgrep
+    nivaa: 1
+    namn: "Stokastisk variabel"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      Ein stokastisk variabel $X$ tilordnar eit tal til kvart utfall i eit tilfeldig
+      forsøk. Sannsynsfordelinga gir $P(X = x)$ for kvar verdi, og summen er $1$. I S1
+      er variabelen diskret.
+    tekst_elev: >-
+      Ein stokastisk variabel $X$ er eit tal som kjem av eit tilfeldig forsøk, til
+      dømes talet på kron i tre myntkast.
+    doeme: >-
+      $X$ = talet på kron i tre kast: $P(X = 0) = 1/8$, $P(X = 1) = 3/8$, $P(X = 2) = 3/8$,
+      $P(X = 3) = 1/8$. Summen er $1$.
+    misoppfatning: >-
+      At $X$ er eitt bestemt tal. $X$ er ein storleik som kan ta ulike verdiar med
+      gitte sannsyn.
+
+  - id: binomisk-fordeling
+    type: omgrep
+    nivaa: 1
+    namn: "Binomisk fordeling"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      $X$ er binomisk fordelt, $\text{Bin}(n; p)$, når det er $n$ uavhengige forsøk med to utfall
+      og same sannsyn $p$ for suksess i kvart forsøk. $P(X = k) = C(n, k) \cdot p^k \cdot (1 - p)^{n-k}$.
+      Elevane reknar digitalt og tolkar. Forventingsverdi og varians er nye i S2.
+    tekst_elev: >-
+      Tel suksessar i $n$ like og uavhengige forsøk. $P(X = k)$ finn du med formelen eller
+      digitalt (GeoGebra: Binomisk, Excel: BINOM.FORDELING).
+    doeme: >-
+      10 myntkast: $P(X = 3) = C(10, 3) \cdot 0{,}5^3 \cdot 0{,}5^7 = 120/1024 \approx 0{,}117$.
+    misoppfatning: >-
+      At fordelinga gjeld òg når sannsynet endrar seg frå forsøk til forsøk, til
+      dømes ved trekking utan tilbakelegging frå eit lite utval.
+    byggjer_paa: [stokastisk-variabel, kombinatorikk, uavhengige-hendingar]
+    forvekslast_med: [hypergeometrisk-fordeling]
+
+  - id: hypergeometrisk-fordeling
+    type: omgrep
+    nivaa: 2
+    namn: "Hypergeometrisk fordeling"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      Trekking utan tilbakelegging frå ei endeleg gruppe med $M$ gunstige av $N$, der
+      $n$ blir trekte: $P(X = k) = \dfrac{C(M, k) \cdot C(N - M, n - k)}{C(N, n)}$. Sannsynet endrar
+      seg for kvar trekking, så forsøka er ikkje uavhengige.
+    tekst_elev: >-
+      Trekk du utan å leggje tilbake frå ei lita gruppe, endrar sjansen seg for kvar
+      trekking. Då brukar du hypergeometrisk fordeling, ikkje binomisk.
+    doeme: >-
+      10 elevar, 4 jenter. Du trekkjer 3 tilfeldig: $P(\text{2 jenter}) = \dfrac{C(4, 2) \cdot C(6, 1)}{C(10, 3)} = \dfrac{6 \cdot 6}{120} = 0{,}3$.
+    misoppfatning: >-
+      Å bruke binomisk fordeling utan tilbakelegging frå ei lita gruppe. Det gir
+      feil sannsyn.
+    byggjer_paa: [stokastisk-variabel, kombinatorikk]
+
+  - id: simulering-s1
+    type: prosedyre
+    nivaa: 2
+    namn: "Simulere stokastiske forsøk digitalt"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      Eleven brukar tilfeldige tal i rekneark, GeoGebra eller Python til å gjenta eit
+      forsøk mange gonger og samanlikne relativ frekvens med utrekna sannsyn. S2
+      utvidar dette til å simulere fordelingar og gjennomsnitt av utval.
+    tekst_elev: >-
+      Lat datamaskinen gjenta forsøket mange gonger, tell kor ofte noko skjer, og
+      samanlikn med sannsynet du har rekna ut.
+    doeme: >-
+      1000 kast med to terningar: sum 7 kjem om lag 167 gonger, relativ frekvens
+      $\approx 0{,}167 \approx 1/6$.
+    misoppfatning: >-
+      At ei simulering gir det eksakte sannsynet. Ho gir eit estimat som varierer
+      frå køyring til køyring.
+
+  - id: areal-geometri
+    type: omgrep
+    nivaa: 2
+    namn: "Areal av rektangel og trapes"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: grunnskulen
+    tekst_laerar: >-
+      Rektangel: grunnlinje $\cdot$ høgd. Trapes: $\dfrac{a + b}{2} \cdot h$. Grunnlaget for å tenkje på
+      areal under ein graf som rektangel eller trapes som tilnærming.
+    tekst_elev: >-
+      Rektangel: grunnlinje $\cdot$ høgd. Trapes: summen av dei parallelle sidene delt på
+      2, gonger høgda.
+    doeme: >-
+      Trapes med parallelle sider $3$ og $7$ og høgd $4$: $\dfrac{3 + 7}{2} \cdot 4 = 20$.
+    misoppfatning: >-
+      Å gløyme å dele på 2 i trapesformelen, eller å bruke den skrå sida som høgd.
+
+  - id: programmering
+    type: prosedyre
+    nivaa: 2
+    namn: "Programmering: variablar, løkker og vilkår"
+    forkunnskap: {1P-S1: delvis, 1T-S1: ja}
+    sist_sett: 1T / 10. trinn
+    tekst_laerar: >-
+      Python med variablar, for- og while-løkker, if-setningar og eigne funksjonar. 1T har
+      programmering i kompetansemåla (ny plan 1T-01; førre plan og NDLA 1T har same stoff). 1P har det ikkje i kompetansemåla, men NDLA 1P
+      har eit fullt Python-kurs, så nivået for 1P-elevar avheng av læraren dei hadde.
+      S1-planen nemner ikkje programmering, og NDLA S1 brukar berre Python i døme. Rekursjon
+      er nytt i S2 for alle.
+    tekst_elev: >-
+      Du kan skrive eit lite Python-program med ein variabel, ei løkke og eventuelt
+      eit vilkår.
+    doeme: >-
+      `a = 0; for i in range(5): a = a + 2`. Etter løkka er `a = 10`.
+    misoppfatning: >-
+      At `a = a + 2` er ei likning som aldri kan stemme. Det er ei tilordning: ta
+      gamle a, legg til 2 og lagre.
+
+  - id: prosent-vekstfaktor
+    type: omgrep
+    nivaa: 2
+    namn: "Prosent og vekstfaktor"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: 1P / 1T
+    tekst_laerar: >-
+      Ein auke på $p$ % svarer til vekstfaktor $1 + p/100$, og ein nedgang til
+      $1 - p/100$. Fleire periodar med same endring gir vekstfaktoren i potens. Grunnlaget
+      for rente, geometriske rekkjer og eksponentiell vekst.
+    tekst_elev: >-
+      4 % auke betyr å gange med $1{,}04$. 15 % nedgang betyr å gange med $0{,}85$. Tre år
+      gir $1{,}04^3$.
+    doeme: >-
+      $2000$ kr med 5 % rente i tre år: $2000 \cdot 1{,}05^3 \approx 2315{,}25$ kr.
+    misoppfatning: >-
+      At to år med 10 % auke gir 20 % auke. Vekstfaktoren er $1{,}1^2 = 1{,}21$, altså
+      21 %.
+
+  - id: talet-e-ln
+    type: omgrep
+    nivaa: 1
+    namn: 'Talet $e$ og naturleg logaritme'
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      $e \approx 2{,}718$ og $\ln x$ som den omvende funksjonen til $e^x$: $e^{\ln x} = x$ og
+      $\ln(e^x) = x$. Verken 1P eller 1T har $e$ eller logaritmar. NDLA S1 innfører $\ln$ og
+      deriverer $e^x$ og $\ln x$, men læreplanen i S1 namngir ikkje $e$, så sjekk med klassa
+      før S2 byggjer på det. Trengst for $(e^x)'$, $\int \frac{1}{x}\,dx = \ln|x| + C$,
+      $e$-forma av eksponentialmodellar og logistisk vekst.
+    tekst_elev: >-
+      $e$ er eit tal, om lag $2{,}718$. $\ln x$ er «kva eksponent må $e$ ha for å bli $x$?».
+      Difor er $\ln(e^3) = 3$, og $e^{\ln 5} = 5$.
+    doeme: >-
+      $e^{0{,}04t} = 2$ gir $0{,}04t = \ln 2$, altså $t = \dfrac{\ln 2}{0{,}04} \approx 17{,}3$.
+    misoppfatning: >-
+      At $\ln(a + b) = \ln a + \ln b$.
+    byggjer_paa: [potensar-logaritmar]
+
+  - id: faktorisering-polynom
+    type: prosedyre
+    nivaa: 2
+    namn: "Faktorisering, andregradslikningar og polynomdivisjon"
+    forkunnskap: {1P-S1: delvis, 1T-S1: ja}
+    sist_sett: "1T (ny plan 1T-04, 1T-06, 1T-11; førre plan og NDLA 1T har same stoff)"
+    tekst_laerar: >-
+      Faktorisere andregradsuttrykk, løyse andregradslikningar med abc-formelen og
+      dividere polynom. 1T har alt dette i kompetansemåla. 1P-elevar har løyst
+      andregradslikningar berre med CAS, og møter faktorisering, abc-formelen og
+      polynomdivisjon i S1 berre som steg i døme. Her er det største skiljet mellom
+      vegane inn i S2. Trengst for delbrøkoppspalting og for å finne nullpunkt i
+      funksjonsdrøfting for hand.
+    tekst_elev: >-
+      Eit andregradsuttrykk $x^2 + bx + c$ kan skrivast som $(x - x_1)(x - x_2)$, der
+      $x_1$ og $x_2$ er nullpunkta. Dei finn du med abc-formelen.
+    doeme: >-
+      $x^2 + x - 6 = 0$ gir $x = \dfrac{-1 \pm \sqrt{1 + 24}}{2}$, altså $x = 2$ eller
+      $x = -3$. Då er $x^2 + x - 6 = (x - 2)(x + 3)$.
+    misoppfatning: >-
+      Å skrive $(x + 2)(x - 3)$ med feil forteikn, altså $(x + x_1)(x + x_2)$ i staden
+      for $(x - x_1)(x - x_2)$.
+
+  - id: rasjonale-funksjonar
+    type: omgrep
+    nivaa: 2
+    namn: "Rasjonale funksjonar og asymptotar"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: 1T og S1
+    tekst_laerar: >-
+      Funksjonar som er brøkar av polynom, med vertikale og horisontale asymptotar. Står i
+      læreplanen for 1T (ny plan 1T-09; førre plan og NDLA 1T har same stoff), ikkje i 1P
+      eller S1. NDLA S1 har likevel eigne artiklar med asymptotar og øving under
+      grenseverdiar, så 1P-elevar har møtt dei éin gong og 1T-elevar to gonger. Trengst for
+      einingskostnaden $A(x) = K(x)/x$ og drøfting av ulike funksjonar.
+    tekst_elev: >-
+      Ein asymptote er ei linje grafen kjem nærare og nærare utan å nå. $f(x) = 1/x$
+      har asymptotane $x = 0$ og $y = 0$.
+    doeme: >-
+      $f(x) = \dfrac{2x + 1}{x - 3}$ har vertikal asymptote $x = 3$ og horisontal asymptote $y = 2$.
+    misoppfatning: >-
+      At grafen aldri kan krysse ein horisontal asymptote.
+    byggjer_paa: [grenseverdi]
+
+  - id: algebraiske-broekuttrykk
+    type: prosedyre
+    nivaa: 2
+    namn: "Algebraiske brøkuttrykk: fellesnemnar, forkorting og omforming"
+    forkunnskap: {1P-S1: delvis, 1T-S1: ja}
+    sist_sett: "1T (ny plan 1T-04, 1T-05; førre plan og NDLA 1T har same stoff)"
+    tekst_laerar: >-
+      Forkorte, utvide og leggje saman brøkar med bokstavuttrykk, og løyse ein formel
+      med omsyn på ein variabel. 1T øver dette i algebradelen. 1P-elevar har lite
+      algebra, og møter brøkuttrykk i S1 berre som steg i døme. Saman med
+      faktorisering er dette det største skiljet mellom vegane inn i S2. Trengst for
+      kvotientregelen, delbrøkoppspalting, einingskostnaden og den logistiske
+      funksjonen.
+    tekst_elev: >-
+      Brøkar med bokstavar reknar du med som med tal: finn fellesnemnar før du legg
+      saman, og forkort berre faktorar, ikkje ledd.
+    doeme: >-
+      $\dfrac{2}{x - 1} + \dfrac{3}{x + 1} = \dfrac{2(x + 1) + 3(x - 1)}{(x - 1)(x + 1)} = \dfrac{5x - 1}{x^2 - 1}$.
+    misoppfatning: >-
+      Å forkorte ledd: $\dfrac{x + 2}{x} = 2$. Berre felles faktorar kan forkortast.
+
+  - id: ulikskapar-forteiknslinje
+    type: prosedyre
+    nivaa: 2
+    namn: "Ulikskapar og forteiknslinje"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: "S1 (1T-elevar òg i 1T)"
+    tekst_laerar: >-
+      Løyse ulikskapar ved å samle alt på éi side, faktorisere og teikne forteiknslinje,
+      òg for brøkuttrykk. NDLA S1 har dette under likningar og ulikskapar. Trengst for å
+      finne konvergensområdet til ei uendeleg geometrisk rekkje, der $-1 < k(x) < 1$ ofte
+      blir ein rasjonal ulikskap.
+    tekst_elev: >-
+      Flytt alt over på éi side, faktoriser, og bruk ei forteiknslinje for å sjå kvar
+      uttrykket er positivt eller negativt.
+    doeme: >-
+      $\dfrac{x}{x - 1} > 0$: teljaren skiftar forteikn i $x = 0$, nemnaren i $x = 1$.
+      Forteiknslinja gir $x < 0$ eller $x > 1$.
+    misoppfatning: >-
+      Å gange med nemnaren utan å tenkje på forteiknet, slik at ulikskapsteiknet
+      skulle ha snudd.
+
+  - id: uavhengige-hendingar
+    type: omgrep
+    nivaa: 2
+    namn: "Uavhengige hendingar og produktsetninga"
+    forkunnskap: {1P-S1: ja, 1T-S1: ja}
+    sist_sett: S1
+    tekst_laerar: >-
+      To hendingar er uavhengige når $P(A \cap B) = P(A) \cdot P(B)$. NDLA S1 har
+      produktsetninga og valtre. S2 byggjer på omgrepet i binomisk fordeling og i
+      regelen $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$, som berre gjeld for
+      uavhengige variablar.
+    tekst_elev: >-
+      Påverkar ikkje det eine utfallet det andre, er hendingane uavhengige. Då gangar du
+      sannsyna.
+    doeme: >-
+      To terningkast: $P(\text{to seksarar}) = \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}$.
+    misoppfatning: >-
+      At hendingar som ikkje kan skje samtidig, er uavhengige. Dei er tvert imot sterkt
+      avhengige.

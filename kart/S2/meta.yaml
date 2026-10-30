@@ -1,0 +1,56 @@
+laereplan: MAT04-02
+namn: Matematikk S2
+versjon: "2026.3"
+kjelde: https://www.udir.no/lk20/MAT04-02
+forkunnskapsfag: [1P-S1, 1T-S1]
+kjerneelement:
+  - {id: utforsking, namn: Utforsking og problemløysing}
+  - {id: modellering, namn: Modellering og anvendingar}
+  - {id: resonnering, namn: Resonnering og argumentasjon}
+  - {id: representasjon, namn: Representasjon og kommunikasjon}
+  - {id: abstraksjon, namn: Abstraksjon og generalisering}
+kompetansemaal:
+  - id: km01
+    tekst: "utforske egenskaper ved ulike rekker og gjøre rede for praktiske anvendelser av egenskaper ved rekker"
+    verb: [utforske, gjøre rede for]
+    klynge: rekker
+  - id: km02
+    tekst: "utforske rekursive sammenhenger ved å bruke programmering og presentere egne framgangsmåter"
+    verb: [utforske, presentere]
+    klynge: rekker
+  - id: km03
+    tekst: "forstå definisjonen av det bestemte integralet og anvende integralet til å analysere funksjoner"
+    verb: [forstå, anvende]
+    klynge: integrasjon
+  - id: km04
+    tekst: "gjøre rede for analysens fundamentalteorem og gjøre rede for konsekvenser av teoremet"
+    verb: [gjøre rede for]
+    klynge: integrasjon
+  - id: km05
+    tekst: "analysere og tolke ulike funksjoner ved å bruke derivasjon og integrasjon"
+    verb: [analysere, tolke]
+    klynge: funksjonsanalyse
+  - id: km06
+    tekst: "modellere og analysere eksponentiell og logistisk vekst i reelle datasett"
+    verb: [modellere, analysere]
+    klynge: vekstmodellar
+  - id: km07
+    tekst: "forstå begrepene forventningsverdi, varians og standardavvik, og bruke disse størrelsene til å tolke stokastiske variabler"
+    verb: [forstå, bruke, tolke]
+    klynge: stokastikk
+  - id: km08
+    tekst: "simulere utfall i, utforske og tolke ulike statistiske fordelinger, og gi eksempler på reelle anvendelser av disse fordelingene"
+    verb: [simulere, utforske, tolke]
+    klynge: stokastikk
+  - id: km09
+    tekst: "finne grensekostnader og grenseinntekter i økonomiske modeller, og gjøre rede for betydningen av disse størrelsene"
+    verb: [finne, gjøre rede for]
+    klynge: okonomi
+  - id: km10
+    tekst: "argumentere for sentralgrensesetningen og utforske og tolke praktiske situasjoner ved hjelp av normalfordelingen"
+    verb: [argumentere, utforske, tolke]
+    klynge: inferens
+  - id: km11
+    tekst: "gjennomføre hypotesetesting i reelle datasett og tolke resultatet"
+    verb: [gjennomføre, tolke]
+    klynge: inferens

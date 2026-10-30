@@ -1,0 +1,465 @@
+klynge: integrasjon
+namn: Integrasjon
+nodar:
+
+  # --- km03: antiderivert og det bestemte integralet ---
+
+  - id: antiderivert
+    type: omgrep
+    nivaa: 1
+    namn: "Antiderivert (ubestemt integral)"
+    km: [km03, km05]
+    kjerneelement: [abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      $F$ er ein antiderivert av $f$ dersom $F'(x) = f(x)$. Å finne $F$ er å «derivere baklengs».
+      Ein funksjon har uendeleg mange antideriverte, for dei skil seg berre med ein
+      konstant: alle konstantledd forsvinn ved derivasjon. Mengda av alle antideriverte
+      blir skriven $\int f(x)\,dx = F(x) + C$ og kalla det ubestemte integralet. Eit ubestemt
+      integral er altså ein funksjon (ein heil familie), ikkje eit tal. Kontroll av
+      svaret er alltid å derivere $F$ og sjå om ein får $f$. Ein antiderivert finst for
+      kvar kontinuerleg funksjon, men ikkje alltid som eit uttrykk med kjende funksjonar.
+    tekst_elev: >-
+      Ein antiderivert $F$ til $f$ er ein funksjon som gir $f$ når du deriverer han: $F'(x) = f(x)$.
+      Det finst mange, for du kan leggje til ein konstant $C$ utan at den deriverte endrar seg.
+    doeme: >-
+      For $f(x) = 3x^2 + 2$ er $F(x) = x^3 + 2x$ ein antiderivert, for $F'(x) = 3x^2 + 2$. Det er
+      òg $x^3 + 2x + 5$ og $x^3 + 2x - 7$. Alle antideriverte er $x^3 + 2x + C$.
+    misoppfatning: >-
+      At ein funksjon berre har éin antiderivert, eller at $C$ kan droppast. Både $x^3 + 2x$
+      og $x^3 + 2x + 5$ har den deriverte $3x^2 + 2$. Konstanten må vere med i det ubestemte
+      integralet, men fell bort i eit bestemt integral.
+    byggjer_paa: [derivasjon-s1]
+    forvekslast_med: [bestemt-integral]
+
+  - id: integrasjonsreglar
+    type: prosedyre
+    nivaa: 1
+    namn: "Integrasjonsreglar"
+    km: [km03, km05]
+    kjerneelement: [abstraksjon, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Reglane er derivasjonsreglane lesne baklengs. $\int x^n\,dx = \dfrac{x^{n+1}}{n + 1} + C$ for
+      $n \neq -1$, $\int k\,dx = kx + C$, $\int e^{kx}\,dx = \dfrac{e^{kx}}{k} + C$ for $k \neq 0$ og
+      $\int \frac{1}{x}\,dx = \ln|x| + C$. Har brøken ein lineær nemnar, er
+      $\int \frac{1}{ax + b}\,dx = \frac{1}{a}\ln|ax + b| + C$ for $a \neq 0$: som for $e^{kx}$ deler ein på
+      den indre deriverte. For ein eksponentialfunksjon med vilkårleg grunntal gjeld
+      $\int a^x\,dx = \dfrac{a^x}{\ln a} + C$ for $a > 0$ og $a \neq 1$. Det følgjer av $a^x = e^{x \ln a}$
+      og regelen for $e^{kx}$ med $k = \ln a$, og trengst for modellar på forma $a \cdot b^t$.
+      Konstantfaktorar kan flyttast ut, og sum og differanse blir
+      integrerte ledd for ledd. Rasjonale uttrykk og røter blir skrivne som potensar først
+      ($\frac{1}{x^2} = x^{-2}$, $\sqrt{x} = x^{0{,}5}$). Tilfellet $n = -1$ er unntaket: der kjem $\ln|x|$ inn, og
+      det krev at eleven kjenner $(\ln x)' = \frac{1}{x}$. Det er ingen enkel produkt- eller kvotientregel
+      for integral: $\int f \cdot g\,dx$ er ikkje $\int f\,dx \cdot \int g\,dx$ (delvis integrasjon er den
+      omvende produktregelen, sjå delvis-integrasjon). Kontroll: deriver svaret,
+      for hand eller med `Derivert` i GeoGebra.
+    tekst_elev: >-
+      Gå motsett veg av derivasjon. For $x^n$: legg til $1$ på eksponenten og del på den nye
+      eksponenten. For $e^{kx}$: del på $k$. For $a^x$: del på $\ln a$. Legg til $C$ på slutten.
+      Kontroller ved å derivere svaret.
+    doeme: >-
+      $\int (6x^2 - 4x + 5)\,dx = 2x^3 - 2x^2 + 5x + C$. $\int 3e^{2x}\,dx = 1{,}5 \cdot e^{2x} + C$. Og
+      $\int \frac{1}{x^2}\,dx = \int x^{-2}\,dx = -x^{-1} + C = -\frac{1}{x} + C$. For ein modell
+      $100 \cdot 1{,}2^t$ er $\int_0^5 100 \cdot 1{,}2^t\,dt = \left[\dfrac{100 \cdot 1{,}2^t}{\ln 1{,}2}\right]_0^5 =
+      \dfrac{100 \cdot (1{,}2^5 - 1)}{\ln 1{,}2} \approx 816{,}3$.
+    misoppfatning: >-
+      At $\int e^{2x}\,dx = e^{2x} + C$, altså å gløyme å dele på $2$. Deriverer ein $e^{2x}$, får
+      ein $2 \cdot e^{2x}$, så svaret må vere $\dfrac{e^{2x}}{2} + C$. Eller å bruke $\dfrac{x^{n+1}}{n + 1}$ på
+      $\frac{1}{x}$, som gir deling på $0$.
+    byggjer_paa: [antiderivert, derivere-eksp-ln, potensar-logaritmar, talet-e-ln]
+
+  - id: integrasjonsteknikkar
+    type: prosedyre
+    nivaa: 2
+    namn: "Integrasjon ved variabelskifte"
+    km: [km05]
+    kjerneelement: [abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Variabelskifte (substitusjon) står ikkje eksplisitt i læreplanen, men er etablert
+      praksis i S2: elevane skal kunne bruke det, òg utan hjelpemiddel. Det er kjerneregelen
+      lesen baklengs: når integranden har forma $g(u(x)) \cdot u'(x)$, set ein $u = u(x)$,
+      skriv $du = u'(x)\,dx$ og integrerer $g(u)$ i staden. I eit bestemt integral må grensene
+      skiftast til $u$-verdiar (eller ein må gå tilbake til $x$ før ein set inn). Eit viktig tilfelle er
+      brøk med lineær nemnar: med $u = ax + b$ og $du = a\,dx$ blir
+      $\int \frac{1}{ax + b}\,dx = \frac{1}{a}\int \frac{1}{u}\,du = \frac{1}{a}\ln|ax + b| + C$. Meir
+      samansette tilfelle kan ein overlate til CAS.
+    tekst_elev: >-
+      Ser du ein indre funksjon $u(x)$ og $u'(x)$ i same integral, kan du kalle den indre
+      funksjonen $u$. Då blir integralet mykje enklare å rekne ut. Gå tilbake til $x$ til
+      slutt.
+    doeme: >-
+      $\int 6x(x^2 + 1)^3\,dx$. Set $u = x^2 + 1$, då er $du = 2x\,dx$ og integralet blir
+      $3\int u^3\,du = \frac{3}{4}u^4 + C = \frac{3}{4}(x^2 + 1)^4 + C$. Som bestemt integral frå $0$ til $1$: $u$ går
+      frå $1$ til $2$, og $\frac{3}{4}(2^4 - 1^4) = \frac{45}{4} = 11{,}25$.
+      Brøk med lineær nemnar: $\int \frac{1}{3x + 1}\,dx$ med $u = 3x + 1$ og $du = 3\,dx$ gir
+      $\frac{1}{3}\int \frac{1}{u}\,du = \frac{1}{3}\ln|3x + 1| + C$. Som bestemt integral frå $0$ til $2$:
+      $\frac{1}{3}(\ln 7 - \ln 1) = \frac{\ln 7}{3} \approx 0{,}649$.
+    misoppfatning: >-
+      Å byte ut $x^2 + 1$ med $u$, men gløyme at $dx$ også må skiftast. Eller å la $x$ vere att i
+      integralet og blande $x$ og $u$. I bestemte integral blir det ofte gløymt å skifte
+      grensene. Ved $\int \frac{1}{3x + 1}\,dx$ blir faktoren $\frac{1}{3}$ ofte gløymd.
+    byggjer_paa: [integrasjonsreglar, produkt-kvotient-kjerneregel]
+
+  - id: delvis-integrasjon
+    type: prosedyre
+    nivaa: 2
+    namn: "Delvis integrasjon"
+    km: [km05]
+    kjerneelement: [abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Delvis integrasjon står ikkje eksplisitt i læreplanen, men er etablert praksis i S2:
+      elevane skal kunne bruke det, òg utan hjelpemiddel. Det er produktregelen lesen
+      baklengs: frå $(u \cdot v)' = u' \cdot v + u \cdot v'$ får ein $\int u \cdot v'\,dx = u
+      \cdot v - \int u' \cdot v\,dx$. Typiske integral er $\int x \cdot e^x\,dx$ og $\int \ln
+      x\,dx$, der integranden er eit produkt av ein polynomfaktor og ein funksjon som er lett
+      å integrere. Poenget er å velje $u$ slik at $u'$ er enklare enn $u$, så integralet til
+      slutt blir enklare enn det ein starta med. I eit bestemt integral blir leddet $u \cdot
+      v$ rekna ut med grensene: $[u \cdot v]_a^b - \int_a^b u' \cdot v\,dx$. NDLA og fleire
+      bøker skriv regelen som $\int u' \cdot v\,dx = u \cdot v - \int u \cdot v'\,dx$, med rollene til
+      $u$ og $v$ bytte om. Det er same regel, så eleven må sjå kva faktor som blir derivert og
+      kva som blir integrert. Meir samansette tilfelle kan ein overlate til CAS.
+    tekst_elev: >-
+      Er integralet eit produkt, kan du prøve delvis integrasjon: $\int u \cdot v'\,dx = u
+      \cdot v - \int u' \cdot v\,dx$. Vel $u$ slik at $u'$ blir enklare.
+    doeme: >-
+      $\int x \cdot e^x\,dx$. Set $u = x$ og $v' = e^x$, då er $u' = 1$ og $v = e^x$. Det gir
+      $x \cdot e^x - \int e^x\,dx = x \cdot e^x - e^x + C = (x - 1) \cdot e^x + C$. Kontroll: $((x - 1) \cdot e^x)' = e^x + (x - 1) \cdot e^x = x \cdot e^x$.
+      Som bestemt integral: $\int_0^1 x \cdot e^x\,dx = [(x - 1) \cdot e^x]_0^1 = 0 - (-1) = 1$.
+    misoppfatning: >-
+      Å velje $u$ og $v'$ feil veg. Med $u = e^x$ og $v' = x$ i dømet over får ein
+      $\frac{x^2}{2} \cdot e^x - \int \frac{x^2}{2} \cdot e^x\,dx$, og det nye integralet er verre enn det første.
+      Ein gløymer òg ofte minus og restintegralet, og skriv $\int u \cdot v'\,dx = u \cdot v$.
+    byggjer_paa: [integrasjonsreglar, produkt-kvotient-kjerneregel]
+
+  - id: delbrokoppspalting
+    type: prosedyre
+    nivaa: 2
+    namn: "Integrasjon ved delbrøkoppspalting"
+    km: [km05]
+    kjerneelement: [abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Delbrøkoppspalting står ikkje eksplisitt i læreplanen, men er etablert praksis i S2:
+      elevane skal kunne bruke det, òg utan hjelpemiddel. Ein rasjonal funksjon der nemnaren
+      er eit produkt av ulike lineære faktorar, blir skriven som ein sum av enklare brøkar,
+      til dømes $\dfrac{5x - 1}{(x - 1)(x + 1)} = \dfrac{A}{x - 1} + \dfrac{B}{x + 1}$. Kvar
+      brøk har ein integral av typen $\int \frac{1}{x - a}\,dx = \ln|x - a| + C$. Tala $A$ og
+      $B$ finn ein ved å gange med fellesnemnaren og samanlikne koeffisientar, eller ved å
+      setje inn nullpunkta til nemnaren. Elevane må kunne faktorisere nemnaren først. Er
+      graden i teljaren like stor som eller større enn graden i nemnaren, må ein dividere
+      først. Meir samansette tilfelle kan ein overlate til CAS.
+    tekst_elev: >-
+      Er integranden ein brøk med ein nemnar du kan faktorisere, kan du dele han opp i
+      enklare brøkar. Kvar av dei integrerer du til ein logaritme.
+    doeme: >-
+      $\int \frac{5x - 1}{x^2 - 1}\,dx$. Faktoriser: $x^2 - 1 = (x - 1)(x + 1)$. Skriv
+      $\frac{5x - 1}{(x - 1)(x + 1)} = \frac{A}{x - 1} + \frac{B}{x + 1}$, så
+      $5x - 1 = A(x + 1) + B(x - 1)$. Med $x = 1$ får ein $4 = 2A$, så $A = 2$. Med $x = -1$
+      får ein $-6 = -2B$, så $B = 3$. Det gir
+      $\int \frac{5x - 1}{x^2 - 1}\,dx = 2\ln|x - 1| + 3\ln|x + 1| + C$.
+    misoppfatning: >-
+      Å integrere faktor for faktor, som om
+      $\int \frac{1}{(x - 1)(x + 1)}\,dx = \ln|x - 1| \cdot \ln|x + 1| + C$. Ein gløymer òg
+      ofte absoluttverdien i $\ln|x - a|$.
+    byggjer_paa: [integrasjonsreglar, rasjonale-funksjonar, faktorisering-polynom, algebraiske-broekuttrykk]
+
+  - id: over-og-undersum
+    type: representasjon
+    nivaa: 2
+    namn: "Over- og undersummar"
+    km: [km03]
+    kjerneelement: [representasjon, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Intervallet $[a, b]$ blir delt i $n$ like delintervall med breidde $\Delta x = \dfrac{b - a}{n}$.
+      Over kvart delintervall teiknar ein eit rektangel med høgd lik minste verdi av $f$
+      (undersum) eller største verdi av $f$ (oversum). Summen av rektangelareala er eit
+      nedre eller øvre overslag for arealet under grafen (i nokre lærebøker: «nedre trappesum» og
+      «øvre trappesum»). For ein veksande funksjon er
+      venstre endepunkt undersum og høgre endepunkt oversum; for ein minkande er det omvendt.
+      Dette er det visuelle grunnlaget for definisjonen av det bestemte integralet:
+      når $n$ aukar, nærmar oversum og undersum seg same tal. Reknar ein for hand, treng
+      eleven summeteiknet. Bruk GeoGebra til å variere $n$ og sjå rektangla bli smalare.
+    tekst_elev: >-
+      Del området under grafen i smale rektangel. Tek du høgda frå det lågaste punktet i
+      kvar stripe, får du eit underslag (undersum, i nokre lærebøker «nedre trappesum»). Tek du det høgaste, får
+      du eit overslag (oversum, «øvre trappesum»). Meir smale rektangel gir betre svar.
+    doeme: >-
+      $f(x) = x^2$ på $[0, 2]$ med $n = 4$, $\Delta x = 0{,}5$. Undersum: $0{,}5 \cdot (0^2 + 0{,}5^2 + 1^2 + 1{,}5^2) = 1{,}75$.
+      Oversum: $0{,}5 \cdot (0{,}5^2 + 1^2 + 1{,}5^2 + 2^2) = 3{,}75$. Med $n = 100$ er undersum $2{,}6268$ og
+      oversum $2{,}7068$, og det eksakte arealet er $\frac{8}{3} \approx 2{,}6667$.
+    misoppfatning: >-
+      At venstre endepunkt alltid gir undersum og høgre alltid oversum. Det stemmer berre
+      for veksande funksjonar. For ein minkande funksjon er det omvendt.
+    byggjer_paa: [areal-geometri, sumteikn-rekkje]
+
+  - id: bestemt-integral
+    type: omgrep
+    nivaa: 1
+    namn: "Det bestemte integralet"
+    km: [km03]
+    kjerneelement: [abstraksjon, representasjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Det bestemte integralet $\int_a^b f(x)\,dx$ er definert som grensa til over- og undersummane
+      når breidda på rektangla går mot $0$ ($n \to \infty$). Dersom $f$ er kontinuerleg, nærmar over-
+      og undersummane seg same tal, og dette talet er integralet. Definisjonen seier
+      ingenting om antiderivasjon: det er fundamentalteoremet som koplar dei to. Tydinga
+      er «samla bidrag» frå a til b (areal, samla endring eller total mengd). Integralet er eit
+      tal, i motsetnad til det ubestemte integralet, som er ein funksjon. Km03 krev at
+      eleven forstår denne definisjonen, ikkje berre rekneprosedyren.
+    tekst_elev: >-
+      Det bestemte integralet frå $a$ til $b$ er talet som over- og undersummane nærmar seg
+      når rektangla blir uendeleg smale. Det er eit tal, ikkje ein funksjon, og det
+      samlar alt som $f(x)$ bidreg med frå $a$ til $b$.
+    doeme: >-
+      For $f(x) = x^2$ på $[0, 2]$ er undersummen med $n$ like store rektangel
+      $\dfrac{4}{3} \cdot \dfrac{(n - 1)(2n - 1)}{n^2}$. For $n = 4$ er han $1{,}75$, for $n = 100$ er han $2{,}6268$, for
+      $n = 1000$ er han $2{,}6627$. Han nærmar seg $\frac{8}{3}$, så $\int_0^2 x^2\,dx = \frac{8}{3}$.
+    misoppfatning: >-
+      At det bestemte integralet «berre er» eit rekneknep med antiderivert. Det er først
+      og fremst ei grense av summar. At det kan reknast med $F(b) - F(a)$, er eit resultat
+      (fundamentalteoremet).
+    byggjer_paa: [over-og-undersum, grenseverdi]
+
+  - id: integral-areal
+    type: forklaring
+    nivaa: 1
+    namn: "Integral som (forteikna) areal"
+    km: [km03]
+    kjerneelement: [representasjon, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Der $f(x) \ge 0$ er $\int_a^b f(x)\,dx$ arealet mellom grafen og $x$-aksen. Der $f(x) < 0$ gir
+      rektangla negative høgder, så integralet bidreg med minus arealet. Integralet er altså eit
+      forteikna areal, og areal over og under $x$-aksen kan ta ut kvarandre. For å finne
+      det totale arealet må ein dele intervallet ved nullpunkta og ta absoluttverdien av
+      kvar del. Eleven kan kontrollere enkle tilfelle med trekant- og trapesareal, og
+      bruke integralet der geometri ikkje strekk til.
+    tekst_elev: >-
+      Integralet tel areal over $x$-aksen som positivt og areal under $x$-aksen som
+      negativt. Vil du ha det totale arealet, må du dele ved nullpunkta og rekne kvar bit for seg.
+    doeme: >-
+      $f(x) = x - 2$ på $[0, 4]$: trekanten under aksen har areal $2$ og trekanten over har
+      areal $2$. Då er $\int_0^4 (x - 2)\,dx = -2 + 2 = 0$, men det totale arealet er $4$.
+    misoppfatning: >-
+      At eit integral alltid er eit areal og dermed positivt. $\int_0^4 (x - 2)\,dx = 0$ betyr ikkje
+      at det ikkje finst noko areal, men at det positive og det negative arealet tek
+      ut kvarandre.
+    byggjer_paa: [bestemt-integral, areal-geometri]
+
+  # --- km04: fundamentalteoremet ---
+
+  - id: fundamentalteoremet
+    type: omgrep
+    nivaa: 1
+    namn: "Analysens fundamentalteorem"
+    km: [km04]
+    kjerneelement: [abstraksjon, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Teoremet har to delar for ein kontinuerleg $f$ på $[a, b]$. (1) Arealfunksjonen
+      $G(x) = \int_a^x f(t)\,dt$ er deriverbar med $G'(x) = f(x)$, så $G$ er ein antiderivert av $f$.
+      (2) For kvar antiderivert $F$ av $f$ er $\int_a^b f(x)\,dx = F(b) - F(a) = [F(x)]_a^b$. Km04
+      krev at eleven kan gjere rede for teoremet, altså argumentere for ideen, ikkje
+      nødvendigvis føre eit fullt bevis. Ideen: $G(x + h) - G(x)$ er arealet av ein smal
+      stripe med breidde $h$ og høgd om lag $f(x)$, så $\dfrac{G(x + h) - G(x)}{h} \approx f(x)$. Når $h \to 0$,
+      blir dette $G'(x) = f(x)$, og her trengs kontinuitet. Del 2 følgjer fordi to antideriverte
+      skil seg med ein konstant, og $G(a) = 0$.
+    tekst_elev: >-
+      Arealet under grafen og antiderivasjon er to sider av same sak. Aukar du $x$ litt, legg
+      du til ein smal stripe med areal om lag $f(x) \cdot h$. Derfor er den deriverte til arealet
+      lik $f(x)$, og $\int_a^b f(x)\,dx = F(b) - F(a)$.
+    doeme: >-
+      $f(x) = 2x$. Arealfunksjonen frå $1$ er $G(x) = \int_1^x 2t\,dt = x^2 - 1$, og $G'(x) = 2x = f(x)$.
+      Dessutan er $\int_1^3 2x\,dx = [x^2]_1^3 = 9 - 1 = 8$. Det er lik trapesarealet $\dfrac{2 + 6}{2} \cdot 2 = 8$.
+    misoppfatning: >-
+      At arealfunksjonen $G$ og den antideriverte $F$ er den same funksjonen. Dei skil seg
+      med ein konstant: $G(a) = 0$ per definisjon, men $F(a)$ kan vere kva som helst.
+    byggjer_paa: [bestemt-integral, antiderivert, kontinuitet]
+
+  - id: konsekvensar-fundamentalteoremet
+    type: forklaring
+    nivaa: 2
+    namn: "Konsekvensar av fundamentalteoremet"
+    km: [km04]
+    kjerneelement: [resonnering, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Km04 ber om konsekvensar av teoremet. Viktigast: (1) Integralet kan reknast ut
+      utan å ta grensa av summar: $\int_a^b f(x)\,dx = F(b) - F(a)$, og konstanten $C$ forsvinn.
+      (2) Brukt på ein deriverbar $f$ med kontinuerleg $f'$ gir det $\int_a^b f'(x)\,dx = f(b) - f(a)$:
+      integralet av vekstfarten er samla endring. (3) Kvar kontinuerleg funksjon har ein
+      antiderivert, nemleg arealfunksjonen. (4) Reglar for bestemte integral: $\int_a^b = -\int_b^a$ og
+      $\int_a^c = \int_a^b + \int_b^c$. Eleven bør kunne gjere rede for minst (1) og (2) og vise at
+      derivasjon og integrasjon opphevar kvarandre.
+    tekst_elev: >-
+      Fundamentalteoremet gir ein snarveg: du treng ikkje summar, berre ein antiderivert.
+      Integrerer du vekstfarten $f'$, får du samla endring $f(b) - f(a)$. Derivasjon og
+      integrasjon opphevar kvarandre.
+    doeme: >-
+      $f(x) = x^3 - 3x$ har $f'(x) = 3x^2 - 3$. Då er $\int_0^2 (3x^2 - 3)\,dx = [x^3 - 3x]_0^2 = (8 - 6) - 0 = 2$.
+      Det er nett $f(2) - f(0)$: endringa i $f$ frå $x = 0$ til $x = 2$.
+    misoppfatning: >-
+      At $\int_a^b f'(x)\,dx$ er lik $f(b)$. Det er endringa $f(b) - f(a)$. Gløymer ein å trekkje frå
+      $f(a)$, får ein startverdien med i svaret.
+    byggjer_paa: [fundamentalteoremet, integrasjonsreglar]
+
+  # --- km03/km05: utrekning og bruk ---
+
+  - id: rekne-bestemt-integral
+    type: prosedyre
+    nivaa: 2
+    namn: "Rekne ut bestemte integral"
+    km: [km03, km04]
+    kjerneelement: [utforsking, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Prosedyre: (1) finn ein antiderivert $F$ til $f$ utan konstant, (2) skriv $[F(x)]_a^b$,
+      (3) rekn ut $F(b) - F(a)$ med parentesar, (4) kontroller digitalt, i GeoGebra med
+      `Integral(f, a, b)`. Konstanten $C$ kan droppast, for han forsvinn i differansen.
+      Feil kjem som regel av forteiknsfeil når $F(a)$ er negativ, eller av at ein brukar
+      $F(a) - F(b)$. Meir komplekse tilfelle kan eleven gjere med CAS.
+    tekst_elev: >-
+      Finn ein antiderivert $F$. Set inn øvre grense, set inn nedre grense, og trekk frå:
+      $F(b) - F(a)$. Bruk parentesar. Kontroller med `Integral` i GeoGebra.
+    doeme: >-
+      $\int_0^2 (3x^2 - 4x + 5)\,dx = [x^3 - 2x^2 + 5x]_0^2 = (8 - 8 + 10) - 0 = 10$. Og
+      $\int_0^1 e^{2x}\,dx = \left[\dfrac{e^{2x}}{2}\right]_0^1 = \dfrac{e^2 - 1}{2} \approx 3{,}19$.
+    misoppfatning: >-
+      Å rekne $F(a) - F(b)$ i staden for $F(b) - F(a)$, eller å miste forteikn når $F(a)$ er
+      negativ. Set ein $F(1) = -3$ inn utan parentesar, blir $F(2) - F(1)$ feilaktig
+      rekna som $F(2) - 3$.
+    byggjer_paa: [fundamentalteoremet, integrasjonsreglar]
+
+  - id: areal-mellom-grafar
+    type: prosedyre
+    nivaa: 2
+    namn: "Areal mellom to grafar"
+    km: [km03, km05]
+    kjerneelement: [utforsking, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Er $f(x) \ge g(x)$ på $[a, b]$, er arealet mellom grafane $\int_a^b (f(x) - g(x))\,dx$. Grensene er
+      som regel skjeringspunkta, funne ved å løyse $f(x) = g(x)$ (eller `Skjering` i
+      GeoGebra). Skisse først: den øvste grafen kjem først i differansen. Kryssar grafane
+      innanfor intervallet, må ein dele ved skjeringspunkta og rekne kvar del for seg,
+      elles tek positive og negative bidrag ut kvarandre, slik som for areal under
+      $x$-aksen.
+    tekst_elev: >-
+      Teikn grafane. Finn skjeringspunkta, dei er grensene. Integrer «øvste minus nedste».
+      Kryssar grafane inne i området, må du dele opp og rekne kvar del for seg.
+    doeme: >-
+      $f(x) = 4 - x^2$ og $g(x) = x + 2$ skjer kvarandre i $x = -2$ og $x = 1$, med $f$ øvst. Arealet er
+      $\int_{-2}^{1} (2 - x - x^2)\,dx = \left[2x - \dfrac{x^2}{2} - \dfrac{x^3}{3}\right]_{-2}^{1} = 4{,}5$.
+    misoppfatning: >-
+      Å integrere $f - g$ over eit intervall der grafane kryssar. For $f(x) = x$ og $g(x) = -x$
+      på $[-1, 1]$ gir $\int 2x\,dx = 0$, men arealet mellom linjene er $2$.
+    byggjer_paa: [rekne-bestemt-integral, integral-areal]
+
+  - id: gjennomsnitt-funksjon
+    type: prosedyre
+    nivaa: 2
+    namn: "Gjennomsnittsverdi til ein funksjon"
+    km: [km03, km05]
+    kjerneelement: [modellering, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Gjennomsnittsverdien til ein kontinuerleg funksjon $f$ på $[a, b]$ er
+      $\bar{f} = \dfrac{1}{b - a}\int_a^b f(x)\,dx$. Tydinga: rektangelet med breidde $b - a$ og
+      høgd $\bar{f}$ har same areal som området under grafen. Det er det kontinuerlege
+      motstykket til gjennomsnittet av endeleg mange tal, og det er ikkje det same som
+      gjennomsnittet av endepunktverdiane $\frac{f(a) + f(b)}{2}$ (det er berre rett for ein lineær
+      funksjon). Brukt på ein vekstfart gir det gjennomsnittleg vekstfart,
+      $\frac{f(b) - f(a)}{b - a}$, for $\int_a^b f'(x)\,dx = f(b) - f(a)$. Eleven må halde fast på
+      eininga: gjennomsnittet har same eining som $f$, medan integralet har eininga til $f$
+      gonga med eininga til $x$.
+    tekst_elev: >-
+      Gjennomsnittet av $f$ på $[a, b]$ er $\bar{f} = \dfrac{1}{b - a}\int_a^b f(x)\,dx$. Du reknar ut
+      integralet og deler på lengda av intervallet.
+    doeme: >-
+      Temperaturen i løpet av eit døgn er $T(t) = -0{,}05t^2 + 1{,}2t + 4$ grader, der $t$ er timar
+      frå midnatt. Då er $\int_0^{24} T(t)\,dt = 211{,}2$, så gjennomsnittstemperaturen er
+      $\bar{T} = \dfrac{211{,}2}{24} = 8{,}8$ grader. Høgast er det $T(12) = 11{,}2$ grader.
+    misoppfatning: >-
+      At gjennomsnittet er snittet av verdiane i endepunkta. I dømet er $T(0) = T(24) = 4$, så
+      endepunkta gir $4$ grader, men gjennomsnittet over døgnet er $8{,}8$ grader. Nokon
+      gløymer òg å dele på $b - a$ og oppgir integralet $211{,}2$ som gjennomsnitt.
+    byggjer_paa: [rekne-bestemt-integral, integral-areal]
+
+  - id: integral-akkumulert-endring
+    type: forklaring
+    nivaa: 1
+    namn: "Integral som samla endring"
+    km: [km03, km05]
+    kjerneelement: [modellering, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Er $f'(x)$ ein vekstfart, gir $\int_a^b f'(x)\,dx = f(b) - f(a)$ den samla endringa i $f$ frå $a$ til $b$.
+      Eininga til integralet er eininga til vekstfarten gonga med eininga til $x$-aksen
+      (liter per minutt $\cdot$ minutt = liter). Dette er den viktigaste anvendinga av
+      integralet i km05: frå ein rate til ein total. Eleven må skilje endring frå
+      verdi: for å finne verdien ved b, må ein leggje til startverdien $f(a)$. Tolkinga
+      byggjer på konsekvensane av fundamentalteoremet, og areal i denne samanhengen er «rate $\cdot$ tid».
+    tekst_elev: >-
+      Fortel funksjonen kor fort noko endrar seg, gir integralet kor mykje det har endra
+      seg til saman. Rate $\cdot$ tid = endring. Vil du ha sluttverdien, må du leggje til startverdien.
+    doeme: >-
+      Vatn renn inn i tanken med $V'(t) = 0{,}5t + 2$ liter per minutt. Dei første 10 minutta er
+      endringa $\int_0^{10} (0{,}5t + 2)\,dt = [0{,}25t^2 + 2t]_0^{10} = 45$ liter. Det stemmer med trapesarealet
+      $\dfrac{2 + 7}{2} \cdot 10 = 45$. Var det 100 liter i tanken ved $t = 0$, er det 145 liter ved $t = 10$.
+    misoppfatning: >-
+      At integralet av ein vekstfart gir verdien til funksjonen. Det gir endringa. Ved $t = 10$
+      er mengda $100 + 45 = 145$ liter, ikkje $45$.
+    byggjer_paa: [konsekvensar-fundamentalteoremet, vekstfart, integral-areal]
+
+  - id: numerisk-integrasjon
+    type: prosedyre
+    nivaa: 2
+    namn: "Numerisk integrasjon med digitale verktøy"
+    km: [km03]
+    kjerneelement: [utforsking, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Ikkje alle funksjonar har ein antiderivert som kan skrivast med kjende funksjonar,
+      til dømes $e^{-x^2}$. Integralet finst likevel, og ein kan finne det tilnærma med
+      rektangelsum (eit rekneark eller eit kort Python-program) eller `Integral(f, a, b)` i
+      GeoGebra. Ein rektangelsum med midtpunktet som høgd er ofte mykje betre enn venstre
+      eller høgre endepunkt. Trapesmetoden deler området i trapes i staden for rektangel og
+      tek gjennomsnittet av venstre og høgre høgd i kvar stripe; i GeoGebra gir
+      `TrapesSum(f, a, b, n)` summen av trapesa (NDLA brukar denne, og `SumUnder` for
+      rektangel). Eleven bør sjå korleis svaret stabiliserer seg når $n$ aukar,
+      og sjå at over- og undersum innrammar verdien. Her blir definisjonen av det bestemte
+      integralet brukt direkte, og trapesarealet frå geometrien blir brukt i trapesmetoden.
+    tekst_elev: >-
+      Finst det ingen enkel antiderivert, kan du la datamaskinen rekne ut ein sum av mange
+      smale rektangel eller trapes (`TrapesSum` i GeoGebra). Test med fleire stripar og sjå
+      at svaret stabiliserer seg.
+    doeme: >-
+      $\int_0^1 e^{-x^2}\,dx$ har ingen enkel antiderivert. Midtpunktsum med $n = 4$ gir $0{,}7487$ og med
+      $n = 100$ gir $0{,}7468$. Trapesmetoden gir $0{,}7430$ med $n = 4$ og $0{,}7468$ med $n = 100$.
+      Undersum og oversum med $n = 100$ er $0{,}7437$ og $0{,}7500$, så verdien
+      ligg mellom dei. `Integral(f, 0, 1)` i GeoGebra gir om lag same verdi.
+    misoppfatning: >-
+      At ein funksjon utan enkel antiderivert ikkje kan integrerast. Integralet finst for
+      kvar kontinuerleg funksjon. Ein stoler òg ofte på ein sum med få rektangel utan
+      å teste med større $n$.
+    byggjer_paa: [over-og-undersum, bestemt-integral, areal-geometri]

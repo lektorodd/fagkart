@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fagkart/kjelde-klynge",
+  "title": "Klyngjefil (inkl. forkunnskap.yaml)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["klynge", "namn", "nodar"],
+  "$defs": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "slugs": {"type": "array", "items": {"$ref": "#/$defs/slug"}},
+    "tekst": {"type": ["string", "null"]}
+  },
+  "properties": {
+    "klynge": {"$ref": "#/$defs/slug"},
+    "namn": {"type": "string", "minLength": 1},
+    "nodar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "namn"],
+        "properties": {
+          "id": {"$ref": "#/$defs/slug"},
+          "type": {"enum": ["omgrep", "prosedyre", "forklaring", "representasjon"]},
+          "namn": {"type": "string", "minLength": 1},
+          "km": {"type": "array", "items": {"type": "string", "pattern": "^km[0-9]{2}$"}},
+          "kjerneelement": {"$ref": "#/$defs/slugs"},
+          "verbnivaa": {"enum": ["kjenne_til", "bruke", "forklare", "vurdere", null]},
+          "tekst_laerar": {"$ref": "#/$defs/tekst"},
+          "tekst_elev": {"$ref": "#/$defs/tekst"},
+          "doeme": {"$ref": "#/$defs/tekst"},
+          "misoppfatning": {"$ref": "#/$defs/tekst"},
+          "berre_laerar": {"type": "array", "items": {"type": "string"}},
+          "byggjer_paa": {"$ref": "#/$defs/slugs"},
+          "brukar": {"$ref": "#/$defs/slugs"},
+          "doeme_paa": {"$ref": "#/$defs/slugs"},
+          "forvekslast_med": {"$ref": "#/$defs/slugs"},
+          "representerast_som": {"$ref": "#/$defs/slugs"},
+          "forkunnskap": {
+            "type": "object",
+            "additionalProperties": {"enum": ["ja", "delvis", "nei"]}
+          },
+          "sist_sett": {"type": "string"},
+          "nivaa": {"enum": [1, 2]},
+          "forkjennskap": {
+            "type": "object",
+            "additionalProperties": {"enum": ["ja", "delvis", "nei"]}
+          },
+          "pos": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "y"],
+            "properties": {"x": {"type": "number"}, "y": {"type": "number"}}
+          },
+          "utgaatt": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

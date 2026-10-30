@@ -1,0 +1,19 @@
+klynge: forkunnskap
+namn: Forkunnskap
+nodar:
+  - id: tal
+    type: omgrep
+    namn: Tal og rekning
+    forkunnskap: {1P: ja, 1T: ja}
+    tekst_laerar: "Dei fire rekneartane med heile tal og desimaltal."
+    tekst_elev: "Du kan leggje saman, trekkje frå, gonge og dele."
+    doeme: "3,5 + 2,25 = 5,75"
+    misoppfatning: "Gonging gjer alltid talet større."
+  - id: brok
+    type: omgrep
+    namn: Brøk
+    forkunnskap: {1P: delvis, 1T: ja}
+    tekst_laerar: "Brøk som del av ein heil og som deling."
+    tekst_elev: "Ein brøk er ein del av ein heil."
+    doeme: "3/4 av 20 er 15."
+    misoppfatning: "Store nemnarar gjer brøken større."

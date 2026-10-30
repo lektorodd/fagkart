@@ -1,0 +1,58 @@
+loeyper:
+  - id: repetisjon-eksamen
+    namn: Repetisjon til eksamen
+    skildring: Kjernen i alle tema i faget, frå rekkjer til hypotesetesting, i den rekkjefølgja det løner seg å ta han att før eksamen.
+    nodar:
+      - geometrisk-rekkje
+      - sum-geometrisk
+      - uendeleg-geometrisk-rekkje
+      - rekker-oekonomi
+      - produkt-kvotient-kjerneregel
+      - derivere-eksp-ln
+      - antiderivert
+      - integrasjonsreglar
+      - bestemt-integral
+      - fundamentalteoremet
+      - krumming-vendepunkt
+      - logistisk-vekst
+      - forventningsverdi
+      - reknereglar-forventning-varians
+      - grensekostnad
+      - optimal-produksjon
+      - normalfordeling
+      - sentralgrensesetninga
+      - hypotesar
+      - binomisk-test
+  - id: fraa-s1
+    namn: Kom i gang frå S1
+    skildring: Dette er det frå S1 og grunnskulen du kanskje berre delvis har med deg, eller ikkje har sett før, og stadene i S2 der du treng det.
+    maalgruppe: [1P-S1, 1T-S1]
+    nodar:
+      - programmering
+      - talet-e-ln
+      - gjennomsnitt-standardavvik-data
+      - rekursjon-programmering
+      - derivere-eksp-ln
+      - integrasjonsreglar
+      - eksponentiell-vekst
+      - logistisk-funksjon
+      - vekstmodell-data
+      - forventningsverdi
+      - gjennomsnitt-utval
+  - id: integrasjon-tre-veker
+    namn: Integrasjon på tre veker
+    skildring: Heile integrasjonen steg for steg, frå over- og undersummar til delvis integrasjon.
+    nodar:
+      - over-og-undersum
+      - bestemt-integral
+      - integral-areal
+      - numerisk-integrasjon
+      - antiderivert
+      - integrasjonsreglar
+      - fundamentalteoremet
+      - konsekvensar-fundamentalteoremet
+      - rekne-bestemt-integral
+      - areal-mellom-grafar
+      - integral-akkumulert-endring
+      - integrasjonsteknikkar
+      - delvis-integrasjon

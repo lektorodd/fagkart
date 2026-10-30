@@ -1,0 +1,283 @@
+klynge: vekstmodellar
+namn: Eksponentiell og logistisk vekst
+nodar:
+
+  # Gjennomgåande døme (alle tal er rekna ut):
+  #   eksponentiell: N(t) = 500 · 1,2ᵗ = 500 · e^(0,182t) (bakteriekultur, t i timar)
+  #   logistisk:     N(t) = 1200 / (1 + 11·e^(−0,4t)) (konstruert fiskebestand, t i år)
+  # Notasjon: eksponentiell a·bᵗ (a = start, b = vekstfaktor), e-forma a·e^(kt) med k = ln b.
+  # Logistisk bruker B (bæreevne), c og k, så a held fast tydinga «startverdi».
+  #                  N(0) = 100, vendepunkt ved t ≈ 6,0 og N = 600, største vekstfart 120 per år
+
+  # --- km06: eksponentiell og logistisk vekst i reelle datasett ---
+
+  - id: eksponentiell-vekst
+    type: omgrep
+    nivaa: 1
+    namn: "Eksponentiell vekst"
+    km: [km06]
+    kjerneelement: [modellering, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: delvis, 1T-S1: delvis}
+    tekst_laerar: >-
+      Eksponentiell vekst er konstant prosentvis endring per tidseining: $f(t) = a \cdot b^t$,
+      der $a$ er startverdien og $b$ er vekstfaktoren ($b > 1$ gir vekst, $0 < b < 1$ gir
+      nedgang). Same funksjon kan skrivast i e-forma $f(t) = a \cdot e^{kt}$ med $k = \ln b$, for
+      $b^t = e^{t \cdot \ln b}$; $k > 0$ gir vekst og $k < 0$ nedgang. Vekstfarten er proporsjonal med
+      verdien, $f'(t) = k \cdot f(t) = \ln b \cdot f(t)$, så den absolutte veksten aukar medan den
+      relative veksten er den same heile tida. Fordoblingstida $T = \frac{\ln 2}{\ln b} = \frac{\ln 2}{k}$
+      er uavhengig av startverdien. Forma $a \cdot b^t$, vekstfaktor og eksponentiallikning
+      er S1-stoff, og elevane har òg sett omskrivinga $a^x = e^{x \ln a}$. Det nye i S2 er
+      å bruke e-forma og $f' = k \cdot f$ i modellar, å bruke modellen på reelle datasett og å
+      vurdere kor lenge han kan gjelde. Ubegrensa vekst
+      er urimeleg i dei fleste system, og det motiverer den logistiske modellen. Vekstlova
+      $f' = k \cdot f$ gir òg ein steg-for-steg-metode, $\Delta N \approx \Delta t \cdot k \cdot N$
+      (Eulers metode).
+    tekst_elev: >-
+      Eksponentiell vekst betyr at verdien veks med same prosent kvar tidseining. Då blir
+      auken i tal stadig større. Modellen er $f(t) = a \cdot b^t$, der $a$ er startverdien og $b$ er vekstfaktoren. Same
+      funksjon kan skrivast $f(t) = a \cdot e^{kt}$ med $k = \ln b$.
+    doeme: >-
+      Ein bakteriekultur har 500 bakteriar og veks med 20 % per time: $N(t) = 500 \cdot 1{,}2^t$.
+      I e-forma er $k = \ln 1{,}2 \approx 0{,}182$, så $N(t) = 500 \cdot e^{0{,}182t}$. Etter 5 timar er
+      $N(5) \approx 1244$, og veksten er $N'(5) = \ln 1{,}2 \cdot 1244 \approx 227$ bakteriar per time.
+      Fordoblingstida er $\frac{\ln 2}{\ln 1{,}2} \approx 3{,}8$ timar.
+    misoppfatning: >-
+      At konstant prosentvis vekst betyr at talet aukar like mykje kvar time. Frå time 5
+      til 6 aukar kulturen med 249 bakteriar, men første timen berre med 100.
+    byggjer_paa: [eksponentialfunksjon, prosent-vekstfaktor, eksponentiallikning, derivere-eksp-ln, talet-e-ln]
+
+  - id: logistisk-vekst
+    type: omgrep
+    nivaa: 1
+    namn: "Logistisk vekst"
+    km: [km06]
+    kjerneelement: [modellering, abstraksjon, representasjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Logistisk vekst startar nesten som eksponentiell vekst, men bremsar når bestanden
+      nærmar seg ei øvre grense, bæreevna $B$, fordi ressursar som mat, plass eller
+      marknad er avgrensa. Grafen er S-forma: vekstfarten aukar først, er størst i
+      vendepunktet og avtek deretter mot null, medan $N(t)$ nærmar seg $B$ utan å nå han.
+      I S2 skal modellen brukast og tolkast med regresjon (RegLogist i GeoGebra), ikkje
+      utleiast frå differensiallikningar. Det som blir vurdert, er å sjå kva fase
+      dataa viser (tidleg, midt i, metning) og kva modell som då er rimeleg. Vekstlova
+      $N' = k \cdot N \cdot \left(1 - \frac{N}{B}\right)$ kan òg brukast til å rekne ut bestanden steg for steg
+      (Eulers metode), utan at ein kjenner formelen for $N(t)$.
+    tekst_elev: >-
+      Logistisk vekst startar som eksponentiell vekst, men bremsar og nærmar seg eit tak.
+      Grafen får ei S-form. Taket kallar vi bæreevna, og vi skriv det $B$.
+    doeme: >-
+      Ein konstruert fiskebestand i eit vatn: $N(t) = \frac{1200}{1 + 11 \cdot e^{-0{,}4t}}$, $t$ i år.
+      $N(0) = 100$, $N(4) \approx 373$, $N(8) \approx 829$ og $N(16) \approx 1178$. Bestanden nærmar seg $1200$ utan
+      å nå han.
+    misoppfatning: >-
+      At veksten stoppar brått når bestanden når bæreevna. Bremsinga skjer gradvis: ved
+      $t = 10$ er $N \approx 999$, og ved $t = 16$ er bestanden framleis $22$ under $B$.
+    byggjer_paa: [eksponentiell-vekst, baereevne]
+    representerast_som: [logistisk-funksjon]
+    forvekslast_med: [eksponentiell-vekst]
+
+  - id: baereevne
+    type: omgrep
+    nivaa: 2
+    namn: "Bæreevne"
+    km: [km06]
+    kjerneelement: [modellering, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Bæreevna $B$ er den øvre grensa bestanden nærmar seg: grenseverdien til $N(t)$ når
+      $t \to \infty$, altså ein horisontal asymptote $y = B$. Ho er sett av ressursane i systemet.
+      Vi skriv $B$ og ikkje $K$, fordi $K$ er kostnad i økonomiklynga. Når $N(0) < B$ (altså $c > 0$
+      i den logistiske funksjonen) er $N(t) < B$ for alle $t$, så $B$ er aldri ein verdi
+      bestanden faktisk når. I regresjon er $B$ ein parameter som
+      verktøyet estimerer, og eleven skal vurdere om verdien er rimeleg i situasjonen. Her
+      byggjer noden på grenseverdi og horisontal asymptote frå S1.
+    tekst_elev: >-
+      Bæreevna $B$ er det høgste bestanden kan nærme seg med dei ressursane som finst.
+      Grafen nærmar seg linja $y = B$, men kjem aldri heilt opp til ho.
+    doeme: >-
+      Fiskevatnet har $B = 1200$. $N(16) \approx 1178$ og $N(30) \approx 1199{,}9$, så bestanden kjem stadig
+      nærmare $1200$ utan å nå han. Blir det sett ut meir mat eller vatnet blir større, kan
+      $B$ bli $1800$, og modellen må tilpassast på nytt.
+    misoppfatning: >-
+      At bæreevna er ein fast naturkonstant. $B$ er ein parameter i modellen og endrar seg
+      når føresetnadene endrar seg, til dømes ressursar, areal eller konkurranse.
+    byggjer_paa: [grenseverdi]
+
+  - id: logistisk-funksjon
+    type: representasjon
+    nivaa: 2
+    namn: "Den logistiske funksjonen"
+    km: [km06]
+    kjerneelement: [representasjon, abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Den logistiske funksjonen er $N(t) = \frac{B}{1 + c \cdot e^{-kt}}$. $B$ er bæreevna, $k > 0$ styrer
+      kor raskt kurva stig, og $c > 0$ festar startverdien: $N(0) = \frac{B}{1 + c}$, så
+      $c = \frac{B - N(0)}{N(0)}$. Vi skriv $c$ og ikkje $a$, for $a$ er startverdien i
+      eksponentialmodellen $a \cdot b^t$. Vendepunktet ligg ved $t = \frac{\ln c}{k}$, der $N = \frac{B}{2}$.
+      Uttrykket frå `RegLogist` kan bruke andre bokstavar enn $B$, $c$ og $k$, så eleven må lese
+      av kva parameter som er kva. Ei utleiing av formelen er ikkje venta.
+    tekst_elev: >-
+      $N(t) = \frac{B}{1 + c \cdot e^{-kt}}$. $B$ er taket. Startverdien er $N(0) = \frac{B}{1 + c}$. Talet
+      $k$ seier kor fort kurva stig.
+    doeme: >-
+      $B = 1200$, $c = 11$ og $k = 0{,}4$ gir $N(0) = \frac{1200}{12} = 100$. Då er $c = \frac{1200 - 100}{100} = 11$. Etter 10 år er $N(10) = \frac{1200}{1 + 11 \cdot e^{-4}} \approx 999$.
+    misoppfatning: >-
+      At $c$ er startverdien. I dømet er $c = 11$, men $N(0) = 100$. Startverdien er $\frac{B}{1 + c}$.
+    byggjer_paa: [baereevne, eksponentialfunksjon, talet-e-ln, algebraiske-broekuttrykk]
+
+  - id: maks-vekstfart-logistisk
+    type: forklaring
+    nivaa: 2
+    namn: "Størst vekstfart ved halv bæreevne"
+    km: [km06]
+    kjerneelement: [resonnering, modellering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Vekstfarten $N'(t)$ er størst i vendepunktet til $N$, der $N = \frac{B}{2}$ og $t = \frac{\ln c}{k}$. Då er
+      $N' = \frac{kB}{4}$. Grafen er punktsymmetrisk om vendepunktet. Eit argument som elevane kan
+      følgje: med CAS (som deriverer eksponentialuttrykket, jamfør derivere-eksp-ln) kan
+      ein vise at $N' = k \cdot N \cdot \left(1 - \frac{N}{B}\right)$, eit produkt som, sett som funksjon av $N$, er
+      ein parabel med toppunkt ved $N = \frac{B}{2}$. Alternativt finn ein det digitalt
+      som ekstremalpunktet til $N'$ eller nullpunktet til den andrederiverte. Dette er ein
+      eigenskap ved funksjonen, ikkje differensiallikningsteori. Tolking: eit uttak frå ein
+      bestand gir størst fornying når bestanden er om lag halve bæreevna.
+    tekst_elev: >-
+      Bestanden veks raskast når han har nådd halve bæreevna, $N = \frac{B}{2}$. Det er
+      vendepunktet på S-kurva. Etter det bremsar veksten.
+    doeme: >-
+      For $N(t) = \frac{1200}{1 + 11 \cdot e^{-0{,}4t}}$ er vendepunktet ved $t = \frac{\ln 11}{0{,}4} \approx 6{,}0$ år,
+      der $N = 600$. Største vekstfart er $\frac{0{,}4 \cdot 1200}{4} = 120$ fisk per år. Til samanlikning
+      er $N'(2) \approx 67$ og $N'(10) \approx 67$.
+    misoppfatning: >-
+      At veksten er størst i starten, fordi bestanden då veks raskast i prosent. Relativ
+      vekst er størst ved start (om lag $0{,}37$ per år), men $N'(0) \approx 37$ fisk per år mot $120$
+      ved $t = 6$.
+    byggjer_paa: [logistisk-funksjon, derivere-eksp-ln, krumming-vendepunkt, funksjonsdroefting-s1]
+
+  - id: velje-modell
+    type: prosedyre
+    nivaa: 2
+    namn: "Velje modelltype og vurdere gyldigheitsområde"
+    km: [km06]
+    kjerneelement: [modellering, resonnering, utforsking]
+    verbnivaa: vurdere
+    forkjennskap: {1P-S1: delvis, 1T-S1: delvis}
+    tekst_laerar: >-
+      Prosedyre: vel mellom lineær, andregrads-, tredjegrads-, potens-, eksponentiell og logistisk
+      modell ut frå både data og samanheng. Frå data: sjå på spreiingsdiagrammet og på differansane
+      mellom etterfølgjande $y$-verdiar (jamne $x$-steg). Konstante differansar gir lineær modell,
+      konstante andre differansar gir andregradsmodell, og konstante kvotientar $y_{i+1}/y_i$ gir
+      eksponentiell modell. S-form som flatar ut gir logistisk modell. Frå samanhengen: kva fysisk eller
+      økonomisk grunn finst for forma, og kan storleiken bli negativ eller ubegrensa? Forklaringsgrad
+      $R^2$ er ikkje nok åleine, for fleire modellar kan passe godt, og residualane ($y$ minus modellverdi)
+      bør ikkje vise eit mønster. Deretter vurderer ein gyldigheitsområdet (i nokre lærebøker: «gyldighetsområde»):
+      kva for $x$-verdiar modellen er rimeleg for. Å interpolere (rekne mellom målepunkta) er som regel
+      trygt, å ekstrapolere (rekne utanfor) er usikkert og må grunngivast. Lineær og polynomregresjon er kjent
+      frå 1P/1T og S1; det nye i S2 er å velje mellom alle desse og dei to vekstmodellane og å vurdere
+      gyldigheit.
+    tekst_elev: >-
+      Sjå på punkta og på samanhengen. Rett linje, kurve med ein topp, jamn prosentvis vekst eller S-form
+      peikar på ulike modellar. Sjekk $R^2$ og avviket frå punkta. Spør kva modellen gir utanfor punkta, og
+      om det er rimeleg.
+    doeme: >-
+      Konstruerte måledata for stopplengd $s$ (meter) ved fart $v$ (km/t): $(30, 12)$, $(50, 26)$, $(70, 44)$,
+      $(90, 67)$, $(110, 94)$. Differansane $14, 18, 23, 27$ er ikkje konstante, men andre differansar
+      $4, 5, 4$ er nesten like, så andregradsmodell er eit godt gjetta val. Lineær regresjon gir
+      $s \approx 1{,}025v - 23{,}15$ med $R^2 \approx 0{,}984$, men residualane $4{,}4$, $-2{,}1$, $-4{,}6$, $-2{,}1$, $4{,}4$ viser
+      eit mønster, og modellen gir $-23{,}15$ m ved $v = 0$. Andregrad gir
+      $s \approx 0{,}00554v^2 + 0{,}25v - 0{,}45$ med $R^2 \approx 0{,}99999$, og han passar med samanhengen
+      (reaksjonsveg pluss bremseveg). Potensmodellen $s \approx 0{,}0543 \cdot v^{1{,}58}$ passar òg bra
+      ($R^2 \approx 0{,}999$). Ved ekstrapolering til $v = 140$ gir andregrad $143$ m og potens $135$ m, så svaret er usikkert.
+    misoppfatning: >-
+      At modellen med høgast $R^2$ er den rette. Den lineære modellen over har $R^2 \approx 0{,}984$ og
+      ser god ut, men gir negativ stopplengd for $v < 22{,}6$ km/t. Òg at ein kan ekstrapolere like langt
+      som ein vil: modellen er berre sikker innanfor området dataa dekkjer.
+    byggjer_paa: [regresjon]
+
+  - id: vekstmodell-data
+    type: prosedyre
+    nivaa: 1
+    namn: "Lage og vurdere vekstmodellar frå reelle data"
+    km: [km06]
+    kjerneelement: [modellering, utforsking, representasjon]
+    verbnivaa: vurdere
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Prosedyre: teikn spreiingsdiagram, vel modelltype frå forma (eksponentiell: stadig
+      brattare med jamn relativ vekst; logistisk: S-form som flatar ut), gjer regresjon
+      (`RegEksp` eller `RegLogist` i GeoGebra), og vurder modellen. `RegEksp` gir forma
+      $a \cdot e^{bx}$, der $b$ svarar til $k$ i e-forma. Vekstfaktoren er då $e^b$, så
+      $a \cdot e^{0{,}329x}$ er det same som $a \cdot 1{,}39^x$, for $e^{0{,}329} \approx 1{,}39$. Vurderinga
+      omfattar passing mot punkta, forklaringsgrad (aldri åleine), om parametrane er
+      rimelege (er $B$ realistisk?) og kva modellen gir utanfor dataområdet. Deretter
+      analyserer ein: fordoblingstid, vekstfart, vendepunkt og bæreevne, alltid med
+      eining. Regresjon (lineær, potens og polynom) og eksponentialfunksjonar er S1-stoff;
+      det nye er eksponentiell og logistisk regresjon og vurderinga av kva som er rimeleg
+      ekstrapolasjon. Med store, reelle datasett kan ein òg tilpasse $a \cdot e^{bx}$ i
+      Python med `curve_fit` frå `scipy.optimize`, som alternativ til GeoGebra. Det generelle
+      valet mellom alle modelltypar, og omgrepa interpolere, ekstrapolere og gyldigheitsområde,
+      står i velje-modell.
+    tekst_elev: >-
+      Teikn punkta og sjå på forma. Vel eksponentiell eller logistisk modell og la GeoGebra
+      finne uttrykket. Sjekk om grafen passar, om B er rimeleg, og kva modellen seier
+      om framtida.
+    doeme: >-
+      Data $(t, N)$: $(0, 100)$, $(2, 202)$, $(4, 373)$, $(6, 601)$, $(8, 829)$, $(10, 999)$, $(12, 1100)$,
+      $(14, 1153)$, $(16, 1178)$. Ein eksponentiell modell på dei tre første punkta gir om lag
+      $101{,}5 \cdot 1{,}39^t$, og spår rundt $19\,600$ ved $t = 16$, mot $1178$ i dataa. `RegEksp` gir same modell som
+      $101{,}5 \cdot e^{0{,}329t}$, for $k = \ln 1{,}39 \approx 0{,}329$. Ei logistisk
+      tilpassing (`RegLogist`) til alle punkta gir om lag $B \approx 1199$, $c \approx 11{,}0$ og $k \approx 0{,}400$,
+      med vendepunkt ved $N \approx 600$.
+    misoppfatning: >-
+      At ein modell er rett fordi han passar godt til dei dataa ein har. Ein eksponentiell
+      modell kan passe dei første punkta svært godt og likevel vere meiningslaus
+      for framtida når veksten bremsar.
+    byggjer_paa: [regresjon, velje-modell, eksponentiell-vekst, logistisk-vekst, logistisk-funksjon, talet-e-ln]
+    brukar: [baereevne, maks-vekstfart-logistisk]
+
+  # --- km06/km02: modellering med programmering ---
+
+  - id: eulers-metode
+    type: prosedyre
+    nivaa: 1
+    namn: "Eulers metode: modellere vekst steg for steg"
+    km: [km06, km02]
+    kjerneelement: [modellering, utforsking]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Eulers metode reknar ut ein modell steg for steg ut frå vekstfarten, utan at ein treng ein formel
+      for funksjonen. Tangenten gir ei lita endring: $\Delta y \approx \Delta x \cdot f'(x)$. Frå
+      startpunktet $(x_0, y_0)$ går ein eit steg $\Delta x$ om gongen og oppdaterer $y$, altså ein
+      rekursiv formel $y_{i+1} = y_i + \Delta x \cdot f'(x_i)$ og $x_{i+1} = x_i + \Delta x$. Prosedyren heiter
+      «modelleringsalgoritme» i nokre lærebøker: (1) vel startpunkt, steglengd og antal steg, (2) rekn
+      vekstfarten i det punktet ein står i, (3) rekn $\Delta y$ og oppdater $y$ og $x$, (4) gjenta i ei
+      løkke i Python eller på ei rad i eit rekneark, (5) tolk resultatet og samanlikn med mindre
+      steg eller med den eksakte løysinga når ho finst. Formelarket skriv dei tre vekstmodellane
+      som endring: lineær $\Delta y = \Delta x \cdot a$ (eksakt, for vekstfarten er konstant),
+      eksponentiell $\Delta y \approx \Delta x \cdot k \cdot y$ og logistisk
+      $\Delta y \approx \Delta x \cdot k \cdot y \cdot \left(1 - \frac{y}{B}\right)$. I kartet står $N$ og $t$
+      for $y$ og $x$. Metoden gir ei tilnærming, og feilen minkar når steget blir mindre. Eleven
+      treng ikkje løyse ei differensiallikning, berre setje vekstlova inn i løkka.
+    tekst_elev: >-
+      Eulers metode finn nye punkt steg for steg. Frå $(x_0, y_0)$ går du eit lite steg $\Delta x$ og
+      legg til $\Delta y \approx \Delta x \cdot f'(x)$. Gjenta i ei løkke. Mindre steg gir betre svar.
+    doeme: >-
+      Logistisk vekst med $k = 0{,}4$, $B = 1200$ og $N(0) = 100$, steg $\Delta t = 2$ år. Første steg:
+      $\Delta N \approx 2 \cdot 0{,}4 \cdot 100 \cdot \left(1 - \frac{100}{1200}\right) \approx 73{,}3$, så
+      $N(2) \approx 173{,}3$. I Python gjer `N = N + 2*0.4*N*(1 - N/1200)` fem gonger at $N(10) \approx 931$. Eksakt
+      er $N(10) \approx 999$. Mindre steg gir betre svar: $\Delta t = 1$ gir $973$, $\Delta t = 0{,}5$ gir $987$ og
+      $\Delta t = 0{,}1$ gir $997$.
+    misoppfatning: >-
+      At store steg gir same svar som små, eller at metoden er eksakt. Med $\Delta t = 2$ er $N(10) \approx 931$,
+      heile $68$ under eksakt verdi. Ein annan feil er å rekne vekstfarten i det nye punktet i staden for i
+      startpunktet av steget.
+    byggjer_paa: [rekursiv-formel, vekstfart, programmering]
+    brukar: [eksponentiell-vekst, logistisk-vekst]

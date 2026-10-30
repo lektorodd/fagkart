@@ -1,0 +1,20 @@
+laereplan: TEST01
+namn: Testfag
+versjon: "1.0"
+kjelde: https://example.org/test01
+forkunnskapsfag: [1P, 1T]
+kjerneelement:
+  - id: utforsking
+    namn: Utforsking og problemløysing
+  - id: modellering
+    namn: Modellering
+kompetansemaal:
+  - id: km01
+    tekst: "berekne og tolke gjennomsnitt og varians i eit datasett"
+    verb: [berekne, tolke]
+    klynge: beskrivande
+    udir_kode: null
+  - id: km02
+    tekst: "bruke lineære modellar til å skildre samanhengar"
+    verb: [bruke, skildre]
+    klynge: modell

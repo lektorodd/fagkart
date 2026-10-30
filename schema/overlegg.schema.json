@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fagkart/overlegg",
+  "title": "Overlegg (fagkart-overlegg/1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "kart", "kartversjon", "namn", "skala"],
+  "$defs": {
+    "nodeId": {"type": "string", "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*/[a-z0-9]+(-[a-z0-9]+)*$"}
+  },
+  "properties": {
+    "format": {"const": "fagkart-overlegg/1"},
+    "kart": {"type": "string", "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$"},
+    "kartversjon": {"type": "string", "minLength": 1},
+    "namn": {"type": "string", "minLength": 1},
+    "type": {"enum": ["eigenvurdering", "dekning", "notat"]},
+    "oppdatert": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2}(\\.[0-9]+)?)?(Z|[+-][0-9]{2}:[0-9]{2})$"},
+    "skala": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "skala_namn": {
+      "description": "Kva verdiane i skala heiter på skjermen, t.d. {\"del1\": \"Del 1 (utan hjelpemiddel)\"}. Valfri; utan namn blir verdien vist.",
+      "type": "object",
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "merke": {
+      "type": "object",
+      "propertyNames": {"$ref": "#/$defs/nodeId"},
+      "additionalProperties": {"type": "string"}
+    },
+    "notat": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["node", "tekst"],
+        "properties": {"node": {"$ref": "#/$defs/nodeId"}, "tekst": {"type": "string"}}
+      }
+    },
+    "omraade": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["namn", "nodar"],
+        "properties": {
+          "namn": {"type": "string", "minLength": 1},
+          "nodar": {"type": "array", "items": {"$ref": "#/$defs/nodeId"}}
+        }
+      }
+    },
+    "eigne_kantar": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fra", "til"],
+        "properties": {
+          "fra": {"$ref": "#/$defs/nodeId"},
+          "til": {"$ref": "#/$defs/nodeId"},
+          "tekst": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,308 @@
+klynge: stokastikk
+namn: Stokastiske variablar og fordelingar
+nodar:
+
+  # --- km07/km08: fordeling, forventningsverdi, varians og standardavvik ---
+
+  - id: sannsynsfordeling
+    type: representasjon
+    nivaa: 2
+    namn: "Sannsynsfordeling"
+    km: [km07, km08]
+    kjerneelement: [representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Ei sannsynsfordeling for ein diskret stokastisk variabel $X$ blir vist som tabell med $x$
+      og $P(X = x)$, eller som søylediagram der høgda er sannsynet. Sannsyna skal summere til
+      1. Eleven kjenner fordelinga frå S1 (binomisk og hypergeometrisk). Nytt i S2 er at
+      tabellen blir utgangspunktet for å rekne $E(X)$ og $\text{Var}(X)$. Tabellen kan byggjast frå teljing
+      (kombinatorikk), frå ein kjend modell eller frå relative frekvensar i data.
+    tekst_elev: >-
+      Skriv alle moglege verdiar av $X$ og sannsynet til kvar i ein tabell, eller teikn eit
+      søylediagram. Sjekk at sannsyna summerer til 1. Då har du fordelinga til $X$.
+    doeme: >-
+      Du vel 3 elevar frå ei gruppe på 6 jenter og 4 gutar. $X$ = talet på jenter. Då er
+      $P(X = k) = \frac{\binom{6}{k} \cdot \binom{4}{3-k}}{\binom{10}{3}}$, og tabellen for $x = 0, 1, 2, 3$ blir $\frac{1}{30}$,
+      $\frac{3}{10}$, $\frac{1}{2}$ og $\frac{1}{6}$, altså om lag $0{,}033$; $0{,}300$; $0{,}500$ og $0{,}167$. Summen er $1$.
+    misoppfatning: >-
+      At søylehøgda er talet på observasjonar. Ho er sannsynet i modellen, og alle søylene
+      saman gir 1.
+    byggjer_paa: [stokastisk-variabel]
+
+  - id: gjennomsnitt-standardavvik-data
+    type: omgrep
+    nivaa: 2
+    namn: "Gjennomsnitt og standardavvik i eit datasett"
+    km: [km07, km10]
+    kjerneelement: [representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: delvis, 1T-S1: delvis}
+    tekst_laerar: >-
+      Gjennomsnitt kjenner elevane frå grunnskulen. Standardavvik står ikkje i læreplanane for
+      1P, 1T eller S1, og på NDLA dukkar det berre opp som eit tal i utskrifta frå Python
+      (`describe()`), utan definisjon. NDLA S1 nemner at om lag $\frac{2}{3}$ av data ligg
+      innanfor eitt standardavvik. I S2 blir standardavviket innført som typisk avstand frå
+      gjennomsnittet, før standardavviket til ein stokastisk variabel (km07) og
+      utvalsfordelinga i hypotesetestinga (km10, km11).
+    tekst_elev: >-
+      Gjennomsnittet er summen delt på talet på verdiar. Standardavviket seier kor
+      langt frå gjennomsnittet verdiane typisk ligg.
+    doeme: >-
+      Data $2, 4, 6$: gjennomsnitt $4$. Avvika er $-2$, $0$ og $2$, og standardavviket er
+      $s = \sqrt{8/2} = 2$.
+    misoppfatning: >-
+      At standardavviket er gjennomsnittet av avvika frå gjennomsnittet. Avvika
+      summerer til $0$, og det er derfor ein kvadrerer.
+
+  - id: forventningsverdi
+    type: omgrep
+    nivaa: 1
+    namn: "Forventningsverdi"
+    km: [km07]
+    kjerneelement: [abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Forventningsverdien $E(X) = \mu = \sum x \cdot P(X = x)$ er eit vekta gjennomsnitt der vektene
+      er sannsyna. Han er tyngdepunktet til fordelinga og det gjennomsnittet vi ventar å
+      nærme oss ved mange gjentakingar. Han treng ikkje vere ein mogleg verdi av $X$. Mange
+      elevar har gjennomsnitt frå eit datasett, men ikkje vekta gjennomsnitt med sannsyn
+      som vekter, så koplinga må gjerast eksplisitt: relativ frekvens blir bytt ut med
+      sannsyn.
+    tekst_elev: >-
+      $E(X)$ er gjennomsnittet du ventar å få på lang sikt. Du finn han ved å gange kvar
+      verdi med sannsynet og leggje saman. $E(X)$ blir òg skrive $\mu$. Han treng ikkje vere ein
+      verdi som kan skje.
+    doeme: >-
+      Terning: $E(X) = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + \dots + 6 \cdot \frac{1}{6} = 3{,}5$. Eit lodd som kostar $10$ kr og
+      har sannsyn $\frac{1}{100}$ for å vinne $500$ kr, gir venta utbetaling $0{,}01 \cdot 500 = 5$ kr, altså
+      eit venta tap på $5$ kr per lodd.
+    misoppfatning: >-
+      At forventningsverdien er verdien ein oftast får, eller at han må vere ein mogleg
+      verdi. På ein terning kan ein aldri få $3{,}5$.
+    byggjer_paa: [sannsynsfordeling, stokastisk-variabel, gjennomsnitt-standardavvik-data]
+    forvekslast_med: [gjennomsnitt-standardavvik-data]
+
+  - id: varians
+    type: omgrep
+    nivaa: 1
+    namn: "Varians"
+    km: [km07]
+    kjerneelement: [abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Variansen $\text{Var}(X) = \sigma^2 = \sum (x - \mu)^2 \cdot P(X = x)$ er forventa kvadrert avvik frå
+      forventningsverdien (i nokre lærebøker: «kvadratavvik»). Kvart kvadrert avvik blir vekta med sannsynet. Det er ingen
+      $n - 1$ her: fordelinga er kjend, ikkje eit utval. Eininga er kvadratet av eininga til
+      $X$, og det er grunnen til at ein oftast går vidare til standardavviket. Variansen er
+      likevel det som gir enkle reknereglar for summar.
+    tekst_elev: >-
+      Variansen (i nokre lærebøker: «kvadratavvik») seier kor spreidd ein variabel er rundt forventningsverdien. Du kvadrerer
+      kvart avvik frå $\mu$, gongar med sannsynet og legg saman.
+    doeme: >-
+      Terning med $\mu = 3{,}5$: $(-2{,}5)^2 + (-1{,}5)^2 + (-0{,}5)^2 + 0{,}5^2 + 1{,}5^2 + 2{,}5^2 = 17{,}5$, og
+      delt på 6 blir $\text{Var}(X) = \frac{35}{12} \approx 2{,}92$.
+    misoppfatning: >-
+      Å dele på $n - 1$ slik ein gjer for standardavviket i eit datasett. For ein stokastisk
+      variabel vekter ein kvart kvadrert avvik med sannsynet.
+    byggjer_paa: [forventningsverdi]
+    forvekslast_med: [gjennomsnitt-standardavvik-data]
+
+  - id: standardavvik
+    type: omgrep
+    nivaa: 1
+    namn: "Standardavvik"
+    km: [km07]
+    kjerneelement: [abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Standardavviket $\text{SD}(X) = \sigma = \sqrt{\text{Var}(X)}$ er typisk avstand frå forventningsverdien i same
+      eining som $X$. Det skildrar uvissa i modellen, medan $s$ frå eit datasett skildrar
+      spreiinga i data. Det er ikkje ei grense: verdiar kan godt liggje fleire standardavvik
+      unna. Forventningsverdi og standardavvik saman gir eit samla bilete av ein
+      stokastisk variabel, og tolkinga skal alltid knytast til situasjonen.
+    tekst_elev: >-
+      $\sigma$ er kvadratrota av variansen. Det seier kor langt frå $\mu$ verdiane typisk ligg, og har
+      same eining som $X$. Stort $\sigma$ betyr stor uvisse.
+    doeme: >-
+      Terning: $\sigma = \sqrt{\frac{35}{12}} \approx 1{,}71$. Utbetalinga frå loddet over har $\mu = 5$ kr og
+      $\text{Var} = 0{,}01 \cdot 495^2 + 0{,}99 \cdot 5^2 = 2475$, så $\sigma \approx 49{,}7$ kr. Utfallet er svært uvisst samanlikna
+      med forventinga.
+    misoppfatning: >-
+      At alle utfall ligg innanfor eitt standardavvik frå forventningsverdien. $\sigma$ er ein
+      typisk avstand, ikkje den største moglege.
+    byggjer_paa: [varians]
+    forvekslast_med: [gjennomsnitt-standardavvik-data]
+
+  - id: rekne-forventning-varians
+    type: prosedyre
+    nivaa: 2
+    namn: "Rekne ut forventningsverdi og varians"
+    km: [km07]
+    kjerneelement: [utforsking, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Frå tabellen med $x$ og $P(X = x)$ legg ein til kolonnene $x \cdot P$ og $(x - \mu)^2 \cdot P$. Summane
+      gir $E(X)$ og $\text{Var}(X)$, og $\sigma$ er kvadratrota av variansen. Rekneark eller GeoGebra gjer
+      det raskt. Eleven skal tolke resultatet i konteksten, med einingar, og ikkje berre
+      levere tala.
+    tekst_elev: >-
+      Lag ein tabell med kolonnene $x$, $P$, $x \cdot P$ og $(x - \mu)^2 \cdot P$. Summen av $x \cdot P$ er $E(X)$. Summen av
+      den siste kolonnen er variansen. Ta kvadratrot for å få $\sigma$.
+    doeme: >-
+      $X$ = talet på dagar i ei veke bussen er forseinka, $x = 0, 1, 2, 3$ med $P = 0{,}5$; $0{,}2$; $0{,}2$;
+      $0{,}1$. Då er $E(X) = 0{,}9$, $\text{Var}(X) = 1{,}09$ og $\sigma \approx 1{,}04$.
+    misoppfatning: >-
+      Å rekne $E(X)$ som gjennomsnittet av dei moglege verdiane, $\frac{0 + 1 + 2 + 3}{4} = 1{,}5$, og
+      ikkje vekte med sannsyna.
+    byggjer_paa: [forventningsverdi, varians, standardavvik, sannsynsfordeling]
+
+  - id: reknereglar-forventning-varians
+    type: prosedyre
+    nivaa: 1
+    namn: 'Reknereglar for $E$ og $\text{Var}$ ($aX + b$, sum av uavhengige)'
+    km: [km07, km10]
+    kjerneelement: [abstraksjon, resonnering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      For konstantar $a$ og $b$ er $E(aX + b) = a \cdot E(X) + b$ og $\text{Var}(aX + b) = a^2 \cdot \text{Var}(X)$, så
+      $\text{SD}(aX + b) = |a| \cdot \text{SD}(X)$. For summar er $E(X + Y) = E(X) + E(Y)$ alltid, medan
+      $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$ krev at $X$ og $Y$ er uavhengige. Standardavvika blir ikkje
+      lagde saman: $\text{SD}(X + Y) = \sqrt{\text{Var}(X) + \text{Var}(Y)}$. Reglane gir $E(X_1 + \dots + X_n) = n\mu$ og
+      $\text{Var}(X_1 + \dots + X_n) = n\sigma^2$ for uavhengige og like variablar, og dermed standardavvik $\sigma\sqrt{n}$.
+      Dette er reiskapen som grunngir at utvalsgjennomsnittet har standardavvik $\frac{\sigma}{\sqrt{n}}$, og
+      er difor ein del av argumentet for sentralgrensesetninga (km10).
+    tekst_elev: >-
+      Legg du til eit fast tal, flyttar du $E$ men ikkje spreiinga. Gongar du med $a$, blir $E$
+      gonga med $a$ og variansen med $a^2$. For uavhengige variablar leggjer du saman variansane,
+      ikkje standardavvika.
+    doeme: >-
+      Terning med $\mu = 3{,}5$ og $\text{Var} = \frac{35}{12}$. To terningar, $X_1 + X_2$: $E = 7$ og $\text{Var} = \frac{35}{6} \approx 5{,}83$,
+      altså $\sigma \approx 2{,}42$. Dobbel verdi av éin terning, $2X$: $E = 7$, men $\text{Var} = 4 \cdot \frac{35}{12} \approx 11{,}67$ og
+      $\sigma \approx 3{,}42$. Same forventing, ulik spreiing. For $Y = 2X + 1$ er $E(Y) = 8$.
+    misoppfatning: >-
+      At $\text{SD}(X + Y) = \text{SD}(X) + \text{SD}(Y)$, eller at $2X$ og $X_1 + X_2$ er det same. Er $\sigma = 3$ og $\sigma = 4$ for
+      to uavhengige variablar, blir standardavviket til summen $\sqrt{9 + 16} = 5$, ikkje $7$.
+    byggjer_paa: [forventningsverdi, varians, standardavvik, uavhengige-hendingar]
+
+  - id: binomisk-forventning-varians
+    type: prosedyre
+    nivaa: 2
+    namn: '$E$ og $\text{Var}$ i binomisk fordeling'
+    km: [km07]
+    kjerneelement: [modellering, abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      For $X \sim \text{Bin}(n; p)$ er $E(X) = n \cdot p$, $\text{Var}(X) = n \cdot p \cdot (1 - p)$ og $\sigma = \sqrt{n \cdot p \cdot (1 - p)}$. Formlane
+      blir brukte ferdige, men kan grunngivast med reknereglane: $X$ er summen av $n$ uavhengige
+      forsøk som kvart gir $1$ (suksess, sannsyn $p$) eller $0$, og kvart forsøk har $E = p$ og
+      $\text{Var} = p(1 - p)$. Eleven kjenner $\text{Bin}(n; p)$ frå S1, men har ikkje rekna forventing og
+      spreiing for han før.
+    tekst_elev: >-
+      I $\text{Bin}(n; p)$ er forventningsverdien $n \cdot p$ og variansen $n \cdot p \cdot (1 - p)$. Ta kvadratrot av
+      variansen for å få standardavviket.
+    doeme: >-
+      Seksarar i 10 terningkast, $X \sim \text{Bin}(10; \frac{1}{6})$: $E(X) = \frac{10}{6} \approx 1{,}67$, $\text{Var}(X) = 10 \cdot \frac{1}{6} \cdot \frac{5}{6} \approx 1{,}39$ og $\sigma \approx 1{,}18$. For 100 myntkast, $\text{Bin}(100; 0{,}5)$, er $E = 50$, $\text{Var} = 25$ og $\sigma = 5$.
+    misoppfatning: >-
+      Å gløyme kvadratrota og kalle $n \cdot p \cdot (1 - p)$ standardavviket.
+    byggjer_paa: [binomisk-fordeling, forventningsverdi, standardavvik, reknereglar-forventning-varians]
+
+  - id: kontinuerleg-fordeling
+    type: omgrep
+    nivaa: 2
+    namn: "Kontinuerleg fordeling og tettleiksfunksjon"
+    km: [km08]
+    kjerneelement: [representasjon, abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Ein kontinuerleg stokastisk variabel kan ta alle verdiar i eit intervall, og fordelinga
+      er gitt av ein tettleiksfunksjon $f(x)$ med $f(x) \ge 0$ og samla areal $1$. Sannsynet for eit
+      intervall er arealet under grafen, $P(a \le X \le b) = \int_a^b f(x)\,dx$. Dette knyter fordelingar
+      til det bestemte integralet frå integrasjonsklynga. $P(X = a) = 0$, så $P(X < a) = P(X \le a)$,
+      i motsetnad til ein diskret variabel. For enkle polynomtettleikar skal eleven rekne
+      $P(a \le X \le b)$ med integral, vise at samla areal er 1, og finne ein ukjend konstant $c$ ut frå
+      kravet om areal 1. Forventningsverdien er analogt $E(X) = \int x \cdot f(x)\,dx$. Eleven skal bruke
+      denne formelen for enkle polynomtettleikar, der det er eitt integral av same slag som
+      eleven alt reknar, medan $\text{Var}(X)$ for kontinuerlege variablar ikkje blir venta
+      rekna for hand i S2.
+    tekst_elev: >-
+      Ein kontinuerleg variabel kan ha kva tal som helst i eit intervall. Kurva $f(x)$ gir
+      fordelinga: sannsynet for at $X$ ligg mellom $a$ og $b$ er arealet under kurva mellom $a$ og $b$.
+      Heile arealet er 1, og det kan du bruke til å finne ein ukjend konstant $c$.
+    doeme: >-
+      Ventetid $X$ mellom 0 og 10 minutt med $f(x) = c \cdot x$. Heile arealet må vere 1: $\int_0^{10} c \cdot x\,dx = 50c = 1$, så $c = 0{,}02$. Då er $P(X \le 5) = 0{,}01 \cdot 25 = 0{,}25$ og $P(2 \le X \le 5) = 0{,}01 \cdot (25 - 4) = 0{,}21$.
+      Forventa ventetid er $E(X) = \int_0^{10} 0{,}02x^2\,dx = \frac{20}{3} \approx 6{,}67$ minutt, større enn 5 fordi
+      tettleiken er størst mot 10.
+    misoppfatning: >-
+      At $f(x)$ er sannsynet for $X = x$. Tettleiken kan vere over 1: $f(x) = 2$ på intervallet frå
+      0 til $0{,}5$ har areal 1, medan eit sannsyn aldri er over 1.
+    byggjer_paa: [stokastisk-variabel, bestemt-integral, integral-areal]
+
+  - id: simulere-fordeling
+    type: prosedyre
+    nivaa: 2
+    namn: "Simulere og utforske fordelingar"
+    km: [km08]
+    kjerneelement: [utforsking, modellering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Eleven simulerer mange utfall frå ei fordeling digitalt (rekneark, GeoGebra eller
+      Python), samanliknar relative frekvensar med modellen, og reknar gjennomsnittet og
+      standardavviket i simuleringa opp mot $E(X)$ og $\sigma$. Sjølv ved 1000 simuleringar varierer
+      gjennomsnittet litt frå gong til gong, og avviket er av storleiken $\frac{\sigma}{\sqrt{1000}}$. Same
+      framgangsmåte kan brukast på summar og gjennomsnitt, og dannar grunnlaget for å
+      argumentere for sentralgrensesetninga. Eleven har simulert stokastiske forsøk i S1.
+    tekst_elev: >-
+      Køyr forsøket mange gonger, til dømes 1000, og samanlikn gjennomsnitt og spreiing med
+      $E(X)$ og $\sigma$. Køyr simuleringa fleire gonger og sjå kor mykje resultatet varierer.
+    doeme: >-
+      Sum av to terningar, simulert 1000 gonger, til dømes med
+      `sum(random.randint(1, 6) for _ in range(2))` i Python. Teorien gir $E = 7$ og $\sigma \approx 2{,}42$.
+      Simulert gjennomsnitt ligg typisk innanfor $7 \pm 0{,}15$, fordi $\frac{2{,}42}{\sqrt{1000}} \approx 0{,}076$ og
+      to gonger det er om lag $0{,}15$.
+    misoppfatning: >-
+      At simuleringa skal gi nøyaktig same tal som teorien. Mange simuleringar ligg nærmare,
+      men resultatet varierer alltid litt.
+    byggjer_paa: [simulering-s1, sannsynsfordeling, forventningsverdi, standardavvik]
+
+  - id: anvendingar-fordelingar
+    type: forklaring
+    nivaa: 2
+    namn: "Kva fordeling passar til situasjonen?"
+    km: [km08]
+    kjerneelement: [modellering, resonnering]
+    verbnivaa: vurdere
+    forkjennskap: {1P-S1: delvis, 1T-S1: delvis}
+    tekst_laerar: >-
+      Eleven skal grunngi valet av fordeling ut frå situasjonen. Binomisk: fast n, to utfall,
+      same p og uavhengige forsøk. Hypergeometrisk: trekking utan tilbakelegging frå ein
+      avgrensa populasjon, der p endrar seg for kvar trekking. Kontinuerleg jamn fordeling:
+      alle intervall av same lengd er like sannsynlege. Normalfordeling: målingar og storleikar
+      som er summen av mange små bidrag. Binomisk blir ei god tilnærming til hypergeometrisk
+      når utvalet er lite i forhold til populasjonen. Teljinga i den hypergeometriske
+      fordelinga byggjer på kombinatorikk frå S1. Valet mellom binomisk og hypergeometrisk
+      kjenner eleven frå S1 (s1-13); nytt i S2 er å grunngi valet òg mot kontinuerlege
+      fordelingar (jamn og normal) og å vurdere når tilnærminga held. NDLA S2 har ikkje jamn
+      fordeling, og hypergeometrisk fordeling står berre i NDLA S1, men begge ligg innanfor
+      km08.
+    tekst_elev: >-
+      Spør: er forsøka uavhengige med same sannsyn? Då er det binomisk. Trekkjer du utan å
+      leggje attende frå ei lita gruppe? Då er det hypergeometrisk. Er det ei måling som
+      varierer jamt rundt eit gjennomsnitt, passar normalfordelinga.
+    doeme: >-
+      Fem elevar blir trekte frå ei klasse på 25, med 15 jenter. Sannsynet for fem jenter er
+      $\frac{\binom{15}{5}}{\binom{25}{5}} \approx 0{,}057$ (hypergeometrisk), medan $\text{Bin}(5; 0{,}6)$ gir $0{,}6^5 \approx 0{,}078$. Blir
+      fem trekte frå ein heil årgang på 1000, er skilnaden liten. Pakkevekt er normal, og
+      ventetid mellom 0 og 10 minutt kan vere jamn.
+    misoppfatning: >-
+      At binomisk alltid passar når det er to utfall. Trekking utan tilbakelegging frå ei
+      lita gruppe gjer sannsynet ulikt frå trekking til trekking.
+    byggjer_paa: [binomisk-fordeling, hypergeometrisk-fordeling, kombinatorikk, kontinuerleg-fordeling, normalfordeling]

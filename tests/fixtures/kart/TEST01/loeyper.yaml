@@ -1,0 +1,6 @@
+loeyper:
+  - id: repetisjon
+    namn: Repetisjon til prøve
+    skildring: Kjernen i faget i den rekkjefølgja det løner seg å ta henne att.
+    maalgruppe: [1P, 1T]
+    nodar: [tal, snitt, varians]

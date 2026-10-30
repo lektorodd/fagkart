@@ -1,0 +1,25 @@
+{
+  "name": "fagkart-viewer",
+  "version": "0.1.0",
+  "description": "Frittståande, frakopla visning av fagkart (dist/<KODE>.html)",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:demo": "node build.mjs fixtures/DEMO-01.json",
+    "screenshots": "node screenshot.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "cytoscape": "^3.34.4",
+    "cytoscape-dagre": "^4.0.1",
+    "elkjs": "^0.12.0",
+    "katex": "^0.16.11"
+  },
+  "devDependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/source-sans-3": "^5.3.1",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "playwright-core": "^1.64.1"
+  },
+  "private": true,
+  "type": "module"
+}

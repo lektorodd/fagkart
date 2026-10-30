@@ -1,0 +1,630 @@
+{
+ "format": "fagkart/1",
+ "kode": "DEMO-01",
+ "laereplan": "DEMO-01",
+ "namn": "Demokart",
+ "versjon": "0.1",
+ "forkunnskapsfag": [
+  "1P",
+  "1T"
+ ],
+ "kjerneelement": [
+  {
+   "id": "utforsking",
+   "namn": "Utforsking og problemløysing"
+  },
+  {
+   "id": "modellering",
+   "namn": "Modellering og anvendingar"
+  },
+  {
+   "id": "resonnering",
+   "namn": "Resonnering og argumentasjon"
+  },
+  {
+   "id": "representasjon",
+   "namn": "Representasjon og kommunikasjon"
+  },
+  {
+   "id": "abstraksjon",
+   "namn": "Abstraksjon og generalisering"
+  }
+ ],
+ "nodar": [
+  {
+   "id": "DEMO-01/km01",
+   "type": "kompetansemaal",
+   "namn": "km01",
+   "tekst": "utforske og beskrive spreiing i eit datamateriale med statistiske mål og gjere greie for kva dei fortel",
+   "verb": [
+    "utforske",
+    "beskrive",
+    "gjere greie for"
+   ],
+   "klynge": "beskrivande"
+  },
+  {
+   "id": "DEMO-01/km02",
+   "type": "kompetansemaal",
+   "namn": "km02",
+   "tekst": "bruke normalfordelinga til å berekne og tolke sannsyn i praktiske situasjonar",
+   "verb": [
+    "bruke",
+    "berekne",
+    "tolke"
+   ],
+   "klynge": "fordeling"
+  },
+  {
+   "id": "DEMO-01/fk-gjennomsnitt",
+   "type": "omgrep",
+   "namn": "Gjennomsnitt $\\bar{x}$",
+   "forkunnskap": {
+    "1P": "ja",
+    "1T": "ja"
+   },
+   "tekst_laerar": "Aritmetisk gjennomsnitt: $\\bar{x} = \\dfrac{1}{n}\\sum_{i=1}^{n} x_i$, summen av observasjonane delt på talet på observasjonar.",
+   "tekst_elev": "Du legg saman alle tala og deler på kor mange dei er.",
+   "doeme": "Karakterane 3, 4 og 5 har gjennomsnitt $\\bar{x} = \\dfrac{3+4+5}{3} = 4$."
+  },
+  {
+   "id": "DEMO-01/fk-frekvens",
+   "type": "omgrep",
+   "namn": "Frekvens og relativ frekvens",
+   "forkunnskap": {
+    "1P": "ja",
+    "1T": "ja"
+   },
+   "tekst_laerar": "Frekvens er kor mange gonger ein verdi førekjem. Relativ frekvens er frekvensen delt på det totale talet på observasjonar.",
+   "tekst_elev": "Frekvens fortel kor ofte noko skjer. Relativ frekvens set det i forhold til alle."
+  },
+  {
+   "id": "DEMO-01/fk-potens",
+   "type": "omgrep",
+   "namn": "Kvadrat og potensar $x^2$",
+   "forkunnskap": {
+    "1P": "delvis",
+    "1T": "ja"
+   },
+   "tekst_laerar": "Rekning med eksponent 2 og høgare, inkludert at kvadratet av eit negativt tal er positivt.",
+   "tekst_elev": "Å kvadrere er å gonge eit tal med seg sjølv. Svaret er aldri negativt.",
+   "misoppfatning": "Mange reknar (−3)² som −9."
+  },
+  {
+   "id": "DEMO-01/fk-kvadratrot",
+   "type": "prosedyre",
+   "namn": "Kvadratrot $\\sqrt{x}$",
+   "forkunnskap": {
+    "1P": "nei",
+    "1T": "ja"
+   },
+   "tekst_laerar": "Å finne det ikkje-negative talet som gitt i andre potens gir radikanden, med og utan digitalt verktøy.",
+   "tekst_elev": "Kvadratrota av 25 er 5, fordi 5 · 5 = 25."
+  },
+  {
+   "id": "DEMO-01/fk-sumteikn",
+   "type": "representasjon",
+   "namn": "Sumteiknet $\\sum$",
+   "forkunnskap": {
+    "1P": "nei",
+    "1T": "delvis"
+   },
+   "tekst_laerar": "Sigma-notasjon for sum av ledd med indeks, til dømes Σ xᵢ frå i = 1 til n.",
+   "tekst_elev": "Σ er ein kort måte å seie «legg saman alle»."
+  },
+  {
+   "id": "DEMO-01/fk-sannsyn",
+   "type": "omgrep",
+   "namn": "Sannsyn som tal $0 \\le P(A) \\le 1$",
+   "forkunnskap": {
+    "1P": "ja",
+    "1T": "ja"
+   },
+   "tekst_laerar": "Sannsyn som tal mellom 0 og 1, tolka som relativ frekvens på sikt og som mål på forventa utfall.",
+   "tekst_elev": "Sannsyn er eit tal mellom 0 og 1 som fortel kor sannsynleg noko er."
+  },
+  {
+   "id": "DEMO-01/fk-sannsynsum",
+   "type": "forklaring",
+   "namn": "Sannsyna summerer seg til $1$",
+   "forkunnskap": {
+    "1P": "delvis",
+    "1T": "nei"
+   },
+   "tekst_laerar": "Dei moglege utfalla i eit utfallsrom utgjer til saman sannsyn 1. Dette gir komplementsetninga.",
+   "tekst_elev": "Alt som kan skje til saman har sannsyn 1."
+  },
+  {
+   "id": "DEMO-01/avvik",
+   "type": "omgrep",
+   "namn": "Avvik frå gjennomsnittet $x_i - \\bar{x}$",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01"
+   ],
+   "kjerneelement": [
+    "abstraksjon"
+   ],
+   "verbnivaa": "kjenne_til",
+   "tekst_laerar": "Avviket til ein observasjon er differansen xᵢ − x̄. Summen av avvika frå gjennomsnittet er alltid null.",
+   "tekst_elev": "Avviket fortel kor langt ein verdi ligg frå gjennomsnittet.",
+   "doeme": "Gjennomsnitt 4 og verdi 7 gir avvik 3.",
+   "misoppfatning": "Å tru at avviket alltid er positivt.",
+   "forkjennskap": {
+    "1P": "nei",
+    "1T": "ja"
+   }
+  },
+  {
+   "id": "DEMO-01/spreiing",
+   "type": "omgrep",
+   "namn": "Spreiing",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01"
+   ],
+   "kjerneelement": [
+    "utforsking"
+   ],
+   "verbnivaa": "kjenne_til",
+   "tekst_laerar": "Spreiing beskriv kor mykje observasjonar i eit materiale varierer. Same gjennomsnitt kan høyre til svært ulik spreiing.",
+   "tekst_elev": "Spreiing fortel om tala ligg tett eller langt frå kvarandre.",
+   "doeme": "To klassar med snitt 4 kan ha ulik spreiing i karakterane.",
+   "misoppfatning": "Å tru at gjennomsnittet åleine beskriv eit materiale.",
+   "forkjennskap": {
+    "1P": "ja",
+    "1T": "ja"
+   }
+  },
+  {
+   "id": "DEMO-01/histogram",
+   "type": "representasjon",
+   "namn": "Histogram",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01"
+   ],
+   "kjerneelement": [
+    "representasjon"
+   ],
+   "verbnivaa": "bruke",
+   "tekst_laerar": "Søylediagram for klassedelte data der arealet av søylene representerer frekvens.",
+   "tekst_elev": "Eit histogram viser kor mange verdiar som ligg i kvar gruppe.",
+   "doeme": "Høgd i cm gruppert i intervall på 5 cm.",
+   "misoppfatning": "Å lese søylehøgda som verdien, ikkje frekvensen.",
+   "forkjennskap": {
+    "1P": "nei",
+    "1T": "ja"
+   }
+  },
+  {
+   "id": "DEMO-01/kvadrert-avvik",
+   "type": "prosedyre",
+   "namn": "Kvadrere og summere avvika $\\sum (x_i-\\bar{x})^2$",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01"
+   ],
+   "kjerneelement": [
+    "abstraksjon"
+   ],
+   "verbnivaa": "bruke",
+   "tekst_laerar": "Rekn avvika, kvadrer kvart avvik og summer: Σ (xᵢ − x̄)². Kvadreringa hindrar at positive og negative avvik tek kvarandre ut.",
+   "tekst_elev": "Finn avvika, gonge kvart med seg sjølv og legg saman.",
+   "doeme": "Verdiane 2, 4, 6: avvik −2, 0, 2. Kvadrerte 4, 0, 4. Sum 8.",
+   "misoppfatning": "Å summere avvika utan å kvadrere og få null.",
+   "forkjennskap": {
+    "1P": "ja",
+    "1T": "ja"
+   }
+  },
+  {
+   "id": "DEMO-01/varians",
+   "type": "omgrep",
+   "namn": "Varians $\\sigma^2$",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01"
+   ],
+   "kjerneelement": [
+    "abstraksjon"
+   ],
+   "verbnivaa": "forklare",
+   "tekst_laerar": "Variansen er gjennomsnittet av dei kvadrerte avvika: $$\\sigma^2 = \\frac{1}{n}\\sum_{i=1}^{n}(x_i-\\mu)^2$$ I eit utval deler ein på $n-1$.",
+   "tekst_elev": "Du kvadrerer kvart avvik frå $\\mu$ og tek gjennomsnittet av dei.",
+   "doeme": "Tala $2$, $4$ og $6$ har $\\mu = 4$ og $\\sigma^2 = \\frac{8}{3} \\approx 2{,}67$. I Excel: `=VAR.P(A1:A3)`.",
+   "misoppfatning": "Mange trur $\\sigma^2 \\le \\sigma$. Det stemmer berre når $\\sigma \\le 1$."
+  },
+  {
+   "id": "DEMO-01/standardavvik",
+   "type": "omgrep",
+   "namn": "Standardavvik $\\sigma$",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01",
+    "DEMO-01/km02"
+   ],
+   "kjerneelement": [
+    "abstraksjon",
+    "modellering"
+   ],
+   "verbnivaa": "forklare",
+   "tekst_laerar": "$$\\sigma = \\sqrt{\\frac{\\sum (x_i-\\mu)^2}{n}}$$ Ugyldig døme som skal visast som rå kjelde: $\\frac{1}{$.",
+   "tekst_elev": "Standardavviket er ei lettare måte å seie kor mykje tala ligg frå snittet.",
+   "doeme": "HTML skal ikkje tolkast: <b>fet</b> <img src=x onerror=alert(1)> og $5$ kr.",
+   "misoppfatning": "Å tru at standardavviket er det same som gjennomsnittleg avvik.",
+   "berre_laerar": [
+    "misoppfatning"
+   ]
+  },
+  {
+   "id": "DEMO-01/kvifor-kvadrat",
+   "type": "forklaring",
+   "namn": "Kvifor kvadrerer vi avvika?",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01"
+   ],
+   "kjerneelement": [
+    "resonnering"
+   ],
+   "verbnivaa": "vurdere",
+   "tekst_laerar": "Utan kvadrering summerer avvika frå gjennomsnittet til null. Absoluttverdi hadde fungert, men kvadrat gir betre algebraiske eigenskapar og veg store avvik tyngre.",
+   "tekst_elev": "Om vi la saman avvika direkte, ville pluss og minus ta kvarandre ut. Kvadrat løyser det.",
+   "doeme": "Avvika −2, 0, 2 summerer til 0, men dei kvadrerte summerer til 8.",
+   "misoppfatning": "Å tru at kvadrering berre er ein vilkårleg regel.",
+   "berre_laerar": [
+    "tekst_laerar"
+   ]
+  },
+  {
+   "id": "DEMO-01/rekne-sd",
+   "type": "prosedyre",
+   "namn": "Rekne ut standardavvik",
+   "klynge": "beskrivande",
+   "km": [
+    "DEMO-01/km01"
+   ],
+   "kjerneelement": [
+    "utforsking"
+   ],
+   "verbnivaa": "bruke",
+   "tekst_laerar": "Rekn standardavvik for eit talmateriale, for hand for små materiale og med digitalt verktøy for større.",
+   "tekst_elev": "Finn variansen og ta kvadratrota. Bruk rekneark eller kalkulator når det er mange tal.",
+   "doeme": "Verdiane 2, 4, 6 gir standardavvik √(8/3) ≈ 1,6.",
+   "misoppfatning": "Å blande saman kommandoane for utval og populasjon i verktøyet."
+  },
+  {
+   "id": "DEMO-01/normalfordeling",
+   "type": "omgrep",
+   "namn": "Normalfordeling $N(\\mu;\\sigma)$",
+   "klynge": "fordeling",
+   "km": [
+    "DEMO-01/km02"
+   ],
+   "kjerneelement": [
+    "modellering"
+   ],
+   "verbnivaa": "forklare",
+   "tekst_laerar": "Ei symmetrisk, klokkforma sannsynsfordeling bestemt av forventning μ og standardavvik σ.",
+   "tekst_elev": "Mange ting i naturen fordeler seg symmetrisk rundt eit snitt, med flest verdiar i midten.",
+   "doeme": "Høgda til vaksne menn i ein populasjon.",
+   "misoppfatning": "Å tru at alle datasett er normalfordelte."
+  },
+  {
+   "id": "DEMO-01/klokkekurve",
+   "type": "representasjon",
+   "namn": "Klokkekurve",
+   "klynge": "fordeling",
+   "km": [
+    "DEMO-01/km02"
+   ],
+   "kjerneelement": [
+    "representasjon"
+   ],
+   "verbnivaa": "bruke",
+   "tekst_laerar": "Grafen til tettleiksfunksjonen for normalfordelinga. Arealet under kurva mellom to verdiar er sannsynet for utfall i intervallet.",
+   "tekst_elev": "Kurva er høgast i midten og fell av jamt til sidene. Arealet under er sannsyn.",
+   "doeme": "Arealet mellom μ − σ og μ + σ er om lag 0,68.",
+   "misoppfatning": "Å lese høgda på kurva som sannsyn."
+  },
+  {
+   "id": "DEMO-01/standardnormal",
+   "type": "omgrep",
+   "namn": "Standard normalfordeling $N(0;1)$",
+   "klynge": "fordeling",
+   "km": [
+    "DEMO-01/km02"
+   ],
+   "kjerneelement": [
+    "abstraksjon"
+   ],
+   "verbnivaa": "forklare",
+   "tekst_laerar": "Normalfordelinga med forventning 0 og standardavvik 1. Alle normalfordelingar kan omformast til denne.",
+   "tekst_elev": "Ei normalfordeling der snittet er 0 og standardavviket er 1.",
+   "doeme": "Ein verdi to standardavvik over snittet svarer til z = 2.",
+   "misoppfatning": "Å tru at standardnormalen er ei anna type fordeling."
+  },
+  {
+   "id": "DEMO-01/empirisk-regel",
+   "type": "forklaring",
+   "namn": "$68$–$95$–$99{,}7$-regelen",
+   "klynge": "fordeling",
+   "km": [
+    "DEMO-01/km02"
+   ],
+   "kjerneelement": [
+    "resonnering"
+   ],
+   "verbnivaa": "bruke",
+   "tekst_laerar": "I ei normalfordeling ligg om lag 68 % av verdiane innanfor ±1σ, 95 % innanfor ±2σ og 99,7 % innanfor ±3σ.",
+   "tekst_elev": "Nesten alle verdiane ligg innanfor tre standardavvik frå snittet.",
+   "doeme": "Snitt 170 cm og standardavvik 6 cm: om lag 95 % ligg mellom 158 og 182 cm.",
+   "misoppfatning": "Å bruke regelen på fordelingar som ikkje er normale."
+  },
+  {
+   "id": "DEMO-01/z-verdi",
+   "type": "prosedyre",
+   "namn": "Rekne ut $z$-verdi",
+   "klynge": "fordeling",
+   "km": [
+    "DEMO-01/km01",
+    "DEMO-01/km02"
+   ],
+   "kjerneelement": [
+    "modellering"
+   ],
+   "verbnivaa": "bruke",
+   "tekst_laerar": "$z = \\dfrac{x-\\mu}{\\sigma}$. I GeoGebra: `Normal(0, 1, z, true)`.",
+   "tekst_elev": "Kor mange standardavvik $x$ ligg frå $\\mu$?",
+   "doeme": "x = 182, μ = 170 og σ = 6 gir z = 2.",
+   "misoppfatning": "Å gløyme å dele på standardavviket."
+  }
+ ],
+ "kantar": [
+  {
+   "fra": "DEMO-01/avvik",
+   "til": "DEMO-01/fk-gjennomsnitt",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/avvik",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/spreiing",
+   "til": "DEMO-01/fk-gjennomsnitt",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/spreiing",
+   "til": "DEMO-01/histogram",
+   "type": "representerast_som"
+  },
+  {
+   "fra": "DEMO-01/spreiing",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/histogram",
+   "til": "DEMO-01/fk-frekvens",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/histogram",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/kvadrert-avvik",
+   "til": "DEMO-01/avvik",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/kvadrert-avvik",
+   "til": "DEMO-01/fk-potens",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/kvadrert-avvik",
+   "til": "DEMO-01/fk-sumteikn",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/kvadrert-avvik",
+   "til": "DEMO-01/avvik",
+   "type": "brukar"
+  },
+  {
+   "fra": "DEMO-01/kvadrert-avvik",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/varians",
+   "til": "DEMO-01/kvadrert-avvik",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/varians",
+   "til": "DEMO-01/spreiing",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/varians",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/standardavvik",
+   "til": "DEMO-01/varians",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/standardavvik",
+   "til": "DEMO-01/fk-kvadratrot",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/standardavvik",
+   "til": "DEMO-01/varians",
+   "type": "forvekslast_med"
+  },
+  {
+   "fra": "DEMO-01/standardavvik",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/standardavvik",
+   "til": "DEMO-01/km02",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/kvifor-kvadrat",
+   "til": "DEMO-01/varians",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/kvifor-kvadrat",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/rekne-sd",
+   "til": "DEMO-01/standardavvik",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/rekne-sd",
+   "til": "DEMO-01/varians",
+   "type": "brukar"
+  },
+  {
+   "fra": "DEMO-01/rekne-sd",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/normalfordeling",
+   "til": "DEMO-01/standardavvik",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/normalfordeling",
+   "til": "DEMO-01/fk-sannsyn",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/normalfordeling",
+   "til": "DEMO-01/fk-sannsynsum",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/normalfordeling",
+   "til": "DEMO-01/klokkekurve",
+   "type": "representerast_som"
+  },
+  {
+   "fra": "DEMO-01/normalfordeling",
+   "til": "DEMO-01/km02",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/klokkekurve",
+   "til": "DEMO-01/km02",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/standardnormal",
+   "til": "DEMO-01/normalfordeling",
+   "type": "doeme_paa"
+  },
+  {
+   "fra": "DEMO-01/standardnormal",
+   "til": "DEMO-01/km02",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/empirisk-regel",
+   "til": "DEMO-01/normalfordeling",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/empirisk-regel",
+   "til": "DEMO-01/km02",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/z-verdi",
+   "til": "DEMO-01/standardnormal",
+   "type": "byggjer_paa"
+  },
+  {
+   "fra": "DEMO-01/z-verdi",
+   "til": "DEMO-01/standardavvik",
+   "type": "brukar"
+  },
+  {
+   "fra": "DEMO-01/z-verdi",
+   "til": "DEMO-01/km01",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/z-verdi",
+   "til": "DEMO-01/km02",
+   "type": "dekkjer"
+  },
+  {
+   "fra": "DEMO-01/varians",
+   "til": "DEMO-01/fk-gjennomsnitt",
+   "type": "byggjer_paa",
+   "implisitt": true
+  }
+ ],
+ "klyngjer": [
+  {
+   "id": "forkunnskap",
+   "namn": "Forkunnskapar"
+  },
+  {
+   "id": "beskrivande",
+   "namn": "Beskrivande statistikk"
+  },
+  {
+   "id": "fordeling",
+   "namn": "Fordelingar"
+  }
+ ],
+ "loeyper": [
+  {
+   "id": "spreiing-til-sd",
+   "namn": "Frå gjennomsnitt til standardavvik",
+   "skildring": "Spreiing steg for steg: avvik, varians og standardavvik.",
+   "maalgruppe": [
+    "1P"
+   ],
+   "nodar": [
+    "DEMO-01/fk-gjennomsnitt",
+    "DEMO-01/avvik",
+    "DEMO-01/spreiing",
+    "DEMO-01/varians",
+    "DEMO-01/standardavvik"
+   ]
+  },
+  {
+   "id": "normalfordeling-kort",
+   "namn": "Normalfordeling kort",
+   "skildring": "Det du treng for å bruke normalfordelinga.",
+   "nodar": [
+    "DEMO-01/standardavvik",
+    "DEMO-01/normalfordeling",
+    "DEMO-01/empirisk-regel",
+    "DEMO-01/standardnormal",
+    "DEMO-01/z-verdi"
+   ]
+  }
+ ]
+}

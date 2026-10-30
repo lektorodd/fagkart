@@ -1,0 +1,309 @@
+klynge: rekker
+namn: Følgjer og rekkjer
+nodar:
+
+  # --- km01/km02: følgjer, rekursjon og programmering ---
+
+  - id: talfoelgje
+    type: omgrep
+    nivaa: 2
+    namn: "Talfølgje"
+    km: [km01, km02]
+    kjerneelement: [abstraksjon, representasjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Ei talfølgje er ei ordna liste av tal $a_1, a_2, a_3, \ldots$ der $a_n$ er ledd nummer $n$.
+      Ho kan sjåast som ein funksjon frå dei naturlege tala. Ei følgje kan gis
+      ved ein formel, ved ein rekursiv samanheng eller ved ei liste. Ei rekkje er
+      summen av ledda i ei følgje, ikkje følgja sjølv.
+    tekst_elev: >-
+      Ei talfølgje er ei liste med tal i fast rekkjefølgje: $a_1, a_2, a_3$ og så
+      vidare. $a_n$ er ledd nummer $n$. Å leggje saman ledda gir ei rekkje.
+    doeme: >-
+      $a_n = n^2$ gir følgja $1, 4, 9, 16, \ldots$ Summen av dei fire første ledda er
+      $1 + 4 + 9 + 16 = 30$.
+    misoppfatning: >-
+      At følgja $2, 5, 8, 11$ og rekkja $2 + 5 + 8 + 11 = 26$ er det same. Følgja er ei
+      liste, rekkja er summen.
+
+  - id: rekursiv-formel
+    type: omgrep
+    nivaa: 1
+    namn: "Rekursiv og eksplisitt formel"
+    km: [km02]
+    kjerneelement: [abstraksjon, representasjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Ein rekursiv formel gir $a_n$ ut frå tidlegare ledd, saman med ein startverdi,
+      t.d. $a_1 = 2$ og $a_n = a_{n-1} + 3$. Ein eksplisitt formel gir $a_n$ direkte ut frå $n$,
+      t.d. $a_n = 3n - 1$. Å gå frå rekursiv til eksplisitt formel er ofte ei
+      oppgåve i seg sjølv. For mange samanhengar er den rekursive formelen den
+      naturlege å setje opp, medan den eksplisitte er den ein treng for å finne eit
+      langt ledd raskt. Eit typisk bruksområde er talmønster (i nokre lærebøker: «tallmønstre»), der ein
+      les av korleis figuren veks frå ein figur til neste (rekursiv formel) og så grunngir ein
+      formel for figur nummer $n$ (eksplisitt formel). Døme på mønster er trekanttala.
+    tekst_elev: >-
+      Rekursiv formel: kvart ledd blir rekna ut frå leddet før, og du treng ein
+      startverdi. Eksplisitt formel: du set inn $n$ og får $a_n$ med ein gong.
+    doeme: >-
+      $a_1 = 2$, $a_n = a_{n-1} + 3$ gir $2, 5, 8, 11, 14$. Den eksplisitte formelen $a_n = 3n - 1$
+      gir $a_5 = 14$ utan å rekne ut dei fire føregåande. Talmønster: figur nummer $n$ har
+      $n$ rader med prikkar, der rad $k$ har $k$ prikkar. Figurane har $1, 3, 6, 10, \ldots$ prikkar.
+      Frå ein figur til neste kjem det ei ny rad med $n$ prikkar, så den rekursive formelen er
+      $a_1 = 1$ og $a_n = a_{n-1} + n$. To like figurar kan leggjast saman til eit rektangel med $n$ rader
+      og $n + 1$ kolonnar, så den eksplisitte formelen er $a_n = \dfrac{n \cdot (n + 1)}{2}$. Kontroll:
+      $a_4 = \dfrac{4 \cdot 5}{2} = 10$ og $a_{10} = 55$.
+    misoppfatning: >-
+      At den rekursive formelen aleine fastlegg følgja. Utan startverdi passar
+      $a_n = 2a_{n-1}$ både til $2, 4, 8, \ldots$ og til $5, 10, 20, \ldots$
+    byggjer_paa: [talfoelgje]
+
+  - id: rekursjon-programmering
+    type: prosedyre
+    nivaa: 1
+    namn: "Utforske rekursive samanhengar med programmering"
+    km: [km02]
+    kjerneelement: [utforsking, modellering]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Rekursive samanhengar blir utforska ved at eleven set opp ein rekursiv formel,
+      skriv han som ei løkke i Python, og tolkar utskrifta. Programmet skal vere
+      forklart og grunngitt, i tråd med «presentere egne framgangsmåter» i km02.
+      Typiske døme er sparing med fast innskot og rente, og lån. Eleven samanliknar
+      resultatet med ein eksplisitt formel når den finst.
+    tekst_elev: >-
+      Skriv den rekursive formelen som ei løkke: ein variabel som blir oppdatert
+      for kvart steg. Køyr programmet, skriv ut verdiane og forklar kva dei
+      betyr.
+    doeme: >-
+      $a_n = 1{,}05 \cdot a_{n-1} + 1000$ med $a_0 = 0$. I Python: `a = 0`, og i løkka
+      `a = 1.05*a + 1000` ti gonger. Resultatet er $a_{10} \approx 12\,578$ kr, slik som formelen
+      for geometrisk rekkje gir.
+    misoppfatning: >-
+      Å telje feil antal rundar, til dømes `range(1, 10)` som gir 9 rundar og ikkje
+      10, eller å tru at programutskrifta i seg sjølv er ei grunngiving. Òg å skrive
+      `1,05` i staden for `1.05`: Python brukar desimalpunktum, og `1,05` blir ein tuppel i
+      staden for eit tal.
+    byggjer_paa: [rekursiv-formel, programmering]
+
+  # --- km01: aritmetiske og geometriske rekkjer ---
+
+  - id: aritmetisk-rekkje
+    type: omgrep
+    nivaa: 1
+    namn: "Aritmetisk rekkje"
+    km: [km01]
+    kjerneelement: [abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Ei aritmetisk følgje har konstant differanse $d = a_n - a_{n-1}$, og $a_n = a_1 + (n - 1) \cdot d$.
+      Ei aritmetisk rekkje er summen av ledda. Samanhengen er lineær i n, med $d$ som
+      stigningstal. Aritmetisk vekst er ein konstant auke i tal, ikkje i prosent.
+    tekst_elev: >-
+      I ei aritmetisk følgje legg du til det same talet $d$ for kvart ledd. Då er
+      $a_n = a_1 + (n - 1) \cdot d$.
+    doeme: >-
+      $a_1 = 5$ og $d = 3$ gir $5, 8, 11, 14, \ldots$ og $a_{20} = 5 + 19 \cdot 3 = 62$.
+    misoppfatning: >-
+      At $a_n = a_1 + n \cdot d$. Ledd nummer 5 er $a_1 + 4d$, ikkje $a_1 + 5d$, fordi det er fire
+      steg frå $a_1$ til $a_5$.
+    byggjer_paa: [talfoelgje]
+    representerast_som: [sumteikn-rekkje]
+    forvekslast_med: [geometrisk-rekkje]
+
+  - id: geometrisk-rekkje
+    type: omgrep
+    nivaa: 1
+    namn: "Geometrisk rekkje"
+    km: [km01]
+    kjerneelement: [abstraksjon, modellering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Ei geometrisk følgje har konstant kvotient $k = a_n/a_{n-1}$, og $a_n = a_1 \cdot k^{n-1}$. Ei
+      geometrisk rekkje er summen av ledda. Kvotienten $k$ er vekstfaktoren, og følgja
+      er den diskrete utgåva av ein eksponentialfunksjon. For $k > 1$ veks ledda, for
+      $0 < k < 1$ minkar dei, og for negativ $k$ skiftar dei forteikn.
+    tekst_elev: >-
+      I ei geometrisk følgje gongar du med det same talet $k$ for kvart ledd. Då er
+      $a_n = a_1 \cdot k^{n-1}$. Talet $k$ er vekstfaktoren.
+    doeme: >-
+      $a_1 = 3$ og $k = 2$ gir $3, 6, 12, 24, 48, \ldots$ og $a_5 = 3 \cdot 2^4 = 48$. Kvotienten finn
+      du som $6/3 = 12/6 = 2$.
+    misoppfatning: >-
+      At $a_n = a_1 \cdot k^n$. Eksponenten er $n - 1$, for ledd nummer 5 er fire steg frå $a_1$.
+    byggjer_paa: [talfoelgje, potensar-logaritmar]
+    representerast_som: [sumteikn-rekkje]
+
+  - id: sumteikn-rekkje
+    type: representasjon
+    nivaa: 2
+    namn: "Summeteikn for rekkjer"
+    km: [km01]
+    kjerneelement: [representasjon, abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      $\Sigma$ med nedre og øvre grense skriv summen av ledd kort, t.d.
+      $S_n = \sum_{i=1}^{n} a_i$. Eleven må lese start- og sluttindeks og rekne ut kor mange ledd
+      summen har. Notasjonen er ny for mange S-elevar. Talet på ledd er øvre grense
+      minus nedre grense pluss 1.
+    tekst_elev: >-
+      $\Sigma$ betyr «legg saman». Under står kvar du startar, og over kvar du sluttar.
+      $\sum_{i=1}^{4} (3i - 1)$ er $2 + 5 + 8 + 11$.
+    doeme: >-
+      $\sum_{i=1}^{4} (3i - 1) = 2 + 5 + 8 + 11 = 26$. $\sum_{i=0}^{3} 2^i =
+      1 + 2 + 4 + 8 = 15$ har 4 ledd, ikkje 3.
+    misoppfatning: >-
+      At summen frå $i = 0$ til $n$ har $n$ ledd. Han har $n + 1$ ledd.
+    byggjer_paa: [talfoelgje]
+
+  - id: sum-aritmetisk
+    type: prosedyre
+    nivaa: 2
+    namn: "Summen av ei aritmetisk rekkje"
+    km: [km01]
+    kjerneelement: [resonnering, abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      $S_n = \dfrac{n \cdot (a_1 + a_n)}{2} = \dfrac{n \cdot (2a_1 + (n - 1) \cdot d)}{2}$. Utleiing: skriv summen to gonger,
+      ein gong forlengs og ein gong baklengs, og legg parvis saman. Kvart par gir
+      $a_1 + a_n$, og det er $n$ par, så $2S_n = n \cdot (a_1 + a_n)$. Dette er den kjende
+      Gauss-tenkemåten.
+    tekst_elev: >-
+      Gjennomsnittet av første og siste ledd gonga med talet på ledd:
+      $S_n = \dfrac{n \cdot (a_1 + a_n)}{2}$. Kjenner du ikkje $a_n$, finn du han først med $a_n = a_1 + (n - 1)d$.
+    doeme: >-
+      $1 + 2 + \ldots + 100$: $S_{100} = \dfrac{100 \cdot (1 + 100)}{2} = 5050$. Og for $a_1 = 5$, $d = 3$, $n = 20$: $a_n = 62$
+      og $S_{20} = \dfrac{20 \cdot (5 + 62)}{2} = 670$.
+    misoppfatning: >-
+      Å gløyme å dele på 2, eller å bruke feil n, til dømes $n = 19$ når summen har
+      20 ledd.
+    byggjer_paa: [aritmetisk-rekkje]
+
+  - id: sum-geometrisk
+    type: prosedyre
+    nivaa: 1
+    namn: "Summen av ei geometrisk rekkje"
+    km: [km01]
+    kjerneelement: [resonnering, abstraksjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      $S_n = a_1 \cdot \dfrac{k^n - 1}{k - 1}$ for $k \neq 1$. Utleiing: trekk $S_n$ frå $k \cdot S_n$, då fell nesten
+      alle ledda bort og att står $(k - 1) \cdot S_n = a_1 \cdot (k^n - 1)$. For $k = 1$ er $S_n = n \cdot a_1$.
+      Skal ein finne $n$ når $S_n$ er gitt, krev det ei eksponentiallikning.
+    tekst_elev: >-
+      $S_n = a_1 \cdot \dfrac{k^n - 1}{k - 1}$. Sett inn $a_1$, $k$ og talet på ledd $n$. Er $k = 1$,
+      er alle ledda like, og summen er $n \cdot a_1$.
+    doeme: >-
+      $a_1 = 2$, $k = 3$, $n = 5$: $S_5 = 2 \cdot \dfrac{3^5 - 1}{3 - 1} = \dfrac{2 \cdot 242}{2} = 242$. Kontroll:
+      $2 + 6 + 18 + 54 + 162 = 242$.
+    misoppfatning: >-
+      Å skrive $k^{n-1}$ i teljaren, slik det står i formelen for $a_n$, eller å bruke
+      formelen når $k = 1$.
+    byggjer_paa: [geometrisk-rekkje]
+    brukar: [eksponentiallikning]
+
+  - id: uendeleg-geometrisk-rekkje
+    type: omgrep
+    nivaa: 1
+    namn: "Uendeleg geometrisk rekkje og konvergens"
+    km: [km01]
+    kjerneelement: [abstraksjon, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Ei uendeleg geometrisk rekkje konvergerer når $|k| < 1$, og summen er
+      $S = \dfrac{a_1}{1 - k}$. Grunngiving: $S_n = \dfrac{a_1(1 - k^n)}{1 - k}$, og $k^n$ går mot $0$ når
+      $|k| < 1$, så $S_n$ går mot $S$. For $|k| \ge 1$ divergerer rekkja. Summen er grensa til
+      delsummane $S_n$, ikkje ein «sum av uendeleg mange tal» som ein kan rekne
+      gjennom ledd for ledd.
+    tekst_elev: >-
+      Når $k$ ligg mellom $-1$ og $1$, blir ledda mindre og mindre, og heile summen
+      nærmar seg eit bestemt tal: $S = \dfrac{a_1}{1 - k}$. Er $k \ge 1$ eller $k \le -1$, har
+      rekkja ingen sum.
+    doeme: >-
+      $1 + \frac{1}{2} + \frac{1}{4} + \ldots$ har $a_1 = 1$ og $k = \frac{1}{2}$, så $S = \dfrac{1}{1 - \frac{1}{2}} = 2$. Desimaltalet
+      $0{,}333\ldots = 0{,}3 + 0{,}03 + \ldots$ har $a_1 = 0{,}3$ og $k = 0{,}1$, så $S = \dfrac{0{,}3}{0{,}9} = \dfrac{1}{3}$.
+    misoppfatning: >-
+      At ei rekkje med uendeleg mange ledd alltid har uendeleg stor sum. Formelen
+      kan likevel ikkje brukast for alle k: for $1 + 2 + 4 + \ldots$ gir han $-1$, som er
+      meiningslaust.
+    byggjer_paa: [sum-geometrisk, grenseverdi]
+
+  - id: konvergensomraade
+    type: omgrep
+    nivaa: 2
+    namn: "Konvergensområde for rekkjer med variabel"
+    km: [km01]
+    kjerneelement: [abstraksjon, resonnering]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Når kvotienten $k$ inneheld ein variabel $x$, avheng konvergensen av $x$.
+      Vilkåret $|k(x)| < 1$ gir konvergensområdet, og summen blir ein funksjon av $x$.
+      Eleven skal finne området og tolke summen.
+    tekst_elev: >-
+      Står $x$ i kvotienten, må du finne dei $x$-verdiane som gjer at $|k| < 1$. Berre
+      for desse $x$ har rekkja ein endeleg sum.
+    doeme: >-
+      $1 + (x - 1) + (x - 1)^2 + \ldots$ har $k = x - 1$. Konvergens når $|x - 1| < 1$, altså
+      $0 < x < 2$, og $S = \dfrac{1}{2 - x}$. For $x = 1{,}5$ er $S = 2$.
+    misoppfatning: >-
+      At vilkåret er $k < 1$. Også $k = -3$ gir divergens, så det må vere $|k| < 1$.
+    byggjer_paa: [uendeleg-geometrisk-rekkje, ulikskapar-forteiknslinje]
+
+  # --- km01: anvendingar i økonomi ---
+
+  - id: rekker-oekonomi
+    type: prosedyre
+    nivaa: 1
+    namn: "Rekkjer i økonomi: sparing, annuitet, serielån og noverdi"
+    km: [km01]
+    kjerneelement: [modellering, utforsking]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Fast sparing med rente gir ei geometrisk rekkje med $k$ lik vekstfaktoren. Ved
+      innskot $T$ kvart år med innskot ved slutten av kvart år er sluttverdien
+      $T \cdot \dfrac{k^n - 1}{k - 1}$. Eit annuitetslån med terminbeløp $T$ har noverdi
+      $T \cdot \dfrac{1 - k^{-n}}{k - 1}$, og noverdien av ei betaling $T$ om $t$ år er $T/k^t$. Eleven skal
+      gjere greie for kva modellen føreset: fast rente, fast innskot og same tidspunkt for
+      betaling. Skal ein finne kor mange innskot eller terminar som trengst, får ein ei
+      eksponentiallikning som eleven løyser med CAS (`NLøs`). Svaret er ofte ikkje eit
+      heiltal, og eleven må tolke det: talet på innskot må rundast opp. I eit serielån er avdraget
+      fast, medan rentene minkar med restgjelda. Terminbeløpa (avdrag pluss renter) minkar då med
+      like mykje kvart år og er ei aritmetisk rekkje, så totalbetalinga følgjer av
+      $S_n = \dfrac{n \cdot (a_1 + a_n)}{2}$. Formelarket seier at «nåverdiene av innbetalingene danner en
+      aritmetisk rekke»; strengt teke er det terminbeløpa som er aritmetiske, og noverdiane
+      $a_t/k^t$ er det ikkje. Til samanlikning er terminbeløpet fast i eit annuitetslån, og noverdiane
+      $T/k^t$ er ei geometrisk rekkje. I begge tilfella er summen av noverdiane lik lånebeløpet. Den same
+      noverdimetoden gjeld ein obligasjon (i nokre lærebøker: «obligasjon», «kupongrente»): eigaren får kupongrente,
+      ein fast årleg sum, og pålydande ved slutten, og verdien er noverdien av desse betalingane,
+      ei geometrisk rekkje pluss éi einskild betaling.
+    tekst_elev: >-
+      Sparer du $T$ kroner kvart år, er sluttverdien ei geometrisk rekkje. Eit annuitetslån
+      har fast terminbeløp. I eit serielån er avdraget fast, og terminbeløpa minkar jamt, som ei
+      aritmetisk rekkje.
+    doeme: >-
+      $10\,000$ kr kvart år i 10 år med 4 % rente: $10\,000 \cdot \dfrac{1{,}04^{10} - 1}{0{,}04} \approx 120\,061$ kr.
+      Lån på $500\,000$ kr over 20 år med 4 %: terminbeløp $T \approx 36\,791$ kr.
+      Kor mange år med $8\,000$ kr og 4 % rente gir $60\,000$ kr? Likninga
+      $8\,000 \cdot \dfrac{1{,}04^n - 1}{0{,}04} = 60\,000$ gir $1{,}04^n = 1{,}3$ og
+      $n = \dfrac{\ln 1{,}3}{\ln 1{,}04} \approx 6{,}69$. Etter 6 innskot er sluttverdien
+      $53\,064$ kr og etter 7 er han $63\,186$ kr, så det tek 7 år.
+      Serielån på $500\,000$ kr over 5 år med 4 %: avdraget er $100\,000$ kr, og terminbeløpa er
+      $120\,000$, $116\,000$, $112\,000$, $108\,000$ og $104\,000$ kr, med $a_1 = 120\,000$ og $d = -4\,000$. Summen er
+      $\dfrac{5 \cdot (120\,000 + 104\,000)}{2} = 560\,000$ kr, så rentene blir $60\,000$ kr. Eit annuitetslån med same
+      vilkår har $T \approx 112\,314$ kr og rentene blir $61\,568$ kr.
+    misoppfatning: >-
+      At sluttverdien er innskota pluss ei fast rente per år. Renta kjem òg på tidlegare
+      rente, så sluttverdien er over $20\,000$ kr høgare enn dei $100\,000$ kr som er
+      sette inn.
+    byggjer_paa: [sum-geometrisk, sum-aritmetisk, prosent-vekstfaktor]

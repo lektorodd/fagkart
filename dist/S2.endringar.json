@@ -1,0 +1,1247 @@
+{
+  "format": "fagkart-endringar/1",
+  "kart": "S2",
+  "versjonar": [
+    {
+      "versjon": "2026.3",
+      "dato": "2026-10-29",
+      "samandrag": "Fagstoffet er uendra. Nytt i visinga: «Kva er nytt» i hjelpeboksen og markeringslaget for lærarar (årsplan og eksamen).",
+      "utrekna": true,
+      "nye": [],
+      "endra": [
+        {
+          "id": "S2/normaltilnaerming",
+          "namn": "Normaltilnærming til binomisk fordeling",
+          "felt": [
+            "tekst_laerar"
+          ]
+        },
+        {
+          "id": "S2/sentralgrensesetninga",
+          "namn": "Sentralgrensesetninga",
+          "felt": [
+            "tekst_laerar"
+          ]
+        },
+        {
+          "id": "S2/signifikansnivaa",
+          "namn": "Signifikansnivå",
+          "felt": [
+            "tekst_laerar"
+          ]
+        },
+        {
+          "id": "S2/over-og-undersum",
+          "namn": "Over- og undersummar",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev"
+          ]
+        },
+        {
+          "id": "S2/optimal-produksjon",
+          "namn": "Størst overskot når grenseinntekt er lik grensekostnad",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev"
+          ]
+        },
+        {
+          "id": "S2/rekursiv-formel",
+          "namn": "Rekursiv og eksplisitt formel",
+          "felt": [
+            "tekst_laerar"
+          ]
+        },
+        {
+          "id": "S2/rekker-oekonomi",
+          "namn": "Rekkjer i økonomi: sparing, annuitet, serielån og noverdi",
+          "felt": [
+            "tekst_laerar"
+          ]
+        },
+        {
+          "id": "S2/varians",
+          "namn": "Varians",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev"
+          ]
+        },
+        {
+          "id": "S2/velje-modell",
+          "namn": "Velje modelltype og vurdere gyldigheitsområde",
+          "felt": [
+            "tekst_laerar"
+          ]
+        },
+        {
+          "id": "S2/eulers-metode",
+          "namn": "Eulers metode: modellere vekst steg for steg",
+          "felt": [
+            "tekst_laerar"
+          ]
+        }
+      ],
+      "sletta": [],
+      "kantar": {
+        "nye": [],
+        "fjerna": []
+      }
+    },
+    {
+      "versjon": "2026.2",
+      "dato": "2026-10-29",
+      "samandrag": "Forkunnskapen er delt i vegane 1P → S1 og 1T → S1, og kartet er sjekka mot NDLA og ei lærebok. Nye mønster, mellom anna Eulers metode og val av modell.",
+      "utrekna": true,
+      "nye": [
+        {
+          "id": "S2/talet-e-ln",
+          "namn": "Talet $e$ og naturleg logaritme",
+          "tema": "forkunnskap"
+        },
+        {
+          "id": "S2/faktorisering-polynom",
+          "namn": "Faktorisering, andregradslikningar og polynomdivisjon",
+          "tema": "forkunnskap"
+        },
+        {
+          "id": "S2/rasjonale-funksjonar",
+          "namn": "Rasjonale funksjonar og asymptotar",
+          "tema": "forkunnskap"
+        },
+        {
+          "id": "S2/algebraiske-broekuttrykk",
+          "namn": "Algebraiske brøkuttrykk: fellesnemnar, forkorting og omforming",
+          "tema": "forkunnskap"
+        },
+        {
+          "id": "S2/ulikskapar-forteiknslinje",
+          "namn": "Ulikskapar og forteiknslinje",
+          "tema": "forkunnskap"
+        },
+        {
+          "id": "S2/uavhengige-hendingar",
+          "namn": "Uavhengige hendingar og produktsetninga",
+          "tema": "forkunnskap"
+        },
+        {
+          "id": "S2/forkastingsomraade",
+          "namn": "Forkastingsområde",
+          "tema": "inferens"
+        },
+        {
+          "id": "S2/delvis-integrasjon",
+          "namn": "Delvis integrasjon",
+          "tema": "integrasjon"
+        },
+        {
+          "id": "S2/delbrokoppspalting",
+          "namn": "Integrasjon ved delbrøkoppspalting",
+          "tema": "integrasjon"
+        },
+        {
+          "id": "S2/gjennomsnitt-funksjon",
+          "namn": "Gjennomsnittsverdi til ein funksjon",
+          "tema": "integrasjon"
+        },
+        {
+          "id": "S2/velje-modell",
+          "namn": "Velje modelltype og vurdere gyldigheitsområde",
+          "tema": "vekstmodellar"
+        },
+        {
+          "id": "S2/eulers-metode",
+          "namn": "Eulers metode: modellere vekst steg for steg",
+          "tema": "vekstmodellar"
+        }
+      ],
+      "endra": [
+        {
+          "id": "S2/derivasjon-s1",
+          "namn": "Den deriverte og derivasjonsreglar for polynom",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/vekstfart",
+          "namn": "Gjennomsnittleg og momentan vekstfart",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/grenseverdi",
+          "namn": "Grenseverdi",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/kontinuitet",
+          "namn": "Kontinuitet",
+          "felt": [
+            "tekst_laerar",
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/funksjonsdroefting-s1",
+          "namn": "Forteiknslinje, ekstremalpunkt og optimering",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/potensar-logaritmar",
+          "namn": "Potens- og logaritmereglar",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/eksponentiallikning",
+          "namn": "Eksponential- og logaritmelikningar",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/eksponentialfunksjon",
+          "namn": "Eksponentialfunksjon",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/regresjon",
+          "namn": "Regresjon og modellar av reelle datasett",
+          "felt": [
+            "tekst_laerar",
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/kombinatorikk",
+          "namn": "Kombinatorikk: ordna og uordna utval",
+          "felt": [
+            "tekst_laerar",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/stokastisk-variabel",
+          "namn": "Stokastisk variabel",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/binomisk-fordeling",
+          "namn": "Binomisk fordeling",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/hypergeometrisk-fordeling",
+          "namn": "Hypergeometrisk fordeling",
+          "felt": [
+            "tekst_laerar",
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/simulering-s1",
+          "namn": "Simulere stokastiske forsøk digitalt",
+          "felt": [
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/areal-geometri",
+          "namn": "Areal av rektangel og trapes",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme"
+          ]
+        },
+        {
+          "id": "S2/programmering",
+          "namn": "Programmering: variablar, løkker og vilkår",
+          "felt": [
+            "tekst_laerar",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/prosent-vekstfaktor",
+          "namn": "Prosent og vekstfaktor",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning"
+          ]
+        },
+        {
+          "id": "S2/produkt-kvotient-kjerneregel",
+          "namn": "Produkt-, kvotient- og kjerneregel",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/derivere-eksp-ln",
+          "namn": "Derivere eksponential- og logaritmefunksjonar",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/andrederivert",
+          "namn": "Den andrederiverte",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/krumming-vendepunkt",
+          "namn": "Krumming og vendepunkt",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/drofte-funksjon",
+          "namn": "Drøfte ein funksjon med derivasjon og integrasjon",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/tolke-funksjon",
+          "namn": "Tolke funksjonsanalysen i ein samanheng",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/normalfordeling",
+          "namn": "Normalfordeling",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/standardisering",
+          "namn": "Standardisering ($z$-verdi)",
+          "felt": [
+            "namn",
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/normal-berekning",
+          "namn": "Rekne sannsyn i normalfordelinga",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/normaltilnaerming",
+          "namn": "Normaltilnærming til binomisk fordeling",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/gjennomsnitt-utval",
+          "namn": "Fordelinga til gjennomsnittet av eit utval",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/sentralgrensesetninga",
+          "namn": "Sentralgrensesetninga",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/argumentere-sgs",
+          "namn": "Argumentere for sentralgrensesetninga",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/hypotesar",
+          "namn": "Nullhypotese og alternativ hypotese",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/signifikansnivaa",
+          "namn": "Signifikansnivå",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/p-verdi",
+          "namn": "P-verdi",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/binomisk-test",
+          "namn": "Hypotesetest med binomisk fordeling",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/normal-test",
+          "namn": "Hypotesetest med normalfordeling",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/tolke-test",
+          "namn": "Tolke resultatet av ein hypotesetest",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/antiderivert",
+          "namn": "Antiderivert (ubestemt integral)",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/integrasjonsreglar",
+          "namn": "Integrasjonsreglar",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/integrasjonsteknikkar",
+          "namn": "Integrasjon ved variabelskifte",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "verbnivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/over-og-undersum",
+          "namn": "Over- og undersummar",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/bestemt-integral",
+          "namn": "Det bestemte integralet",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/integral-areal",
+          "namn": "Integral som (forteikna) areal",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/fundamentalteoremet",
+          "namn": "Analysens fundamentalteorem",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/konsekvensar-fundamentalteoremet",
+          "namn": "Konsekvensar av fundamentalteoremet",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/rekne-bestemt-integral",
+          "namn": "Rekne ut bestemte integral",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/areal-mellom-grafar",
+          "namn": "Areal mellom to grafar",
+          "felt": [
+            "tekst_laerar",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/integral-akkumulert-endring",
+          "namn": "Integral som samla endring",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/numerisk-integrasjon",
+          "namn": "Numerisk integrasjon med digitale verktøy",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/kostnadsfunksjon",
+          "namn": "Kostnadsfunksjon",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/inntektsfunksjon",
+          "namn": "Inntektsfunksjon",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/overskotsfunksjon",
+          "namn": "Overskotsfunksjon",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/grensekostnad",
+          "namn": "Grensekostnad",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/grenseinntekt",
+          "namn": "Grenseinntekt",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/optimal-produksjon",
+          "namn": "Størst overskot når grenseinntekt er lik grensekostnad",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/einingskostnad",
+          "namn": "Einingskostnad og kostnadsoptimum",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/total-fraa-grense",
+          "namn": "Samla kostnad frå grensekostnad med integral",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/talfoelgje",
+          "namn": "Talfølgje",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/rekursiv-formel",
+          "namn": "Rekursiv og eksplisitt formel",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/rekursjon-programmering",
+          "namn": "Utforske rekursive samanhengar med programmering",
+          "felt": [
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/aritmetisk-rekkje",
+          "namn": "Aritmetisk rekkje",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/geometrisk-rekkje",
+          "namn": "Geometrisk rekkje",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/sumteikn-rekkje",
+          "namn": "Summeteikn for rekkjer",
+          "felt": [
+            "namn",
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/sum-aritmetisk",
+          "namn": "Summen av ei aritmetisk rekkje",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/sum-geometrisk",
+          "namn": "Summen av ei geometrisk rekkje",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/uendeleg-geometrisk-rekkje",
+          "namn": "Uendeleg geometrisk rekkje og konvergens",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/konvergensomraade",
+          "namn": "Konvergensområde for rekkjer med variabel",
+          "felt": [
+            "namn",
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/rekker-oekonomi",
+          "namn": "Rekkjer i økonomi: sparing, annuitet, serielån og noverdi",
+          "felt": [
+            "namn",
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/sannsynsfordeling",
+          "namn": "Sannsynsfordeling",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/gjennomsnitt-standardavvik-data",
+          "namn": "Gjennomsnitt og standardavvik i eit datasett",
+          "felt": [
+            "tekst_laerar",
+            "doeme",
+            "misoppfatning",
+            "verbnivaa",
+            "forkjennskap",
+            "km",
+            "klynge"
+          ]
+        },
+        {
+          "id": "S2/forventningsverdi",
+          "namn": "Forventningsverdi",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/varians",
+          "namn": "Varians",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/standardavvik",
+          "namn": "Standardavvik",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/rekne-forventning-varians",
+          "namn": "Rekne ut forventningsverdi og varians",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/reknereglar-forventning-varians",
+          "namn": "Reknereglar for $E$ og $\\text{Var}$ ($aX + b$, sum av uavhengige)",
+          "felt": [
+            "namn",
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/binomisk-forventning-varians",
+          "namn": "$E$ og $\\text{Var}$ i binomisk fordeling",
+          "felt": [
+            "namn",
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/kontinuerleg-fordeling",
+          "namn": "Kontinuerleg fordeling og tettleiksfunksjon",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "nivaa",
+            "verbnivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/simulere-fordeling",
+          "namn": "Simulere og utforske fordelingar",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/anvendingar-fordelingar",
+          "namn": "Kva fordeling passar til situasjonen?",
+          "felt": [
+            "tekst_laerar",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/eksponentiell-vekst",
+          "namn": "Eksponentiell vekst",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/logistisk-vekst",
+          "namn": "Logistisk vekst",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/baereevne",
+          "namn": "Bæreevne",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/logistisk-funksjon",
+          "namn": "Den logistiske funksjonen",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/maks-vekstfart-logistisk",
+          "namn": "Størst vekstfart ved halv bæreevne",
+          "felt": [
+            "tekst_laerar",
+            "tekst_elev",
+            "doeme",
+            "misoppfatning",
+            "verbnivaa",
+            "forkjennskap"
+          ]
+        },
+        {
+          "id": "S2/vekstmodell-data",
+          "namn": "Lage og vurdere vekstmodellar frå reelle data",
+          "felt": [
+            "tekst_laerar",
+            "doeme",
+            "verbnivaa",
+            "forkjennskap"
+          ]
+        }
+      ],
+      "sletta": [],
+      "kantar": {
+        "nye": [
+          {
+            "fra": "S2/gjennomsnitt-standardavvik-data",
+            "til": "S2/km07",
+            "type": "dekkjer"
+          },
+          {
+            "fra": "S2/gjennomsnitt-standardavvik-data",
+            "til": "S2/km10",
+            "type": "dekkjer"
+          },
+          {
+            "fra": "S2/hypotesar",
+            "til": "S2/stokastisk-variabel",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/integral-akkumulert-endring",
+            "til": "S2/konsekvensar-fundamentalteoremet",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/maks-vekstfart-logistisk",
+            "til": "S2/derivere-eksp-ln",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/numerisk-integrasjon",
+            "til": "S2/areal-geometri",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/rekker-oekonomi",
+            "til": "S2/sum-aritmetisk",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/sum-geometrisk",
+            "til": "S2/eksponentiallikning",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/tolke-test",
+            "til": "S2/normaltilnaerming",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/total-fraa-grense",
+            "til": "S2/konsekvensar-fundamentalteoremet",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/vekstmodell-data",
+            "til": "S2/maks-vekstfart-logistisk",
+            "type": "brukar"
+          }
+        ],
+        "fjerna": [
+          {
+            "fra": "S2/binomisk-test",
+            "til": "S2/binomisk-fordeling",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/binomisk-test",
+            "til": "S2/p-verdi",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/geometrisk-rekkje",
+            "til": "S2/eksponentialfunksjon",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/geometrisk-rekkje",
+            "til": "S2/prosent-vekstfaktor",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/hypotesar",
+            "til": "S2/binomisk-fordeling",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/hypotesar",
+            "til": "S2/gjennomsnitt-utval",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/integral-akkumulert-endring",
+            "til": "S2/fundamentalteoremet",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/normal-berekning",
+            "til": "S2/normalfordeling",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/normal-berekning",
+            "til": "S2/standardisering",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/normal-test",
+            "til": "S2/gjennomsnitt-utval",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/normal-test",
+            "til": "S2/p-verdi",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/normal-test",
+            "til": "S2/standardisering",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/over-og-undersum",
+            "til": "S2/grenseverdi",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/rekker-oekonomi",
+            "til": "S2/rekursjon-programmering",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/rekne-forventning-varians",
+            "til": "S2/forventningsverdi",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/rekne-forventning-varians",
+            "til": "S2/standardavvik",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/rekne-forventning-varians",
+            "til": "S2/varians",
+            "type": "brukar"
+          },
+          {
+            "fra": "S2/sannsynsfordeling",
+            "til": "S2/kombinatorikk",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/sum-aritmetisk",
+            "til": "S2/sumteikn-rekkje",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/sum-geometrisk",
+            "til": "S2/eksponentiallikning",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/sum-geometrisk",
+            "til": "S2/sumteikn-rekkje",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/total-fraa-grense",
+            "til": "S2/fundamentalteoremet",
+            "type": "byggjer_paa"
+          },
+          {
+            "fra": "S2/vekstmodell-data",
+            "til": "S2/maks-vekstfart-logistisk",
+            "type": "byggjer_paa"
+          }
+        ]
+      }
+    },
+    {
+      "versjon": "2026.1",
+      "dato": "2026-10-18",
+      "samandrag": "Første versjon av kartet.",
+      "utrekna": false
+    }
+  ]
+}

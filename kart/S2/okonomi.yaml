@@ -1,0 +1,235 @@
+klynge: okonomi
+namn: Grensekostnad og grenseinntekt
+nodar:
+
+  # Gjennomgåande døme (alle tal er rekna ut):
+  #   kostnad      K(x) = 0,05x² + 10x + 2000
+  #   pris         p(x) = 50 − 0,05x (frå etterspurnaden x(p) = 1000 − 20p)
+  #   inntekt      I(x) = 50x − 0,05x²
+  #   overskot     O(x) = I(x) − K(x) = −0,1x² + 40x − 2000, størst 2000 kr ved x = 200
+  #   einingskostnad A(x) = K(x) / x = 0,05x + 10 + 2000 / x, lågast 30 kr ved x = 200
+
+  # --- km09: funksjonane i modellen ---
+
+  - id: kostnadsfunksjon
+    type: omgrep
+    nivaa: 1
+    namn: "Kostnadsfunksjon"
+    km: [km09]
+    kjerneelement: [modellering, representasjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Kostnadsfunksjonen $K(x)$ gir den samla kostnaden ved å produsere $x$ einingar. Han har ein
+      fast del som ikkje avheng av $x$, og ein variabel del. $K(0)$ er fastkostnaden. Er $K$ lineær,
+      er kostnaden per ekstra eining konstant; er $K$ ein andregradsfunksjon som i dømet,
+      aukar kostnaden raskare enn produksjonen. S2-eleven kjenner funksjonsmodellar og
+      optimering frå S1, så fokuset her er at $K(x)$ er funksjonen vi seinare deriverer og
+      integrerer: det nye i S2 er grensekostnad, einingskostnad og integral. Modellen gjeld berre i eit avgrensa område, til dømes opp til kapasitet.
+    tekst_elev: >-
+      $K(x)$ er den samla kostnaden når du lagar $x$ einingar. Ein del betaler du uansett, og
+      ein del veks med produksjonen.
+    doeme: >-
+      $K(x) = 0{,}05x^2 + 10x + 2000$. Fastkostnaden er $K(0) = 2000$ kr, og å lage 100 einingar
+      kostar $K(100) = 3500$ kr.
+    misoppfatning: >-
+      At kostnaden er 0 når ein ikkje produserer noko. Husleige og utstyr må betalast
+      uansett, så $K(0)$ er fastkostnaden.
+
+  - id: inntektsfunksjon
+    type: omgrep
+    nivaa: 1
+    namn: "Inntektsfunksjon"
+    km: [km09]
+    kjerneelement: [modellering, representasjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Inntekta er pris gonger solgt kvantum. Med fast pris $p$ er $I(x) = p \cdot x$, ein lineær
+      funksjon. Når etterspurnaden seier at prisen må ned for å selje meir, er prisen ein
+      funksjon $p(x)$, og $I(x) = p(x) \cdot x$ blir ein andregradsfunksjon. Då må ein først
+      skrive prisen som funksjon av kvantum, ved å løyse etterspurnaden $x(p)$ med omsyn til
+      $p$. Parentesen må gongast ut før ein deriverer, eller ein kan bruke produktregelen
+      (produkt-kvotient-kjerneregel). Inntektsfunksjonen er kjend frå S1; det nye i S2 er
+      grenseinntekt og at $I(x)$ kan bli rekna ut frå $I'(x)$ med integral.
+    tekst_elev: >-
+      Inntekt er pris gonger kor mange du sel: $I(x) = p(x) \cdot x$. Må du senke prisen for å
+      selje meir, må du først skrive prisen som ein funksjon av x.
+    doeme: >-
+      Etterspurnaden $x(p) = 1000 - 20p$ gir $p(x) = 50 - 0{,}05x$, og dermed
+      $I(x) = (50 - 0{,}05x) \cdot x = 50x - 0{,}05x^2$. $I(200) = 10\,000 - 2000 = 8000$ kr, med pris
+      $p(200) = 40$ kr per eining.
+    misoppfatning: >-
+      At alle einingane kan seljast til startprisen. $50 \cdot 200 = 10\,000$ kr, men etterspurnaden
+      gir prisen $40$ kr ved 200 einingar, så inntekta er $40 \cdot 200 = 8000$ kr.
+
+  - id: overskotsfunksjon
+    type: omgrep
+    nivaa: 1
+    namn: "Overskotsfunksjon"
+    km: [km09]
+    kjerneelement: [modellering, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: ja, 1T-S1: ja}
+    tekst_laerar: >-
+      Overskotsfunksjonen er $O(x) = I(x) - K(x)$, altså inntekt minus kostnad. Positiv
+      verdi er overskot, negativ er underskot, og nullpunkta er break-even. Vi skriv $O(x)$,
+      slik S-lærebøkene gjer. Eleven skal sjå at overskotet ikkje er størst der inntekta er
+      størst, fordi kostnaden òg veks. Deriverer ein $O(x)$, får ein $O'(x) = I'(x) - K'(x)$,
+      og det er grunnlaget for optimal-produksjon. Overskotsfunksjonen og maksimum der $O'(x) = 0$
+      er kjende frå S1; det nye i S2 er å tolke vilkåret som $I'(x) = K'(x)$.
+    tekst_elev: >-
+      Overskotet er det du sit igjen med: inntekt minus kostnad, $O(x) = I(x) - K(x)$.
+      Negativt svar betyr underskot.
+    doeme: >-
+      $I(x) = 50x - 0{,}05x^2$ og $K(x) = 0{,}05x^2 + 10x + 2000$ gir $O(x) = -0{,}1x^2 + 40x - 2000$.
+      $O(200) = -4000 + 8000 - 2000 = 2000$ kr. Nullpunkta er $x \approx 58{,}6$ og $x \approx 341{,}4$.
+    misoppfatning: >-
+      At størst inntekt gir størst overskot. Inntekta er størst ved $x = 500$ ($I = 12\,500$ kr),
+      men $O(500) = -7000$ kr.
+    byggjer_paa: [kostnadsfunksjon, inntektsfunksjon]
+
+  # --- km09: grensestorleikar og tolking ---
+
+  - id: grensekostnad
+    type: omgrep
+    nivaa: 1
+    namn: "Grensekostnad"
+    km: [km09]
+    kjerneelement: [modellering, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Grensekostnaden $K'(x)$ er den momentane vekstfarten til kostnaden, med eining kr per
+      eining. Han er om lag kostnaden ved å produsere éi eining til: $K(x + 1) - K(x) \approx K'(x)$.
+      Det er ei tilnærming, ikkje eksakt kostnad for neste eining, og ho er god når grensekostnaden $K'$
+      endrar seg lite over ei eining (liten krumming). S2-eleven kan derivere frå S1, så tida går til
+      tolkinga: kva $K'(100) = 20$ betyr for ei bedrift. Er $K$ ein eksponentialfunksjon eller
+      ein logaritmefunksjon, deriverer ein med derivere-eksp-ln eller digitalt (`Derivert`
+      i GeoGebra). Skil grensekostnad frå einingskostnad.
+    tekst_elev: >-
+      Grensekostnad er om lag kva det kostar å lage éi eining til. Du finn han ved å derivere
+      $K(x)$. Svaret er i kr per eining.
+    doeme: >-
+      $K'(x) = 0{,}1x + 10$, så $K'(100) = 20$ kr per eining. Den faktiske kostnaden for eining
+      nummer 101 er $K(101) - K(100) = 20{,}05$ kr, nær $20$.
+    misoppfatning: >-
+      At grensekostnad og einingskostnad er det same. Ved $x = 100$ er $K'(100) = 20$ kr, men
+      $\frac{K(100)}{100} = 35$ kr.
+    byggjer_paa: [kostnadsfunksjon, derivasjon-s1, vekstfart]
+    doeme_paa: [derivasjon-s1]
+    forvekslast_med: [einingskostnad]
+
+  - id: grenseinntekt
+    type: omgrep
+    nivaa: 1
+    namn: "Grenseinntekt"
+    km: [km09]
+    kjerneelement: [modellering, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Grenseinntekta $I'(x)$ er om lag inntektsauken ved å selje éi eining til, i kr per
+      eining. Med fast pris er $I'(x) = p$. Fell prisen når kvantumet veks, må alle einingane
+      seljast til lågare pris, og $I'(x) < p(x)$. Med produktregelen er $I'(x) = p(x) + x \cdot p'(x)$,
+      og siste ledd er negativt når $p'(x) < 0$. Dette er hovudpoenget: grenseinntekta er ikkje
+      prisen. S2-eleven kan derivere frå S1, så tida går til skiljet mellom pris og
+      grenseinntekt og til tolking med eining.
+    tekst_elev: >-
+      Grenseinntekt er om lag kor mykje inntekta aukar når du sel éi eining til. Du finn
+      henne ved å derivere $I(x)$. Ho er ikkje det same som prisen.
+    doeme: >-
+      $I'(x) = 50 - 0{,}1x$. Ved $x = 200$ er prisen 40 kr, men $I'(200) = 30$ kr. Den faktiske auken frå
+      200 til 201 er $I(201) - I(200) = 29{,}95$ kr.
+    misoppfatning: >-
+      At grenseinntekta er lik prisen. Det gjeld berre når prisen er fast. Elles må prisen
+      ned for alle einingane, så $I'(x)$ er mindre enn $p(x)$.
+    byggjer_paa: [inntektsfunksjon, derivasjon-s1, vekstfart]
+    doeme_paa: [derivasjon-s1]
+
+  - id: optimal-produksjon
+    type: forklaring
+    nivaa: 1
+    namn: "Størst overskot når grenseinntekt er lik grensekostnad"
+    km: [km09]
+    kjerneelement: [resonnering, modellering]
+    verbnivaa: vurdere
+    forkjennskap: {1P-S1: delvis, 1T-S1: delvis}
+    tekst_laerar: >-
+      Sidan $O'(x) = I'(x) - K'(x)$, gir $O'(x) = 0$ at $I'(x) = K'(x)$. Produksjonsmengda som gir
+      størst overskot er den optimale (i nokre lærebøker: «vinningsoptimal produksjonsmengde»). Økonomisk resonnement:
+      er $I' > K'$, aukar overskotet om ein produserer meir; er $I' < K'$, aukar det om ein
+      produserer mindre. Vilkåret er nødvendig, ikkje tilstrekkeleg. Eleven må avgjere om
+      punktet er toppunkt, anten med forteiknslinje for $O'$ eller med den andrederiverte
+      ($O''(x) < 0$), kontrollere at $x$ ligg i det gyldige området (kapasitet) og at overskotet
+      er positivt. Kan visast både som algebra og som økonomisk argument; elevane bør kunne
+      begge delar. Optimering med $O'(x) = 0$ er kjend frå S1; det nye i S2 er tolkinga
+      $I'(x) = K'(x)$ med grensestorleikar.
+    tekst_elev: >-
+      Så lenge éi eining til gir meir inntekt enn ho kostar, løner det seg å lage meir.
+      Overskotet er størst når grenseinntekt $=$ grensekostnad. Mengda som gir størst overskot heiter
+      «vinningsoptimal produksjonsmengde» i nokre lærebøker. Sjekk at det er eit toppunkt.
+    doeme: >-
+      $I'(x) = 50 - 0{,}1x$ og $K'(x) = 0{,}1x + 10$. Likninga $50 - 0{,}1x = 0{,}1x + 10$ gir $x = 200$. Då er
+      $I' = K' = 30$ kr, pris $p = 40$ kr og $O(200) = 2000$ kr. $O''(x) = -0{,}2 < 0$, så det er eit
+      toppunkt. Med kapasitet 150 er største overskot $O(150) = 1750$ kr i endepunktet.
+    misoppfatning: >-
+      At $I'(x) = K'(x)$ alltid gir størst overskot. Med fast pris 10 kr og
+      $K(x) = 0{,}001x^3 - 0{,}15x^2 + 10x + 300$ er $I' = K'$ både i $x = 0$ og $x = 100$. Der er
+      $O(0) = -300$ eit botnpunkt, medan $O(100) = 200$ er toppunktet.
+    byggjer_paa: [grensekostnad, grenseinntekt, overskotsfunksjon, funksjonsdroefting-s1, andrederivert]
+
+  - id: einingskostnad
+    type: omgrep
+    nivaa: 1
+    namn: "Einingskostnad og kostnadsoptimum"
+    km: [km09]
+    kjerneelement: [modellering, abstraksjon]
+    verbnivaa: forklare
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Einingskostnaden er samla kostnad delt på talet på einingar: $A(x) = \frac{K(x)}{x}$. Fastkostnaden
+      blir fordelt på fleire einingar og gir eit fallande ledd. Kostnadsoptimum er der $A$ er
+      lågast. Med kvotientregelen er $A'(x) = \frac{K'(x) \cdot x - K(x)}{x^2} = \frac{K'(x) - A(x)}{x}$, så
+      $A'(x) = 0$ gir $K'(x) = A(x)$: så lenge neste eining kostar mindre enn gjennomsnittet,
+      trekkjer ho gjennomsnittet ned, og omvendt. Dei er like berre i kostnadsoptimum.
+      Kostnadsoptimum er ikkje det same som optimalt overskot; sjå optimal-produksjon.
+      NDLA kallar einingskostnaden $E(x)$; her heiter han $A(x)$ for å unngå samanblanding
+      med forventninga $E(X)$. Kan òg finnast grafisk eller med `Ekstremalpunkt` i GeoGebra.
+    tekst_elev: >-
+      Einingskostnad er kostnaden per eining: $A(x) = \frac{K(x)}{x}$. Han er lågast der $A(x) = K'(x)$,
+      altså der kostnaden for éi eining til er lik gjennomsnittet.
+    doeme: >-
+      $A(100) = \frac{3500}{100} = 35$ kr, $A(200) = \frac{6000}{200} = 30$ kr og $A(400) = \frac{14\,000}{400} = 35$ kr.
+      Kostnadsoptimum er ved $x = 200$, der $A(200) = 30$ og $K'(200) = 30$ kr.
+    misoppfatning: >-
+      At lågare einingskostnad betyr lågare samla kostnad. Frå 100 til 200 einingar fell
+      einingskostnaden frå $35$ til $30$ kr, men samla kostnad aukar frå $3500$ til $6000$ kr.
+    byggjer_paa: [grensekostnad, kostnadsfunksjon, produkt-kvotient-kjerneregel, algebraiske-broekuttrykk, funksjonsdroefting-s1, rasjonale-funksjonar]
+
+  - id: total-fraa-grense
+    type: prosedyre
+    nivaa: 2
+    namn: "Samla kostnad frå grensekostnad med integral"
+    km: [km09]
+    kjerneelement: [modellering, abstraksjon, representasjon]
+    verbnivaa: bruke
+    forkjennskap: {1P-S1: nei, 1T-S1: nei}
+    tekst_laerar: >-
+      Sidan $K$ er ein antiderivert til $K'$, gir fundamentalteoremet (konsekvens 2) at endringa i kostnad frå $a$ til $b$
+      er $K(b) - K(a) = \int_a^b K'(x)\,dx$. Den samla kostnaden er $K(x) = K(0) + \int_0^x K'(u)\,du$: ein må leggje til
+      fastkostnaden $K(0)$, for grensekostnaden seier ingenting om han. Same framgangsmåte
+      gir samla inntekt frå $I'(x)$, der $I(0) = 0$. Integralet kan reknast ut for hand eller
+      med `Integral` i GeoGebra. Noden bind km09 til integrasjonsklynga: integralet er
+      samla endring (integral-akkumulert-endring).
+    tekst_elev: >-
+      Grensekostnaden seier kor mykje kostnaden aukar per eining. Integralet av $K'(x)$ frå $a$ til $b$
+      gir kor mykje kostnaden aukar til saman. Fastkostnaden må du leggje til sjølv.
+    doeme: >-
+      $K'(x) = 0{,}1x + 10$. Frå 100 til 200 einingar er auken i kostnad
+      $\int_{100}^{200} (0{,}1x + 10)\,dx = \left[0{,}05x^2 + 10x\right]_{100}^{200} = 4000 - 1500 = 2500$ kr, det same som
+      $K(200) - K(100) = 6000 - 3500$. Samla kostnad for 200 einingar er $2000 + \int_0^{200} K'(x)\,dx = 2000 + 4000 = 6000$ kr.
+    misoppfatning: >-
+      At integralet av grensekostnaden frå 0 til x gir samla kostnad. $\int_0^{200} K'(x)\,dx = 4000$,
+      men $K(200) = 6000$. Fastkostnaden på $2000$ kr manglar.
+    byggjer_paa: [grensekostnad, konsekvensar-fundamentalteoremet, integral-akkumulert-endring, rekne-bestemt-integral]

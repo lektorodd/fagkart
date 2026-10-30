@@ -1,0 +1,46 @@
+{
+  "format": "fagkart-endringar/1",
+  "kart": "DEMO-01",
+  "versjonar": [
+    {
+      "versjon": "0.1",
+      "dato": "2026-10-29",
+      "samandrag": "Fordelingane har fått $z$-verdi og $68$–$95$–$99{,}7$-regelen, og forklaringa av varians er skriven om.",
+      "etter_innspel": 2,
+      "utrekna": true,
+      "nye": [
+        {"id": "DEMO-01/z-verdi", "namn": "Rekne ut $z$-verdi", "tema": "fordeling"},
+        {"id": "DEMO-01/empirisk-regel", "namn": "$68$–$95$–$99{,}7$-regelen", "tema": "fordeling"}
+      ],
+      "endra": [
+        {"id": "DEMO-01/varians", "namn": "Varians $\\sigma^2$", "felt": ["tekst_elev", "doeme"]},
+        {"id": "DEMO-01/standardavvik", "namn": "Standardavvik $\\sigma$", "felt": ["nivaa", "forkjennskap"]}
+      ],
+      "sletta": [
+        {"id": "DEMO-01/gamal-spreiing", "namn": "Variasjonsbreidd som einaste mål"}
+      ],
+      "kantar": {
+        "nye": [
+          {"fra": "DEMO-01/z-verdi", "til": "DEMO-01/standardnormal", "type": "byggjer_paa"},
+          {"fra": "DEMO-01/empirisk-regel", "til": "DEMO-01/normalfordeling", "type": "byggjer_paa"}
+        ],
+        "fjerna": [
+          {"fra": "DEMO-01/standardavvik", "til": "DEMO-01/gamal-spreiing", "type": "byggjer_paa"}
+        ]
+      }
+    },
+    {
+      "versjon": "0.0",
+      "dato": "2026-10-18",
+      "samandrag": "Første utkast: beskrivande statistikk og normalfordeling.",
+      "utrekna": true,
+      "nye": [
+        {"id": "DEMO-01/avvik", "namn": "Avvik frå gjennomsnittet $x_i - \\bar{x}$", "tema": "beskrivande"},
+        {"id": "DEMO-01/histogram", "namn": "Histogram", "tema": "beskrivande"}
+      ],
+      "endra": [],
+      "sletta": [],
+      "kantar": {"nye": [{"fra": "DEMO-01/avvik", "til": "DEMO-01/fk-gjennomsnitt", "type": "byggjer_paa"}], "fjerna": []}
+    }
+  ]
+}

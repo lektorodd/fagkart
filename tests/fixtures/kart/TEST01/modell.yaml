@@ -1,0 +1,34 @@
+klynge: modell
+namn: Lineære modellar
+nodar:
+  - id: lineaer
+    type: omgrep
+    namn: Lineær funksjon
+    km: [km02]
+    verbnivaa: forklare
+    tekst_laerar: "Funksjon med konstant endring, f(x) = ax + b."
+    tekst_elev: "Ei rett line med same stigning heile vegen."
+    doeme: "Taxi: startpris pluss fast pris per km."
+    misoppfatning: "Ei stigande kurve er alltid lineær."
+    byggjer_paa: [tal]
+    representerast_som: [graf]
+  - id: stigingstal
+    type: omgrep
+    namn: Stigingstal
+    km: [km02]
+    verbnivaa: bruke
+    tekst_laerar: "Endring i y per eining endring i x."
+    tekst_elev: "Kor mykje y aukar når x aukar med ein."
+    doeme: "a = 2 gir 2 meir i y per steg."
+    misoppfatning: "Stigingstalet er der linja kryssar y-aksen."
+    byggjer_paa: [lineaer]
+    doeme_paa: [lineaer]
+  - id: graf
+    type: representasjon
+    namn: Grafen til ein lineær funksjon
+    km: [km02]
+    verbnivaa: kjenne_til
+    tekst_laerar: "Rett line i eit koordinatsystem."
+    tekst_elev: "Ei rett line i eit koordinatsystem."
+    doeme: "Grafen til y = 2x + 1."
+    misoppfatning: "Alle grafar er rette linjer."
