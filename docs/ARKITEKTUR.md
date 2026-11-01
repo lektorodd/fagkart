@@ -168,7 +168,7 @@ og dei få nodane frå andre tema som temaet heng saman med, svakt grå. Dette e
 | **Eigenvurdering** (innebygd, sjå over) | Eleven markerer *ikkje / delvis / heilt*; kartet farga etter det | overlegg `type: eigenvurdering`, skala ikkje/delvis/heilt |
 | **Stiar** (innebygd, sjå over) | (a) «Kva må eg kunne før X?» — føresetnadskjeda til ein node, i lærerekkjefølgje; (b) *løyper* laga av lærar, t.d. «Repetisjon til eksamen», «Integrasjon på 3 veker»; (c) *snarvegar*: kortaste kjede mellom to nodar (ikkje laga) | (a)(c) rekna frå piler; (b) `loeyper.yaml` i kartet |
 | **Neste steg** | Med eigenvurdering: «klar til å lære» = alle føresetnader *heilt*, sjølv ikkje; «svake punkt» = *ikkje/delvis* som mykje byggjer på | rekna |
-| **Markering** (innebygd frå 15d, sjå over) | utbytbar skala: årsplan (planlagt / undervist / vurdert) eller eksamen (del 1 / del 2 / ikkje eigna / uavklart), sett (`omraade`), notat, dekning per kompetansemål; berre fil | overlegg `type: dekning` med `skala` og `skala_namn` |
+| **Markering** (innebygd frå 15d, sjå over) | utbytbar skala: årsplan (planlagt / undervist / vurdert) eller eigen skala (eksamensskalaen del 1 / del 2 / ikkje eigna / uavklart blir ikkje lenger tilbydd, men filer med han kan opnast), sett (`omraade`), notat, dekning per kompetansemål; berre fil | overlegg `type: dekning` med `skala` og `skala_namn` |
 | **Notat** | lappar, eigne piler, område | overlegg |
 
 ## Format som må vere klare før laga

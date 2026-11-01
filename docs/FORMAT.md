@@ -319,8 +319,8 @@ Overlegg peikar berre på bygde node-ID-ar og ligg aldri i `kart/`.
   tekne vare på og skrivne tilbake, aldri sletta.
 - **Markering** (`type: "dekning"`, laget «Markering» i lærarvisinga): årsplan eller eksamenskonstrukt. Ei fil = eitt
   overlegg = éin plan eller eitt konstrukt.
-  - `skala` har 2–6 ulike verdiar. Førehandsdefinerte: årsplan `["planlagt", "undervist", "vurdert"]` og eksamen
-    `["del1", "del2", "ikkje-eigna", "uavklart"]`. Ein eigen skala får verdiar laga av namna (`"Kanskje"` → `kanskje`).
+  - `skala` har 2–6 ulike verdiar. Førehandsdefinert: årsplan `["planlagt", "undervist", "vurdert"]`. Eksamen
+    `["del1", "del2", "ikkje-eigna", "uavklart"]` blir ikkje lenger tilbydd under «Ny markering», men ei fil med han kan opnast. Ein eigen skala får verdiar laga av namna (`"Kanskje"` → `kanskje`).
   - `skala_namn` (valfri): kva verdiane heiter på skjermen, t.d. `{"del1": "Del 1 (utan hjelpemiddel)", "del2": "Del 2",
     "ikkje-eigna": "Ikkje eigna", "uavklart": "Uavklart"}`. Namna ligg i fila, så dei kan endrast når eksamensordninga
     endrar seg, utan ny kode. Utan namn blir verdien vist med stor forbokstav.

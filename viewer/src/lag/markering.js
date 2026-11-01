@@ -1,5 +1,5 @@
-/* Layer "markering": the teacher marks nodes on a scale that can be swapped (årsplan: planlagt / undervist / vurdert; eksamen:
-   del 1 / del 2 / ikkje eigna / uavklart; or one of their own with 2–6 values), writes a note per node, groups nodes in named sets
+/* Layer "markering": the teacher marks nodes on a scale that can be swapped (årsplan: planlagt / undervist / vurdert, or one of
+   their own with 2–6 values; the exam scale del 1 / del 2 / ikkje eigna / uavklart is no longer offered, but a file with it still opens), writes a note per node, groups nodes in named sets
    (omraade: "Sett A", "Periode 2") and sees the coverage per competence goal. Teacher view only.
    The marks are an overlay (fagkart-overlegg/1, type "dekning", see docs/FORMAT.md § Overleggsformat). One file = one overlay = one plan or one
    exam construct; files are opened one after the other, never two at once. The layer is off until a file is opened or "Ny markering" is chosen.
@@ -16,7 +16,8 @@
   const NODE_ID = /^[A-Za-z0-9]+(-[A-Za-z0-9]+)*\/[a-z0-9]+(-[a-z0-9]+)*$/; // same as nodeId in schema/overlegg.schema.json
   const STAMP = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2}(\.[0-9]+)?)?(Z|[+-][0-9]{2}:[0-9]{2})$/;
   const EV_SCALE = ['ikkje', 'delvis', 'heilt'];
-  // The two scales that come ready, with their names and their colours (tokens of the page, in the order of the values)
+  // Known scales, with their names and their colours (tokens of the page, in the order of the values). Only årsplan is offered
+  // under "Ny markering"; eksamen stays so that files made with it before still open with their colours and the exam coverage.
   const SCALES = {
     aarsplan: { label: 'Årsplan', skala: ['planlagt', 'undervist', 'vurdert'], namn: { planlagt: 'Planlagt', undervist: 'Undervist', vurdert: 'Vurdert' }, col: ['warn', 'blue', 'green'] },
     eksamen: { label: 'Eksamen', skala: ['del1', 'del2', 'ikkje-eigna', 'uavklart'], namn: { del1: 'Del 1 (utan hjelpemiddel)', del2: 'Del 2', 'ikkje-eigna': 'Ikkje eigna', uavklart: 'Uavklart' }, col: ['blue', 'violet', 'muted', 'warn'] },
@@ -450,7 +451,7 @@
     // "Ny markering": a name and a scale
     const newName = h('input', { type: 'text', class: 'mk-input', 'data-mk-nytt-namn': '', 'aria-label': 'Namn på markeringa', placeholder: 'Namn, t.d. «Årsplan 2027–28»' });
     const newOwn = h('input', { type: 'text', class: 'mk-input', 'data-mk-eiga': '', 'aria-label': 'Verdiar i eigen skala', placeholder: 'Verdiar, skilde med komma (2–6)' });
-    const scaleSeg = h('div', { class: 'seg mk-scaleseg', role: 'radiogroup', 'aria-label': 'Skala' }, [['aarsplan', 'Årsplan'], ['eksamen', 'Eksamen'], ['eiga', 'Eigen']].map(([k, label]) => {
+    const scaleSeg = h('div', { class: 'seg mk-scaleseg', role: 'radiogroup', 'aria-label': 'Skala' }, [['aarsplan', 'Årsplan'], ['eiga', 'Eigen']].map(([k, label]) => {
       const b = h('button', { type: 'button', role: 'radio', 'data-mk-skala': k, 'aria-checked': String(draft.skala === k) }, label);
       b.addEventListener('click', () => { draft.skala = k; renderSection(ctxRef); });
       return b;
@@ -471,7 +472,7 @@
     ui = {
       input, newName, newOwn, newForm, name, setName, bigSw,
       start: h('div', { class: 'mk-start' },
-        h('p', { class: 'note' }, 'Merk nodane etter ein skala: årsplan (planlagt, undervist, vurdert) eller eksamen (del 1, del 2, ikkje eigna, uavklart). Alt blir lagra som fil på maskina di. Ingenting går over nettet.'),
+        h('p', { class: 'note' }, 'Merk nodane etter ein skala: årsplan (planlagt, undervist, vurdert) eller ein eigen skala med 2–6 verdiar, til dømes «Repetisjon, Nytt stoff» eller «Felles gjennomgang, Gruppearbeid, Sjølvstudium». Alt blir lagra som fil på maskina di. Ingenting går over nettet.'),
         h('div', { class: 'mk-actions' }, btn('Ny markering', () => { showNew = true; msg = null; pending = null; ctxRef.update(); }, 'ny', 'primary'), btn('Opne fil', openPicked, 'opne'))),
       open: h('div', { class: 'mk-open' }),
       head: h('div', { class: 'mk-head' }, name),
