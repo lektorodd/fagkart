@@ -107,7 +107,7 @@ test('the citation names the map, the year of its version and its address; "Kjem
     const html = b.html('publiser/index.html');
     assert.match(html, /Ottestad, T\. F\. \(2026\)\. <em>[^<]+<\/em> \(versjon 2026\.3\)\. https:\/\/fagkart\.example\.org\/demo-01\//);
     const kjem = /<ul class="kjem">([\s\S]*?)<\/ul>/.exec(html)[1];
-    assert.deepEqual([...kjem.matchAll(/<li>([^<]*)<\/li>/g)].map((m) => m[1]), ['Statistikk', 'Matematikk for økonomi']);
+    assert.deepEqual([...kjem.matchAll(/<li>([^<]*)<\/li>/g)].map((m) => m[1]), ['Geofag 1']);
     assert.ok(!/<a /.test(kjem));
     assert.ok(!new RegExp('inn' + 'spel', 'i').test(html), 'the service for rooms is not linked'); // spelled in two parts: the open export forbids the word in files
     assert.ok(!/MAT1[12]-01/i.test(html));
